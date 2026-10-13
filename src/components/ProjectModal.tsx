@@ -1,5 +1,5 @@
 import { useEffect, useState, type FC } from 'react';
-import { X, Check, Copy, CheckCheck, Cpu, AlertCircle, ShieldCheck } from 'lucide-react';
+import { X, Check, Copy, CheckCheck, Cpu, AlertCircle, ShieldCheck, Image as ImageIcon } from 'lucide-react';
 import type { Project } from '../types/portfolio';
 
 interface ProjectModalProps {
@@ -9,6 +9,13 @@ interface ProjectModalProps {
 
 export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
   const [copiedCode, setCopiedCode] = useState(false);
+  const [activeImage, setActiveImage] = useState<string>('');
+
+  useEffect(() => {
+    if (project) {
+      setActiveImage(project.image);
+    }
+  }, [project]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -34,17 +41,19 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
     }
   };
 
+  const gallery = project.gallery && project.gallery.length > 0 ? project.gallery : [project.image];
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-zinc-950/50 backdrop-blur-xs transition-opacity"
+        className="fixed inset-0 bg-zinc-950/60 backdrop-blur-xs transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-3xl bg-white border border-zinc-200 rounded-3xl shadow-2xl overflow-hidden my-8 z-10 max-h-[90vh] flex flex-col">
+      <div className="relative w-full max-w-4xl bg-white border border-zinc-200 rounded-3xl shadow-2xl overflow-hidden my-8 z-10 max-h-[90vh] flex flex-col">
         {/* Top Gradient Ribbon */}
         <div className={`h-3 w-full bg-gradient-to-r ${project.colorTheme.gradient}`} />
 
@@ -79,7 +88,47 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 space-y-6 overflow-y-auto">
+        <div className="p-6 space-y-7 overflow-y-auto">
+          {/* Main Screenshot Showcase */}
+          <div className="space-y-3">
+            <div className="relative w-full rounded-2xl overflow-hidden border border-zinc-200 shadow-md bg-zinc-900 max-h-[420px] flex items-center justify-center">
+              <img
+                src={activeImage || project.image}
+                alt={project.title}
+                className="w-full h-auto max-h-[420px] object-contain"
+              />
+            </div>
+
+            {/* Thumbnail Gallery Strip if multiple screenshots exist */}
+            {gallery.length > 1 && (
+              <div>
+                <p className="text-xs font-mono font-semibold text-zinc-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <ImageIcon className="w-3.5 h-3.5" />
+                  <span>Tangkapan Layar Sistem (Klik untuk melihat):</span>
+                </p>
+                <div className="flex items-center gap-2.5 overflow-x-auto pb-1">
+                  {gallery.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setActiveImage(img)}
+                      className={`relative w-24 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${
+                        activeImage === img
+                          ? 'border-indigo-600 ring-2 ring-indigo-400/30 scale-105'
+                          : 'border-zinc-200 opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      <img
+                        src={img}
+                        alt={`Screenshot ${idx + 1}`}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Summary */}
           <div>
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">
@@ -90,7 +139,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             </p>
           </div>
 
-          {/* Problem vs Solution with Rich Backgrounds */}
+          {/* Problem vs Solution */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-200 shadow-2xs">
               <div className="flex items-center gap-1.5 text-amber-900 font-bold text-xs mb-2">
@@ -140,7 +189,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
           </div>
 
-          {/* Metrics Grid with Colored Accents */}
+          {/* Metrics Grid */}
           <div>
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">
               Metrik Kinerja Riil

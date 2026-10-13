@@ -60,37 +60,52 @@ export const FeaturedProjects: FC = () => {
           </div>
         </div>
 
-        {/* Spacious 2-Column Projects Grid (No Dempet-dempetan!) */}
+        {/* Spacious 2-Column Projects Grid with Screenshots */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project) => {
             return (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className={`group bg-white rounded-3xl border border-zinc-200/90 ${project.colorTheme.cardBorder} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer overflow-hidden relative`}
+                className={`group bg-white rounded-3xl border border-zinc-200/90 ${project.colorTheme.cardBorder} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl cursor-pointer overflow-hidden relative`}
               >
                 {/* Top Colorful Gradient Ribbon */}
                 <div className={`h-3 w-full bg-gradient-to-r ${project.colorTheme.gradient}`} />
 
-                <div className="p-7 sm:p-8">
-                  {/* Category & Badge Header - Wrapped & Spacious */}
-                  <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
-                    <span className={`px-3 py-1 rounded-xl text-xs font-bold border ${project.colorTheme.badgeBg}`}>
+                {/* Screenshot Preview Image Container */}
+                <div className="relative w-full h-52 sm:h-64 bg-zinc-100 overflow-hidden border-b border-zinc-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                  {/* Floating category tag on top of image */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <span className={`px-3 py-1 rounded-xl text-xs font-bold border backdrop-blur-md shadow-sm ${project.colorTheme.badgeBg}`}>
                       {project.categoryLabel}
                     </span>
-                    {project.badge && (
-                      <span className="text-xs font-mono font-medium text-zinc-600 bg-zinc-100 px-3 py-1 rounded-xl border border-zinc-200/80">
-                        {project.badge}
-                      </span>
-                    )}
                   </div>
 
+                  {project.badge && (
+                    <div className="absolute top-4 right-4">
+                      <span className="text-xs font-mono font-bold text-zinc-800 bg-white/95 px-3 py-1 rounded-xl border border-zinc-200 shadow-sm backdrop-blur-md">
+                        {project.badge}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="p-7 sm:p-8">
                   {/* Title & Subtitle */}
-                  <h3 className={`text-xl sm:text-2xl font-extrabold text-zinc-950 group-hover:${project.colorTheme.accentText} transition-colors tracking-tight leading-snug`}>
+                  <h3 className={`text-xl sm:text-2xl font-black text-zinc-950 group-hover:${project.colorTheme.accentText} transition-colors tracking-tight leading-snug`}>
                     {project.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-zinc-500 font-mono mt-1.5 mb-4">
-                    {project.subtitle} • <span className="text-zinc-700 font-semibold">{project.role}</span>
+                  <p className="text-xs sm:text-sm text-zinc-500 font-mono mt-1 mb-4">
+                    {project.subtitle} • <span className="text-zinc-800 font-bold">{project.role}</span>
                   </p>
 
                   {/* Description */}
@@ -98,7 +113,7 @@ export const FeaturedProjects: FC = () => {
                     {project.description}
                   </p>
 
-                  {/* Spacious 2x2 Metrics Grid (Room to breathe for every metric!) */}
+                  {/* Spacious 2x2 Metrics Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     {project.metrics.map((metric, idx) => (
                       <div
@@ -130,7 +145,7 @@ export const FeaturedProjects: FC = () => {
                   </div>
 
                   <span className={`inline-flex items-center gap-1.5 text-xs font-bold ${project.colorTheme.accentText} group-hover:translate-x-1 transition-transform shrink-0`}>
-                    <span>Lihat Kasus</span>
+                    <span>Lihat Foto & Detail</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </div>

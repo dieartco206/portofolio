@@ -10,6 +10,13 @@ export const projectsData: Project[] = [
     badge: 'Proyek Produksi',
     role: 'Full-Stack & Systems Architect',
     featured: true,
+    image: '/projects/absensi-dashboard.png',
+    gallery: [
+      '/projects/absensi-dashboard.png',
+      '/projects/absensi-presensi.png',
+      '/projects/absensi-face.png',
+      '/projects/absensi-history.png',
+    ],
     colorTheme: {
       gradient: 'from-emerald-500 via-teal-500 to-emerald-600',
       badgeBg: 'bg-emerald-50 text-emerald-800 border-emerald-300',
@@ -73,6 +80,11 @@ func (u *AttendanceUsecase) VerifyAttendance(ctx context.Context, req *dto.Atten
     badge: '3 Portal Terintegrasi',
     role: 'Full-Stack Software Engineer',
     featured: true,
+    image: '/projects/elearning-hero.png',
+    gallery: [
+      '/projects/elearning-hero.png',
+      '/projects/elearning-student.png',
+    ],
     colorTheme: {
       gradient: 'from-indigo-600 via-blue-600 to-indigo-700',
       badgeBg: 'bg-indigo-50 text-indigo-800 border-indigo-300',
@@ -134,6 +146,12 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Standar WHO',
     role: 'Frontend & API Engineer',
     featured: true,
+    image: '/projects/kiddo-growth-chart.png',
+    gallery: [
+      '/projects/kiddo-growth-chart.png',
+      '/projects/kiddo-daily.png',
+      '/projects/kiddo-milestone.png',
+    ],
     colorTheme: {
       gradient: 'from-sky-500 via-cyan-500 to-blue-600',
       badgeBg: 'bg-sky-50 text-sky-800 border-sky-300',
@@ -169,6 +187,10 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Buku Kas Ganda',
     role: 'Backend Architect',
     featured: true,
+    image: '/projects/ecommerce-admin.png',
+    gallery: [
+      '/projects/ecommerce-admin.png',
+    ],
     colorTheme: {
       gradient: 'from-teal-600 via-emerald-600 to-green-700',
       badgeBg: 'bg-teal-50 text-teal-800 border-teal-300',
@@ -203,6 +225,10 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Editorial UI',
     role: 'Frontend Developer & Designer',
     featured: false,
+    image: '/projects/fypotret-logo.jpg',
+    gallery: [
+      '/projects/fypotret-logo.jpg',
+    ],
     colorTheme: {
       gradient: 'from-rose-500 via-pink-500 to-purple-600',
       badgeBg: 'bg-rose-50 text-rose-800 border-rose-300',
@@ -237,6 +263,10 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Update Harga Pasar',
     role: 'Full-Stack Developer',
     featured: false,
+    image: '/projects/prestige-gold-logo.png',
+    gallery: [
+      '/projects/prestige-gold-logo.png',
+    ],
     colorTheme: {
       gradient: 'from-amber-500 via-yellow-500 to-orange-500',
       badgeBg: 'bg-amber-50 text-amber-900 border-amber-300',
@@ -271,6 +301,10 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Cetak PDF Instan',
     role: 'Full-Stack Developer',
     featured: false,
+    image: '/projects/permata-preview.png',
+    gallery: [
+      '/projects/permata-preview.png',
+    ],
     colorTheme: {
       gradient: 'from-violet-600 via-purple-600 to-indigo-600',
       badgeBg: 'bg-violet-50 text-violet-800 border-violet-300',
@@ -305,6 +339,10 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Keamanan Konkurensi',
     role: 'Backend Architect',
     featured: false,
+    image: '/projects/ecommerce-shop.png',
+    gallery: [
+      '/projects/ecommerce-shop.png',
+    ],
     colorTheme: {
       gradient: 'from-orange-500 via-amber-600 to-red-500',
       badgeBg: 'bg-orange-50 text-orange-800 border-orange-300',

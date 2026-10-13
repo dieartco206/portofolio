@@ -31,6 +31,8 @@ export interface Project {
   badge?: string;
   featured: boolean;
   colorTheme: ProjectColorTheme;
+  image: string;
+  gallery?: string[];
   codeSnippet?: {
     language: string;
     filename: string;
