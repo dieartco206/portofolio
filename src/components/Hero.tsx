@@ -4,85 +4,111 @@ import { GithubIcon } from './icons/GithubIcon';
 
 export const Hero: FC = () => {
   return (
-    <section className="pt-28 pb-16 sm:pt-36 sm:pb-24 bg-[#fafafa] border-b border-zinc-200/80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-28 overflow-hidden mesh-gradient-hero border-b border-zinc-200/80">
+      {/* Decorative ambient color orbs */}
+      <div className="absolute top-12 left-1/4 w-72 h-72 bg-indigo-300/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 right-1/4 w-80 h-80 bg-rose-300/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-64 h-64 bg-emerald-300/20 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-xs text-zinc-700 font-medium mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Berbasis di Indonesia • Full-Stack & Systems Engineer</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-indigo-200 text-xs font-semibold shadow-xs mb-6 backdrop-blur-xs">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-indigo-900">Software Engineer</span>
+            <span className="text-zinc-300">•</span>
+            <span className="text-emerald-700">Open for Full-Time & Projects</span>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 leading-[1.15] mb-6">
-            Membangun sistem backend yang andal dan antarmuka web yang nyaman dipakai.
+          {/* Main Headline with Vibrant Gradients */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-zinc-950 leading-[1.12] mb-6">
+            Membangun sistem{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-teal-500">
+              backend yang andal
+            </span>{' '}
+            dan web yang{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-pink-600 to-purple-600">
+              bertenaga & interaktif.
+            </span>
           </h1>
 
           {/* Bio text */}
           <p className="text-base sm:text-lg text-zinc-600 leading-relaxed mb-8">
-            Halo, saya <strong className="text-zinc-900 font-semibold">Adi Kurniawan</strong>. Saya seorang software engineer yang fokus merancang aplikasi produksi: mulai dari arsitektur backend di <strong className="text-zinc-900 font-semibold">Golang (Clean Architecture)</strong>, antarmuka web interaktif di <strong className="text-zinc-900 font-semibold">Vue 3 & React</strong>, hingga manajemen server mandiri di <strong className="text-zinc-900 font-semibold">Linux VPS</strong>.
+            Halo, saya <strong className="text-zinc-950 font-bold">Adi Kurniawan</strong>. Software engineer yang terbiasa menangani proyek skala produksi: mulai dari arsitektur backend di{' '}
+            <span className="font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
+              Golang
+            </span>
+            , antarmuka web modern di{' '}
+            <span className="font-semibold text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200">
+              Vue 3 & React
+            </span>
+            , hingga manajemen server mandiri di{' '}
+            <span className="font-semibold text-purple-700 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">
+              Linux VPS & Docker
+            </span>
+            .
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-3 mb-14">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold bg-zinc-900 hover:bg-zinc-800 text-white shadow-xs transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white shadow-lg shadow-indigo-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               <Code2 className="w-4 h-4" />
-              <span>Lihat Daftar Proyek</span>
+              <span>Jelajahi Proyek Produksi</span>
             </a>
             <a
               href="https://github.com/dieartco206"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium bg-white hover:bg-zinc-50 text-zinc-800 border border-zinc-200 shadow-xs transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold bg-white hover:bg-zinc-50 text-zinc-800 border border-zinc-200/90 shadow-xs transition-all hover:scale-[1.02]"
             >
-              <GithubIcon className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4 text-zinc-900" />
               <span>GitHub (dieartco206)</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold text-indigo-700 bg-indigo-50/80 hover:bg-indigo-100 border border-indigo-200 transition-all"
             >
               <span>Hubungi Saya</span>
               <ArrowDown className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          {/* 4 Pillars Clean Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-zinc-200">
-            <div className="p-3.5 rounded-xl bg-white border border-zinc-200 shadow-xs">
-              <div className="flex items-center gap-2 text-zinc-900 font-semibold text-xs mb-1">
-                <Server className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Backend Go</span>
+          {/* 4 Colorful Feature Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+            <div className="p-4 rounded-2xl bg-white border border-emerald-200/80 shadow-xs hover:border-emerald-400 transition-all hover:shadow-md group">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center mb-2.5 shadow-sm shadow-emerald-500/30 group-hover:scale-110 transition-transform">
+                <Server className="w-4 h-4" />
               </div>
-              <p className="text-[11px] text-zinc-500 leading-snug">Clean Architecture, REST API & WebSocket</p>
+              <h3 className="font-bold text-xs sm:text-sm text-zinc-950">Backend Go</h3>
+              <p className="text-[11px] text-zinc-500 mt-0.5 leading-snug">Clean Architecture, REST API & WebSocket</p>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-white border border-zinc-200 shadow-xs">
-              <div className="flex items-center gap-2 text-zinc-900 font-semibold text-xs mb-1">
-                <Layout className="w-3.5 h-3.5 text-blue-600" />
-                <span>Frontend Web</span>
+            <div className="p-4 rounded-2xl bg-white border border-indigo-200/80 shadow-xs hover:border-indigo-400 transition-all hover:shadow-md group">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 text-white flex items-center justify-center mb-2.5 shadow-sm shadow-indigo-500/30 group-hover:scale-110 transition-transform">
+                <Layout className="w-4 h-4" />
               </div>
-              <p className="text-[11px] text-zinc-500 leading-snug">Vue 3, React, TypeScript & Tailwind CSS</p>
+              <h3 className="font-bold text-xs sm:text-sm text-zinc-950">Frontend Web</h3>
+              <p className="text-[11px] text-zinc-500 mt-0.5 leading-snug">Vue 3, React, TypeScript & Tailwind</p>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-white border border-zinc-200 shadow-xs">
-              <div className="flex items-center gap-2 text-zinc-900 font-semibold text-xs mb-1">
-                <Database className="w-3.5 h-3.5 text-amber-600" />
-                <span>Basis Data</span>
+            <div className="p-4 rounded-2xl bg-white border border-amber-200/80 shadow-xs hover:border-amber-400 transition-all hover:shadow-md group">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center mb-2.5 shadow-sm shadow-amber-500/30 group-hover:scale-110 transition-transform">
+                <Database className="w-4 h-4" />
               </div>
-              <p className="text-[11px] text-zinc-500 leading-snug">MySQL, MinIO S3 & Caching Redis</p>
+              <h3 className="font-bold text-xs sm:text-sm text-zinc-950">Basis Data</h3>
+              <p className="text-[11px] text-zinc-500 mt-0.5 leading-snug">MySQL, MinIO S3 & Caching Redis</p>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-white border border-zinc-200 shadow-xs">
-              <div className="flex items-center gap-2 text-zinc-900 font-semibold text-xs mb-1">
-                <Terminal className="w-3.5 h-3.5 text-purple-600" />
-                <span>Infrastruktur</span>
+            <div className="p-4 rounded-2xl bg-white border border-purple-200/80 shadow-xs hover:border-purple-400 transition-all hover:shadow-md group">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 text-white flex items-center justify-center mb-2.5 shadow-sm shadow-purple-500/30 group-hover:scale-110 transition-transform">
+                <Terminal className="w-4 h-4" />
               </div>
-              <p className="text-[11px] text-zinc-500 leading-snug">Linux VPS, Docker Compose & Nginx</p>
+              <h3 className="font-bold text-xs sm:text-sm text-zinc-950">Infrastruktur</h3>
+              <p className="text-[11px] text-zinc-500 mt-0.5 leading-snug">Linux VPS, Docker Compose & Nginx</p>
             </div>
           </div>
         </div>

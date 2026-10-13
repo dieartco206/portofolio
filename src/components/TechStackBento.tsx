@@ -1,31 +1,46 @@
 import type { FC } from 'react';
 import { skillGroupsData } from '../data/skills';
-import { Server, Layout, Database, Terminal } from 'lucide-react';
+import { Server, Layout, Database, Terminal, Cpu } from 'lucide-react';
 
 export const TechStackBento: FC = () => {
   const getGroupIcon = (iconName: string) => {
     switch (iconName) {
       case 'Server':
-        return <Server className="w-4 h-4 text-emerald-600" />;
+        return <Server className="w-5 h-5 text-emerald-600" />;
       case 'Layout':
-        return <Layout className="w-4 h-4 text-blue-600" />;
+        return <Layout className="w-5 h-5 text-blue-600" />;
       case 'Database':
-        return <Database className="w-4 h-4 text-amber-600" />;
+        return <Database className="w-5 h-5 text-amber-600" />;
       case 'Terminal':
       default:
-        return <Terminal className="w-4 h-4 text-purple-600" />;
+        return <Terminal className="w-5 h-5 text-purple-600" />;
+    }
+  };
+
+  const getPillTheme = (groupId: string) => {
+    switch (groupId) {
+      case 'backend':
+        return 'bg-emerald-50 text-emerald-800 border-emerald-200';
+      case 'frontend':
+        return 'bg-blue-50 text-blue-800 border-blue-200';
+      case 'database':
+        return 'bg-amber-50 text-amber-900 border-amber-200';
+      case 'devops':
+      default:
+        return 'bg-purple-50 text-purple-800 border-purple-200';
     }
   };
 
   return (
-    <section id="skills" className="py-20 sm:py-28 bg-[#fafafa]">
+    <section id="skills" className="py-20 sm:py-28 bg-[#fafafa] border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-12">
-          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-md border border-zinc-200 inline-block mb-3">
-            Keahlian & Tooling
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200 mb-3 shadow-2xs">
+            <Cpu className="w-3.5 h-3.5" />
+            <span>Keahlian & Tooling</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-black text-zinc-950 tracking-tight">
             Teknologi yang Saya Gunakan
           </h2>
           <p className="text-sm sm:text-base text-zinc-600 mt-2 leading-relaxed">
@@ -38,17 +53,19 @@ export const TechStackBento: FC = () => {
           {skillGroupsData.map((group) => (
             <div
               key={group.id}
-              className="p-6 sm:p-7 rounded-2xl bg-white border border-zinc-200/90 shadow-xs flex flex-col justify-between"
+              className={`p-6 sm:p-7 rounded-3xl bg-white border ${group.borderTheme} shadow-xs hover:shadow-lg transition-all flex flex-col justify-between`}
             >
               <div>
                 {/* Title */}
                 <div className="flex items-center gap-3 pb-4 mb-4 border-b border-zinc-100">
-                  <div className="p-2.5 rounded-xl bg-zinc-50 border border-zinc-200/70">
+                  <div className={`p-2.5 rounded-2xl ${group.bgTheme} border border-zinc-200/60`}>
                     {getGroupIcon(group.iconName)}
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-zinc-950">{group.title}</h3>
-                    <p className="text-xs text-zinc-500">{group.subtitle}</p>
+                    <h3 className={`text-base sm:text-lg font-extrabold ${group.themeColor}`}>
+                      {group.title}
+                    </h3>
+                    <p className="text-xs text-zinc-500 font-medium">{group.subtitle}</p>
                   </div>
                 </div>
 
@@ -57,11 +74,11 @@ export const TechStackBento: FC = () => {
                   {group.items.map((item) => (
                     <div
                       key={item.name}
-                      className="p-3.5 rounded-xl bg-zinc-50/70 border border-zinc-200/60"
+                      className={`p-3.5 rounded-2xl ${group.bgTheme} border border-zinc-200/60 hover:border-zinc-300 transition-colors`}
                     >
                       <div className="flex items-center justify-between gap-2 mb-1">
-                        <span className="font-bold text-xs sm:text-sm text-zinc-900">{item.name}</span>
-                        <span className="text-[11px] font-mono text-zinc-500 bg-white px-2 py-0.5 rounded border border-zinc-200">
+                        <span className="font-bold text-xs sm:text-sm text-zinc-950">{item.name}</span>
+                        <span className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded-md border ${getPillTheme(group.id)}`}>
                           {item.level}
                         </span>
                       </div>
@@ -72,7 +89,7 @@ export const TechStackBento: FC = () => {
                         {item.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-0.5 rounded text-[10px] font-mono bg-white text-zinc-600 border border-zinc-200/60"
+                            className="px-2 py-0.5 rounded text-[10px] font-mono bg-white text-zinc-700 border border-zinc-200 font-medium shadow-2xs"
                           >
                             {tag}
                           </span>

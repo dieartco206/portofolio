@@ -6,6 +6,9 @@ export const skillGroupsData: SkillGroup[] = [
     title: 'Backend & Sistem',
     subtitle: 'Membangun logika bisnis yang cepat, aman, dan mudah dirawat',
     iconName: 'Server',
+    themeColor: 'text-emerald-700',
+    borderTheme: 'border-emerald-200/90 hover:border-emerald-400',
+    bgTheme: 'bg-emerald-50/40',
     items: [
       {
         name: 'Golang (Go)',
@@ -42,6 +45,9 @@ export const skillGroupsData: SkillGroup[] = [
     title: 'Frontend & Mobile',
     subtitle: 'Menciptakan antarmuka yang bersih, responsif, dan ramah pengguna',
     iconName: 'Layout',
+    themeColor: 'text-blue-700',
+    borderTheme: 'border-blue-200/90 hover:border-blue-400',
+    bgTheme: 'bg-blue-50/40',
     items: [
       {
         name: 'Vue 3 & Ekosistemnya',
@@ -78,6 +84,9 @@ export const skillGroupsData: SkillGroup[] = [
     title: 'Database & Penyimpanan',
     subtitle: 'Menjaga integritas data dan kecepatan pembacaan query',
     iconName: 'Database',
+    themeColor: 'text-amber-800',
+    borderTheme: 'border-amber-200/90 hover:border-amber-400',
+    bgTheme: 'bg-amber-50/40',
     items: [
       {
         name: 'MySQL / MariaDB',
@@ -107,6 +116,9 @@ export const skillGroupsData: SkillGroup[] = [
     title: 'Server & DevOps',
     subtitle: 'Deployment mandiri yang andal di VPS Linux dengan Docker',
     iconName: 'Terminal',
+    themeColor: 'text-purple-700',
+    borderTheme: 'border-purple-200/90 hover:border-purple-400',
+    bgTheme: 'bg-purple-50/40',
     items: [
       {
         name: 'Linux VPS (Ubuntu / Debian)',
@@ -146,6 +158,7 @@ export const experienceTimelineData: TimelineItem[] = [
     role: 'Lead Systems Architect & Full-Stack Engineer',
     companyOrContext: 'Proyek Produksi Mandiri & Klien Enterprise',
     location: 'Indonesia (Remote / Hybrid)',
+    badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-300',
     description: 'Merancang dan mengimplementasikan arsitektur perangkat lunak dari hulu ke hilir untuk berbagai produk produksi nyata, mulai dari presensi biometrik hingga multi-portal e-learning.',
     achievements: [
       'Membangun sistem presensi biometrik wajah terdistribusi yang melayani absensi karyawan di berbagai kantor cabang.',
@@ -160,6 +173,7 @@ export const experienceTimelineData: TimelineItem[] = [
     role: 'Full-Stack Software Engineer',
     companyOrContext: 'Pengembangan SaaS & Solusi Bisnis',
     location: 'Indonesia',
+    badgeColor: 'bg-blue-50 text-blue-800 border-blue-300',
     description: 'Mengembangkan aplikasi web dan layanan backend untuk otomasi kebutuhan bisnis UMKM, e-commerce komoditas, dan pembukuan keuangan.',
     achievements: [
       'Membangun modul kalkulasi keuangan dan generator invoice PDF otomatis yang mempercepat proses penagihan.',

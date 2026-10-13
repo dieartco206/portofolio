@@ -5,6 +5,15 @@ export interface ProjectMetric {
   value: string;
 }
 
+export interface ProjectColorTheme {
+  gradient: string;       // e.g. 'from-indigo-600 to-blue-600'
+  badgeBg: string;        // e.g. 'bg-indigo-50 text-indigo-700 border-indigo-200'
+  cardBorder: string;     // e.g. 'hover:border-indigo-400'
+  accentText: string;     // e.g. 'text-indigo-600'
+  lightBg: string;        // e.g. 'bg-indigo-50/50'
+  iconBg: string;         // e.g. 'bg-indigo-500'
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -21,6 +30,7 @@ export interface Project {
   role: string;
   badge?: string;
   featured: boolean;
+  colorTheme: ProjectColorTheme;
   codeSnippet?: {
     language: string;
     filename: string;
@@ -41,6 +51,9 @@ export interface SkillGroup {
   title: string;
   subtitle: string;
   iconName: string;
+  themeColor: string;
+  borderTheme: string;
+  bgTheme: string;
   items: SkillItem[];
 }
 
@@ -52,4 +65,5 @@ export interface TimelineItem {
   description: string;
   achievements: string[];
   skills: string[];
+  badgeColor: string;
 }

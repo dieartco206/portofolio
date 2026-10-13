@@ -13,41 +13,54 @@
   }
 
   body {
-    background-color: #fafafa;
+    background-color: #fcfcfd;
     color: #18181b;
   }
 
   /* Custom Light Scrollbar */
   ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #fafafa;
+    background: #f4f4f5;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #d4d4d8;
+    background: #cbd5e1;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #a1a1aa;
+    background: #94a3b8;
   }
 }
 
 @layer utilities {
-  .subtle-card {
-    background-color: #ffffff;
-    border: 1px solid #e4e4e7;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
-    transition: all 0.2s ease-in-out;
+  /* Colorful Mesh Gradients for background ambience */
+  .mesh-gradient-hero {
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.10) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.10) 0px, transparent 50%);
   }
 
-  .subtle-card:hover {
-    border-color: #d4d4d8;
-    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
-    transform: translateY(-1px);
+  .mesh-gradient-section {
+    background-image: 
+      radial-gradient(at 100% 10%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 90%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+  }
+
+  /* Vibrant card lift effect */
+  .vibrant-card {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .vibrant-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06), 0 4px 8px -2px rgba(0, 0, 0, 0.03);
   }
 }
