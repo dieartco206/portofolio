@@ -40,14 +40,14 @@ export const FeaturedProjects: FC = () => {
           </div>
 
           {/* Filter Pills with Colors */}
-          <div className="flex flex-wrap gap-1.5 p-1 rounded-2xl bg-white border border-zinc-200 shadow-xs shrink-0">
+          <div className="flex flex-wrap gap-1.5 p-1.5 rounded-2xl bg-white border border-zinc-200 shadow-xs shrink-0">
             {categories.map((cat) => {
               const isActive = activeCategory === cat.value;
               return (
                 <button
                   key={cat.value}
                   onClick={() => setActiveCategory(cat.value)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all shadow-xs ${
+                  className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all shadow-xs ${
                     isActive
                       ? `${cat.activeColor} shadow-md`
                       : 'text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100'
@@ -60,58 +60,55 @@ export const FeaturedProjects: FC = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Spacious 2-Column Projects Grid (No Dempet-dempetan!) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project) => {
-            const isFeatured = project.featured;
             return (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className={`group bg-white rounded-3xl border border-zinc-200/90 ${project.colorTheme.cardBorder} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer overflow-hidden relative ${
-                  isFeatured ? 'md:col-span-2 lg:col-span-2' : ''
-                }`}
+                className={`group bg-white rounded-3xl border border-zinc-200/90 ${project.colorTheme.cardBorder} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer overflow-hidden relative`}
               >
                 {/* Top Colorful Gradient Ribbon */}
-                <div className={`h-2.5 w-full bg-gradient-to-r ${project.colorTheme.gradient}`} />
+                <div className={`h-3 w-full bg-gradient-to-r ${project.colorTheme.gradient}`} />
 
-                <div className="p-6 sm:p-7">
-                  {/* Category & Badge Header */}
-                  <div className="flex items-center justify-between gap-2 mb-3.5">
-                    <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold border ${project.colorTheme.badgeBg}`}>
+                <div className="p-7 sm:p-8">
+                  {/* Category & Badge Header - Wrapped & Spacious */}
+                  <div className="flex flex-wrap items-center justify-between gap-2.5 mb-4">
+                    <span className={`px-3 py-1 rounded-xl text-xs font-bold border ${project.colorTheme.badgeBg}`}>
                       {project.categoryLabel}
                     </span>
                     {project.badge && (
-                      <span className="text-[11px] font-mono text-zinc-500 bg-zinc-100 px-2 py-0.5 rounded-md border border-zinc-200/60">
+                      <span className="text-xs font-mono font-medium text-zinc-600 bg-zinc-100 px-3 py-1 rounded-xl border border-zinc-200/80">
                         {project.badge}
                       </span>
                     )}
                   </div>
 
                   {/* Title & Subtitle */}
-                  <h3 className={`text-lg sm:text-xl font-extrabold text-zinc-950 group-hover:${project.colorTheme.accentText} transition-colors tracking-tight`}>
+                  <h3 className={`text-xl sm:text-2xl font-extrabold text-zinc-950 group-hover:${project.colorTheme.accentText} transition-colors tracking-tight leading-snug`}>
                     {project.title}
                   </h3>
-                  <p className="text-xs text-zinc-500 font-mono mt-1 mb-4">
+                  <p className="text-xs sm:text-sm text-zinc-500 font-mono mt-1.5 mb-4">
                     {project.subtitle} • <span className="text-zinc-700 font-semibold">{project.role}</span>
                   </p>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-sm text-zinc-600 leading-relaxed mb-6">
                     {project.description}
                   </p>
 
-                  {/* Metrics Pills with Colorful Accents */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                  {/* Spacious 2x2 Metrics Grid (Room to breathe for every metric!) */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     {project.metrics.map((metric, idx) => (
                       <div
                         key={idx}
-                        className={`p-2.5 rounded-xl border border-zinc-200/80 ${project.colorTheme.lightBg}`}
+                        className={`p-3.5 rounded-2xl border border-zinc-200/80 ${project.colorTheme.lightBg} flex flex-col justify-between`}
                       >
-                        <div className={`text-xs font-bold font-mono ${project.colorTheme.accentText}`}>
+                        <div className={`text-sm font-bold font-mono ${project.colorTheme.accentText}`}>
                           {metric.value}
                         </div>
-                        <div className="text-[10px] text-zinc-600 font-medium mt-0.5 truncate">
+                        <div className="text-xs text-zinc-600 font-medium mt-1">
                           {metric.label}
                         </div>
                       </div>
@@ -120,21 +117,21 @@ export const FeaturedProjects: FC = () => {
                 </div>
 
                 {/* Footer Strip */}
-                <div className="px-6 sm:px-7 pb-6 pt-4 border-t border-zinc-100 flex items-center justify-between gap-3 bg-zinc-50/50">
-                  <div className="flex flex-wrap gap-1.5 overflow-hidden max-h-7">
-                    {project.tags.slice(0, 4).map((tag) => (
+                <div className="px-7 sm:px-8 pb-6 pt-4 border-t border-zinc-100 flex items-center justify-between gap-3 bg-zinc-50/60">
+                  <div className="flex flex-wrap gap-1.5 overflow-hidden">
+                    {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 rounded text-[11px] font-mono bg-white text-zinc-700 border border-zinc-200 shadow-2xs"
+                        className="px-2.5 py-1 rounded-lg text-xs font-mono bg-white text-zinc-700 border border-zinc-200 shadow-2xs font-medium"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <span className={`inline-flex items-center gap-1 text-xs font-bold ${project.colorTheme.accentText} group-hover:translate-x-0.5 transition-transform shrink-0`}>
+                  <span className={`inline-flex items-center gap-1.5 text-xs font-bold ${project.colorTheme.accentText} group-hover:translate-x-1 transition-transform shrink-0`}>
                     <span>Lihat Kasus</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <ArrowUpRight className="w-4 h-4" />
                   </span>
                 </div>
               </div>
