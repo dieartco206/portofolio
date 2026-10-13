@@ -4,75 +4,50 @@
 
 @layer base {
   * {
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: #e4e4e7;
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
-    background-color: #08090b;
-    color: #f4f4f5;
+    background-color: #fafafa;
+    color: #18181b;
   }
 
-  /* Custom Scrollbar */
+  /* Custom Light Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #08090b;
+    background: #fafafa;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #27272a;
+    background: #d4d4d8;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #3f3f46;
+    background: #a1a1aa;
   }
 }
 
 @layer utilities {
-  /* Subtle dot grid pattern */
-  .bg-grid-pattern {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-    background-size: 24px 24px;
+  .subtle-card {
+    background-color: #ffffff;
+    border: 1px solid #e4e4e7;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.2s ease-in-out;
   }
 
-  .bg-grid-dense {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 16px 16px;
-  }
-
-  /* Ambient Glows */
-  .glow-brand {
-    background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
-  }
-
-  .glow-cyan {
-    background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
-  }
-
-  /* Glass Card */
-  .glass-card {
-    background: rgba(15, 17, 21, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .glass-card-hover {
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .glass-card-hover:hover {
-    border-color: rgba(16, 185, 129, 0.3);
-    background: rgba(18, 21, 26, 0.85);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(16, 185, 129, 0.1);
+  .subtle-card:hover {
+    border-color: #d4d4d8;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
   }
 }

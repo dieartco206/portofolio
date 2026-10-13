@@ -3,94 +3,97 @@ import type { Project } from '../types/portfolio';
 export const projectsData: Project[] = [
   {
     id: 'absensi-bsp',
-    title: 'Enterprise Biometric & Geolocation Attendance Platform',
-    subtitle: 'Absensi Pro / BSP Enterprise Suite',
+    title: 'Sistem Presensi Biometrik Wajah & GPS Terpadu',
+    subtitle: 'Absensi Pro / Multi-Branch Enterprise',
     category: 'enterprise',
-    categoryLabel: 'Enterprise & Biometrics',
-    badge: 'Production / High Concurrency',
-    role: 'Lead Systems Architect & Full-Stack Engineer',
+    categoryLabel: 'Sistem Presensi & Biometrik',
+    badge: 'Proyek Produksi',
+    role: 'Full-Stack & Systems Architect',
     featured: true,
-    description: 'Sistem presensi multi-cabang terpadu dengan verifikasi biometrik pengenalan wajah (Face Recognition), geofencing GPS anti-mocking, dan audit log otomatis berbasis WebSocket secara real-time.',
-    problem: 'Pencatatan kehadiran manual dan sistem fingerprint konvensional sering mengalami antrean panjang di gerbang cabang, manipulasi lokasi (fake GPS), serta kegagalan sinkronisasi data antar shift malam dan pagi.',
-    solution: 'Membangun arsitektur terdistribusi dengan Golang backend berkecepatan tinggi, integrasi model inferensi Face AI di sisi client & server, verifikasi poligon radius GPS, serta WebSocket heartbeat untuk sinkronisasi seketika ke VPS Nginx.',
-    architecture: 'Micro-monolith terisolasi: Client Web/Tablet -> Nginx Reverse Proxy (SSL + WSS) -> Golang REST & WebSocket Service -> MySQL Optimized Indexing & Local Disk Storage.',
+    description: 'Aplikasi presensi karyawan multi-cabang dengan verifikasi wajah (Face Recognition AI) langsung di browser/tablet, validasi poligon radius GPS anti fake-location, dan laporan shift otomatis.',
+    problem: 'Sistem fingerprint lama sering membuat antrean panjang saat jam masuk, rawan gagal baca saat jari kotor/basah, dan sulit memantau staf yang bertugas di banyak cabang atau shift malam.',
+    solution: 'Membangun aplikasi presensi dengan backend Go berkecepatan tinggi, model pengenalan wajah lokal di perangkat untuk verifikasi cepat, serta sinkronisasi data presensi real-time ke server VPS Nginx via WebSocket.',
+    architecture: 'Web/Tablet Client -> Nginx Reverse Proxy (SSL & WebSocket) -> Go Backend Service -> MySQL & MinIO (Penyimpanan Foto Wajah).',
     keyHighlights: [
-      'Inference model Face Recognition akurat dengan deteksi liveness untuk menangkal foto spoofing.',
-      'Sistem audit investigasi otomatis (double-in prevention & shift transition worker).',
-      'Ekspor laporan presensi multi-format (PDF kustom & Excel terstruktur) untuk ribuan staf.',
-      'Hardening server VPS dengan konfigurasi Nginx reverse proxy ber-cache cerdas dan isolasi port.',
+      'Verifikasi wajah cepat di perangkat dengan deteksi keaslian (anti-spoofing foto).',
+      'Fitur geofencing GPS ketat untuk memastikan staf berada di dalam radius kantor cabang.',
+      'Deteksi & investigasi otomatis jika ada data ganda (double check-in) atau pergantian shift.',
+      'Ekspor rekap kehadiran dalam format Excel dan PDF terstruktur untuk kebutuhan payroll.',
     ],
     metrics: [
-      { label: 'Latency Verifikasi Wajah', value: '< 250ms' },
-      { label: 'Uptime VPS Server', value: '99.9%' },
-      { label: 'Deteksi Fake GPS', value: '100% Validated' },
-      { label: 'Efisiensi Laporan Payroll', value: '10x Lebih Cepat' },
+      { label: 'Waktu Cocok Wajah', value: '< 300ms' },
+      { label: 'Uptime Server VPS', value: '99.9%' },
+      { label: 'Akurasi Lokasi', value: 'Radius 50m' },
+      { label: 'Format Rekap', value: 'Excel & PDF' },
     ],
-    tags: ['Golang', 'Face Recognition AI', 'WebSocket', 'MySQL', 'Nginx', 'Docker', 'Vue / React', 'Geofencing'],
+    tags: ['Go', 'Face AI', 'WebSocket', 'MySQL', 'Nginx', 'Docker', 'Vue 3', 'Geofencing'],
     codeSnippet: {
       language: 'go',
       filename: 'usecase/attendance_verification.go',
-      code: `// AttendanceVerification verifies biometric payload and geofence
+      code: `// VerifyAttendance memvalidasi lokasi GPS dan kecocokan wajah karyawan
 func (u *AttendanceUsecase) VerifyAttendance(ctx context.Context, req *dto.AttendanceRequest) (*dto.AttendanceResponse, error) {
-    if err := u.geofenceService.ValidateCoordinates(req.BranchID, req.Latitude, req.Longitude); err != nil {
-        return nil, fmt.Errorf("geofence violation: %w", err)
+    // 1. Cek radius cabang berdasarkan titik koordinat GPS
+    if err := u.geofence.ValidateRadius(req.BranchID, req.Lat, req.Lng); err != nil {
+        return nil, fmt.Errorf("di luar radius kantor: %w", err)
     }
 
-    // Verify face descriptor confidence with biometric engine
-    matchedEmp, confidence, err := u.biometricEngine.MatchFace(ctx, req.FaceVector)
-    if err != nil || confidence < 0.88 {
-        return nil, domain.ErrBiometricMismatch
+    // 2. Cocokkan vektor wajah dengan data tersimpan di database
+    matchedEmp, confidence, err := u.faceEngine.Match(ctx, req.FaceDescriptor)
+    if err != nil || confidence < 0.85 {
+        return nil, errors.New("wajah tidak cocok atau tidak terdeteksi")
     }
 
-    // Atomic check-in recording with shift transition validation
-    record, err := u.repo.RecordCheckInTx(ctx, matchedEmp.ID, req.BranchID, time.Now())
+    // 3. Simpan log presensi dalam transaksi atomik
+    record, err := u.repo.SaveCheckInTx(ctx, matchedEmp.ID, req.BranchID, time.Now())
     if err != nil {
         return nil, err
     }
 
-    // Broadcast instant attendance event via WebSocket
-    go u.wsHub.BroadcastToBranch(req.BranchID, dto.NewWSEvent("CHECK_IN_SUCCESS", record))
+    // 4. Siarkan notifikasi kehadiran seketika via WebSocket
+    go u.wsHub.BroadcastCheckIn(req.BranchID, record)
+
     return dto.ToResponse(record), nil
 }`,
     },
   },
   {
     id: 'elearning-suite',
-    title: 'Multi-Portal School E-Learning & Assessment Engine',
-    subtitle: 'Samarkand Educational Ecosystem',
+    title: 'Platform E-Learning Sekolah 3-Portal Terpadu',
+    subtitle: 'Samarkand Education Suite',
     category: 'enterprise',
-    categoryLabel: 'Enterprise Education',
-    badge: 'Clean Architecture (DDD)',
+    categoryLabel: 'Pendidikan & Sekolah',
+    badge: '3 Portal Terintegrasi',
     role: 'Full-Stack Software Engineer',
     featured: true,
-    description: 'Ekosistem e-learning terintegrasi yang mencakup 3 portal spesifik (Admin, Guru, dan Siswa) yang didukung mesin ujian berbasis KaTeX dan kalkulasi nilai KKM otomatis.',
-    problem: 'Kebutuhan platform pendidikan terpadu yang memisahkan otoritas manajemen kurikulum (Admin), pembuat modul dan ujian (Guru), serta pengerjaan ujian aman tanpa lag (Siswa).',
-    solution: 'Merancang arsitektur Go Clean Architecture dengan pemisahan domain, application, infrastructure, dan presentation layer. Frontend responsif dilengkapi KaTeX untuk formula matematika rumit dan generator rapor otomatis.',
-    architecture: 'Multi-Client (Admin Electron/Web, Teacher Portal, Student Portal) -> Go API Engine (Fiber/Gin + Clean Architecture) -> Relational Database & Seed Data Automation.',
+    description: 'Sistem manajemen pembelajaran sekolah lengkap dengan 3 portal terpisah: Admin untuk data induk & kurikulum, Guru untuk materi & ujian, serta Siswa untuk belajar dan mengerjakan tugas.',
+    problem: 'Penggabungan semua fitur sekolah dalam satu halaman sering membingungkan pengguna, rawan kebocoran soal ujian, dan kesulitan menampilkan rumus matematika atau grafik ilmiah.',
+    solution: 'Memisahkan antarmuka menjadi 3 aplikasi terisolasi dengan autentikasi JWT RBAC. Mengintegrasikan KaTeX untuk render rumus matematika instan dan modul rekap nilai KKM otomatis.',
+    architecture: '3 Portal Client (Admin Web/Desktop, Guru, Siswa) -> Go API Backend (Clean Architecture) -> Database Relasional & Excel Report Engine.',
     keyHighlights: [
-      'Pemisahan strict role-based access control (RBAC) pada level token JWT.',
-      'Sistem ujian berbasis bank soal acak dengan dukungan formula matematika KaTeX dan kalkulasi timer presisi.',
-      'Generator laporan buku nilai (Grade Book) format Excel terformat dengan styling dinamis.',
-      'Eksekusi seed data skala besar untuk ribuan kelas, mata pelajaran, dan bobot KKM otomatis.',
+      'Pemisahan hak akses ketat (RBAC) antara staf tata usaha, guru mata pelajaran, dan siswa.',
+      'Modul ujian dengan pengacak soal, batasan waktu presisi, dan formula matematika KaTeX.',
+      'Otomatisasi pengisian buku nilai (Grade Book) format Excel dengan styling warna KKM.',
+      'Struktur kode Go Clean Architecture yang memisahkan aturan bisnis dari database.',
     ],
     metrics: [
-      { label: 'Portal Terintegrasi', value: '3 Aplikasi Terpisah' },
-      { label: 'Kecepatan Render KaTeX', value: '< 15ms' },
-      { label: 'Concurrent Quiz Submissions', value: '500+ Req/s' },
-      { label: 'Struktur Kode', value: 'Clean Arch / DDD' },
+      { label: 'Portal Terpisah', value: 'Admin, Guru, Siswa' },
+      { label: 'Render Rumus', value: 'KaTeX Formula' },
+      { label: 'Kalkulasi Nilai', value: 'Otomatis KKM' },
+      { label: 'Ekspor Rapor', value: 'Excel Terformat' },
     ],
-    tags: ['Golang', 'Clean Architecture', 'React', 'Vue', 'KaTeX', 'ExcelJS', 'JWT RBAC', 'Docker'],
+    tags: ['Go', 'Clean Architecture', 'React', 'Vue', 'KaTeX', 'ExcelJS', 'JWT Auth', 'Docker'],
     codeSnippet: {
       language: 'go',
-      filename: 'domain/quiz/usecase.go',
-      code: `// SubmitQuizExam validates answers and calculates KKM grade atomically
-func (s *QuizService) SubmitExam(ctx context.Context, studentID int64, examID int64, answers []Answer) (*ExamResult, error) {
+      filename: 'domain/quiz/evaluator.go',
+      code: `// SubmitExam menghitung skor ujian siswa dan status kelulusan KKM
+func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, answers []Answer) (*ExamResult, error) {
     exam, err := s.examRepo.FindByID(ctx, examID)
     if err != nil {
         return nil, err
     }
 
-    score, correctCount := s.evaluator.CalculateScore(exam.Questions, answers)
+    // Hitung jawaban benar dan nilai akhir
+    score, correctCount := s.evaluator.ScoreAnswers(exam.Questions, answers)
     isPassed := score >= exam.PassingGradeKKM
 
     result := &ExamResult{
@@ -101,153 +104,166 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID int64, examID in
         CorrectCount: correctCount,
         SubmittedAt:  time.Now(),
     }
+
     return s.examRepo.SaveResultTx(ctx, result)
 }`,
     },
   },
   {
-    id: 'digizakat-platform',
-    title: 'Financial & Donation Management Platform',
-    subtitle: 'DigiZakat FinTech Engine',
-    category: 'golang',
-    categoryLabel: 'FinTech & Social Finance',
-    badge: 'High Security Ledger',
-    role: 'Backend Architect',
-    featured: true,
-    description: 'Platform tata kelola keuangan zakat, infak, dan sedekah digital dengan kalkulator nisab otomatis, pencatatan mutasi ganda (*double-entry bookkeeping*), dan pelaporan muzakki.',
-    problem: 'Pencatatan dana umat rawan inkonsistensi dan membutuhkan transparansi mutlak antara penyalur program, kalkulasi zakat maal berbasis harga emas riil, dan bukti tanda terima.',
-    solution: 'Membangun backend Golang dengan prinsip transaksi ACID yang ketat, modul kalkulator nisab dinamis berbasis API komoditas, dan webhook konfirmasi instan.',
-    architecture: 'Golang Microservice -> Transaksi Atomik MySQL -> PDF Receipt Generator -> Webhook Notifikasi.',
-    keyHighlights: [
-      'Kalkulasi nisab zakat emas, perak, dan penghasilan dengan rumus syariah terverifikasi.',
-      'Audit log transaksi tak terhapus (immutable transaction ledger).',
-      'Penerbitan kwitansi sah format PDF ber-QR code verifikasi keaslian dokumen.',
-    ],
-    metrics: [
-      { label: 'Ketelitian Ledger', value: '100% Reconciled' },
-      { label: 'Waktu Generate Kwitansi', value: '< 100ms' },
-      { label: 'Reliabilitas Transaksi', value: 'Zero Over-ledger' },
-    ],
-    tags: ['Golang', 'Financial Ledger', 'REST API', 'MySQL Transactions', 'PDF Engine', 'Security'],
-  },
-  {
-    id: 'prestige-gold',
-    title: 'Precious Metals Trading & Catalog Engine',
-    subtitle: 'Prestige Gold Digital Assets',
-    category: 'saas',
-    categoryLabel: 'E-Commerce & Commodities',
-    badge: 'Live Market Sync',
-    role: 'Full-Stack Developer',
-    featured: false,
-    description: 'Platform katalog investasi logam mulia dan perhiasan dengan sinkronisasi harga pasar harian, perhitungan buyback otomatis, dan sistem checkout pesanan aman.',
-    problem: 'Fluktuasi harga emas harian menuntut penyesuaian harga jual dan buyback seketika agar penjual tidak mengalami kerugian selisih spread pasar.',
-    solution: 'Cron background worker yang memperbarui harga acuan emas secara teratur, mengunci harga pada sesi checkout selama interval 15 menit, dan notifikasi pesanan ke admin.',
-    architecture: 'Go REST API -> Live Price Cron Worker -> React Client -> Order Settlement Engine.',
-    keyHighlights: [
-      'Mekanisme price-locking transaksional saat checkout untuk melindungi margin harga.',
-      'Sistem manajemen varian gramasi logam mulia dengan validasi stok ketat.',
-      'Katalog responsif dengan visualisasi detail kemurnian karat dan sertifikat antam.',
-    ],
-    metrics: [
-      { label: 'Frekuensi Update Harga', value: 'Realtime Scheduled' },
-      { label: 'Sesi Price-Lock Timeout', value: '15 Menit Proteksi' },
-    ],
-    tags: ['Golang', 'React', 'Scheduled Cron', 'E-Commerce', 'PostgreSQL', 'Tailwind CSS'],
-  },
-  {
     id: 'kiddo-growth',
-    title: 'Pediatric Health & Growth Tracking System',
-    subtitle: 'Kiddo Growth Healthcare App',
+    title: 'Aplikasi Pantau Tumbuh Kembang Balita (Kurva WHO)',
+    subtitle: 'Kiddo Growth Healthcare',
     category: 'frontend',
-    categoryLabel: 'Healthcare & SaaS',
-    badge: 'WHO Percentile Standard',
+    categoryLabel: 'Kesehatan & Keluarga',
+    badge: 'Standar WHO',
     role: 'Frontend & API Engineer',
     featured: true,
-    description: 'Aplikasi pemantauan kurva tumbuh kembang balita berbasis standar baku WHO (World Health Organization) dengan visualisasi grafik interaktif dan catatan riwayat imunisasi.',
-    problem: 'Banyak orang tua kesulitan mendeteksi risiko stunting dan keterlambatan pertumbuhan anak sejak dini karena kartu KMS manual rentan hilang dan sulit diinterpretasikan.',
-    solution: 'Membangun aplikasi web progresif dengan algoritma interpolasi Z-Score standar WHO untuk berat, tinggi, dan lingkar kepala, divisualisasikan dalam grafik kurva interaktif.',
-    architecture: 'React + TypeScript -> Charting Visualization -> Go Backend API -> Child Profile Storage.',
+    description: 'Aplikasi pencatatan dan pemantauan grafik berat badan, tinggi badan, dan lingkar kepala balita berdasarkan standar baku persentil World Health Organization (WHO).',
+    problem: 'Orang tua sering kesulitan membaca kurva KMS fisik di posyandu atau buku KIA, sehingga risiko kekurangan gizi atau stunting terlambat diketahui.',
+    solution: 'Membangun aplikasi web dengan visualisasi grafik interaktif kurva WHO, perhitungan otomatis Z-Score (SD -3 s/d +3), dan riwayat jadwal imunisasi yang mudah dipahami orang tua.',
+    architecture: 'React + TypeScript -> Chart Visualization -> Go REST API -> Child Medical History.',
     keyHighlights: [
-      'Plotting data interaktif pada kurva baku WHO (Z-score -3 SD s/d +3 SD).',
-      'Rekomendasi asupan nutrisi dan jadwal vaksinasi otomatis sesuai usia balita.',
-      'Antarmuka ramah orang tua dengan micro-animations dan penanganan offline-friendly.',
+      'Visualisasi grafik kurva pertumbuhan WHO responsif dan mudah dibaca di layar HP.',
+      'Kalkulasi status gizi otomatis (Gizi Kurang, Baik, Berlebih, atau Risiko Stunting).',
+      'Pengingat jadwal imunisasi dasar lengkap sesuai usia balita.',
+      'Antarmuka bersih, ramah sentuhan, dan cepat dimuat.',
     ],
     metrics: [
-      { label: 'Akurasi Z-Score WHO', value: '99.99% Formula Match' },
-      { label: 'Responsivitas Chart', value: '60 FPS Smooth' },
+      { label: 'Metode Hitung', value: 'Z-Score WHO' },
+      { label: 'Visualisasi', value: 'Grafik Interaktif' },
+      { label: 'Target Pengguna', value: 'Orang Tua & Posyandu' },
+      { label: 'Responsif', value: 'Mobile-First' },
     ],
-    tags: ['React', 'TypeScript', 'Data Visualization', 'WHO Charts', 'Golang API', 'HealthTech'],
+    tags: ['React', 'TypeScript', 'Data Visualization', 'Go API', 'Tailwind CSS', 'HealthTech'],
+  },
+  {
+    id: 'digizakat-platform',
+    title: 'Sistem Keuangan Zakat & Donasi Transparan',
+    subtitle: 'DigiZakat Finance Engine',
+    category: 'golang',
+    categoryLabel: 'Finansial & Sosial',
+    badge: 'Buku Kas Ganda',
+    role: 'Backend Architect',
+    featured: true,
+    description: 'Platform tata kelola keuangan lembaga zakat dan donasi dengan kalkulator nisab otomatis, pencatatan mutasi kas berstandar akuntansi, dan bukti tanda terima ber-QR code.',
+    problem: 'Pencatatan donasi manual rawan selisih, lambat dalam verifikasi bukti transfer, dan memerlukan transparansi mutlak antara dana masuk dan penyaluran program.',
+    solution: 'Merancang backend Go dengan transaksi database atomik untuk mencegah salah pembukuan, modul kalkulasi zakat maal berbasis harga emas terbaru, dan penerbitan kwitansi sah instan.',
+    architecture: 'Go REST API -> MySQL ACID Transaction -> PDF Receipt Generator -> Webhook Konfirmasi.',
+    keyHighlights: [
+      'Kalkulator zakat maal, penghasilan, dan perhiasan dengan formula syariah akurat.',
+      'Pencatatan kas berprinsip mutasi ganda yang tidak dapat dimanipulasi.',
+      'Pembuatan kwitansi tanda terima donasi format PDF dengan QR code verifikasi berkas.',
+    ],
+    metrics: [
+      { label: 'Integritas Buku Kas', value: '100% Cocok' },
+      { label: 'Cetak Kwitansi', value: '< 200ms' },
+      { label: 'Keamanan Transaksi', value: 'ACID Locking' },
+      { label: 'Akurasi Zakat', value: 'Kalkulator Nisab' },
+    ],
+    tags: ['Go', 'Akuntansi', 'REST API', 'MySQL', 'PDF Generator', 'QR Code'],
   },
   {
     id: 'fypotret',
-    title: 'Luxury Editorial Studio & Booking Funnel',
+    title: 'Website Studio & Booking Fotografi Komersial',
     subtitle: 'FYPotret Brand Experience',
     category: 'frontend',
-    categoryLabel: 'Luxury Web Design',
-    badge: 'Editorial Luxury UI',
-    role: 'Creative Frontend Engineer',
+    categoryLabel: 'Web Studio & Booking',
+    badge: 'Editorial UI',
+    role: 'Frontend Developer & Designer',
     featured: false,
-    description: 'Website portofolio dan pemesanan fotografi komersial berkonsep kemewahan editorial gelap (Dark Obsidian), dilengkapi masonry lightbox responsif dan WhatsApp booking generator instan.',
-    problem: 'Fotografer profesional sering kehilangan calon klien karena portofolio web lambat dimuat, tampilan template murahan, dan form pemesanan yang berbelit-belit.',
-    solution: 'Menerapkan standar anti-AI-slop UI dengan rasio warna 60-30-10, fullscreen lightbox dengan zero-layout shift, kalkulator paket transparan, dan CTA WhatsApp dengan pre-filled teks cerdas.',
-    architecture: 'Vite React -> Framer Motion Orchestration -> Tailwind Editorial Typography -> Static Edge CDN.',
+    description: 'Website portofolio dan pemesanan sesi foto wisuda, prewedding, dan studio dengan galeri masonry responsif, kalkulator paket transparan, dan integrasi pemesanan WhatsApp langsung.',
+    problem: 'Banyak calon klien batal memesan jasa fotografi karena website lama memuat foto dengan lambat, layout berantakan di HP, dan daftar harga tidak transparan.',
+    solution: 'Membangun antarmuka bersih dengan galeri lightbox responsif, kalkulator pilihan paket foto, serta tombol order instan yang otomatis merangkum detail pesanan ke WhatsApp admin.',
+    architecture: 'Vite React -> Tailwind CSS -> Responsive Lightbox -> WhatsApp Message Generator.',
     keyHighlights: [
-      'Palet warna Deep Obsidian & Warm Amber Gold dengan kontras visual tinggi.',
-      'Fullscreen Lightbox responsif ramah sentuhan jempol smartphone.',
-      'Direct WhatsApp generator yang otomatis menghitung total harga paket.',
+      'Tampilan foto resolusi tinggi yang ringan dan cepat dibuka di jaringan seluler.',
+      'Kalkulator paket foto interaktif sehingga calon klien bisa melihat rincian harga secara jelas.',
+      'Integrasi satu klik ke WhatsApp dengan template pesan otomatis.',
     ],
     metrics: [
-      { label: 'Lighthouse Performance', value: '98/100' },
-      { label: 'Touch Target Standard', value: 'Minimal 44px (iOS HIG)' },
+      { label: 'Waktu Muat', value: 'Sangat Cepat' },
+      { label: 'Target Sentuhan', value: 'Min. 44px (iOS HIG)' },
+      { label: 'Alur Pesan', value: 'Langsung ke WhatsApp' },
+      { label: 'Tampilan', value: 'Mobile-First' },
     ],
-    tags: ['React', 'Framer Motion', 'Editorial UI', 'Tailwind CSS', 'Conversion Funnel'],
+    tags: ['React', 'Tailwind CSS', 'Vite', 'Responsive Web', 'WhatsApp API'],
   },
   {
     id: 'mini-invoice',
-    title: 'Automated Invoicing & Quotation SaaS Engine',
-    subtitle: 'MiniInvoice / PyBizz Suite',
+    title: 'Aplikasi Pembuat Invoice & Quotation Cepat',
+    subtitle: 'MiniInvoice / PyBizz',
     category: 'saas',
-    categoryLabel: 'Business Automation',
-    badge: 'PDF Generation Engine',
+    categoryLabel: 'Otomasi Bisnis',
+    badge: 'Cetak PDF Instan',
     role: 'Full-Stack Developer',
     featured: false,
-    description: 'Sistem penagihan otomatis untuk UMKM dan pekerja lepas dengan dukungan multi-mata uang, kalkulasi pajak dinamis, dan ekspor invoice PDF instan tanpa dependensi berat.',
-    problem: 'Pembuatan invoice manual menggunakan spreadsheet memakan waktu, sering keliru dalam perhitungan PPN/diskon, dan menghasilkan format berkas yang tidak konsisten.',
-    solution: 'Platform penagihan cepat berbasis browser dengan auto-save lokal, perhitungan subtotal/pajak instan, dan konversi one-click dari dokumen Quotation menjadi Invoice sah.',
-    architecture: 'Single Page App -> Client PDF Generation Engine -> Cloud Sync Backend.',
+    description: 'Alat bantu membuat dokumen penagihan dan penawaran harga untuk UMKM dan pekerja lepas, lengkap dengan kalkulasi pajak PPN, diskon bertingkat, dan cetak PDF siap kirim.',
+    problem: 'Membuat invoice menggunakan Excel atau Word sering memakan waktu, rawan salah hitung subtotal dan pajak, serta format berkas yang mudah berantakan saat dikirim ke klien.',
+    solution: 'Aplikasi berbasis browser dengan auto-save lokal, perhitungan matematis presisi tanpa selisih desimal, dan tombol satu klik untuk mengubah penawaran (Quotation) menjadi Invoice sah.',
+    architecture: 'React / Vue SPA -> Local Storage Engine -> Client-Side PDF Renderer.',
     keyHighlights: [
-      'Kalkulasi matematis subtotal, diskon bertingkat, dan pajak presisi tanpa floating-point bug.',
-      'Ekspor PDF berstandar cetak dengan QR Code pembayaran bank/e-wallet.',
-      'Status pelacakan tagihan: Draft, Terkirim, Sebagian, Lunas, dan Jatuh Tempo.',
+      'Perhitungan otomatis subtotal, diskon bertingkat, dan pajak tanpa bug pembulatan.',
+      'Ekspor dokumen penagihan ke format PDF rapi berstandar cetak formal.',
+      'Mendukung status pembayaran: Draft, Terkirim, Sebagian, Lunas, dan Jatuh Tempo.',
     ],
     metrics: [
-      { label: 'Waktu Buat Invoice', value: '< 60 Detik' },
-      { label: 'Presisi Desimal', value: '100% Zero Drift' },
+      { label: 'Waktu Buat Invoice', value: '< 1 Menit' },
+      { label: 'Format Ekspor', value: 'PDF Siap Cetak' },
+      { label: 'Kalkulasi Pajak', value: 'Presisi Desimal' },
+      { label: 'Penyimpanan', value: 'Auto-Save Lokal' },
     ],
-    tags: ['Golang', 'Vue / React', 'PDF Generation', 'SaaS', 'Tailwind CSS'],
+    tags: ['Go', 'React', 'Vue', 'PDF Generator', 'Tailwind CSS', 'SaaS UMKM'],
+  },
+  {
+    id: 'prestige-gold',
+    title: 'Katalog & Perdagangan Logam Mulia Digital',
+    subtitle: 'Prestige Gold Platform',
+    category: 'saas',
+    categoryLabel: 'E-Commerce & Komoditas',
+    badge: 'Update Harga Pasar',
+    role: 'Full-Stack Developer',
+    featured: false,
+    description: 'Platform katalog investasi emas dan perhiasan dengan sinkronisasi harga pasar harian, perhitungan buyback otomatis, dan penguncian harga saat checkout.',
+    problem: 'Harga emas yang berfluktuasi setiap hari mengharuskan penyesuaian harga jual dan beli kembali (buyback) secara konsisten agar tidak merugikan penjual maupun pembeli.',
+    solution: 'Membuat backend Go dengan scheduled worker untuk memperbarui harga acuan pasar, fitur kunci harga selama 15 menit saat transaksi, dan manajemen stok per gramasi.',
+    architecture: 'Go REST API -> Scheduled Price Cron -> React Frontend -> Order Management.',
+    keyHighlights: [
+      'Mekanisme penguncian harga sementara selama proses pembayaran untuk keamanan transaksi.',
+      'Katalog produk terstruktur berdasarkan kadar karat, berat gramasi, dan sertifikat.',
+      'Perhitungan otomatis harga beli kembali (buyback) berdasarkan kurs acuan hari ini.',
+    ],
+    metrics: [
+      { label: 'Sinkronisasi Harga', value: 'Terjadwal Otomatis' },
+      { label: 'Proteksi Checkout', value: 'Kunci Harga 15 Mnt' },
+      { label: 'Detail Produk', value: 'Karat & Sertifikat' },
+      { label: 'Keamanan Transaksi', value: 'Verifikasi Order' },
+    ],
+    tags: ['Go', 'React', 'MySQL', 'Cron Worker', 'E-Commerce', 'Tailwind CSS'],
   },
   {
     id: 'distri-logistics',
-    title: 'Multi-Warehouse Supply Chain & Distribution Engine',
-    subtitle: 'Distri Logistics API',
+    title: 'Manajemen Rantai Pasok & Stok Multi-Gudang',
+    subtitle: 'Distri Logistics Engine',
     category: 'golang',
-    categoryLabel: 'Logistics & Supply Chain',
-    badge: 'Inventory Integrity',
+    categoryLabel: 'Logistik & Pergudangan',
+    badge: 'Keamanan Konkurensi',
     role: 'Backend Architect',
     featured: false,
-    description: 'Backend sistem manajemen rantai pasok dan pergudangan terdistribusi dengan pelacakan batch SKU, penyesuaian stok antar gudang, dan optimasi rute pengiriman.',
-    problem: 'Ketidaksesuaian stok barang di gudang utama versus gudang cabang akibat pembaruan konkurensi data yang tidak memiliki mekanisme locking memadai.',
-    solution: 'Arsitektur Golang dengan database transactional locking (Pessimistic / Optimistic concurrency control) untuk mencegah race condition pengurangan stok.',
-    architecture: 'Golang Clean Architecture -> MySQL Transaction Isolation -> Redis Cache -> Event Log Stream.',
+    description: 'Sistem manajemen inventaris pergudangan terdistribusi dengan pelacakan batch SKU barang, mutasi stok antar gudang cabang, dan pencegahan selisih stok serentak.',
+    problem: 'Banyak gudang sering mengalami stok minus akibat order yang masuk bersamaan di waktu yang sama ketika barang fisik hanya tersisa 1 unit.',
+    solution: 'Menerapkan database transaction locking di Go untuk memastikan pengurangan stok bersifat atomik, aman dari race condition, dan mencatat riwayat mutasi lengkap.',
+    architecture: 'Go Clean Architecture -> MySQL Transaction Isolation -> Redis Cache -> Audit Log Stream.',
     keyHighlights: [
-      'Pencegahan race condition saat order serentak untuk barang dengan sisa kuota 1 unit.',
-      'Sistem mutasi stok antar gudang dengan status otorisasi multi-level (Maker-Checker).',
-      'API terstruktur dengan pagination berkecepatan tinggi untuk puluhan ribu SKU.',
+      'Proteksi race condition pada kuota stok barang saat lonjakan pesanan bersamaan.',
+      'Alur mutasi barang antar gudang cabang dengan status otorisasi bertingkat.',
+      'Pencarian dan pemilahan puluhan ribu SKU barang dengan waktu respons cepat.',
     ],
     metrics: [
-      { label: 'Concurrency Race Safety', value: '100% Atomik' },
-      { label: 'Query Latency (10k SKU)', value: '< 30ms' },
+      { label: 'Keamanan Stok', value: 'Zero Minus Stock' },
+      { label: 'Kecepatan Query', value: '< 40ms' },
+      { label: 'Audit Trail', value: 'Log Tercatat Penuh' },
+      { label: 'Kapasitas SKU', value: 'Puluhan Ribu Barang' },
     ],
-    tags: ['Golang', 'Concurrency Control', 'Clean Architecture', 'MySQL', 'Supply Chain'],
+    tags: ['Go', 'Concurrency Safety', 'Clean Architecture', 'MySQL', 'Logistik'],
   },
 ];

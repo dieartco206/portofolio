@@ -7,33 +7,33 @@ export const Footer: FC = () => {
   };
 
   return (
-    <footer className="bg-[#07080a] border-t border-white/[0.08] py-12 text-zinc-400 text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.06]">
-          {/* Brand Identity */}
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center font-bold text-black font-mono text-xs">
+    <footer className="bg-white border-t border-zinc-200 py-10 text-zinc-500 text-xs">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-5 pb-6 border-b border-zinc-100">
+          {/* Identity */}
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 rounded-lg bg-zinc-900 text-white flex items-center justify-center font-bold font-mono text-xs">
               AK
             </div>
             <div>
-              <span className="font-bold text-white text-sm">Adi Kurniawan</span>
-              <p className="text-[11px] text-zinc-500 font-mono">Senior Full-Stack & Systems Engineer</p>
+              <span className="font-bold text-zinc-900 text-sm">Adi Kurniawan</span>
+              <p className="text-[11px] text-zinc-500">Software Engineer • Golang, Vue & React</p>
             </div>
           </div>
 
-          {/* Nav Quick Links */}
-          <div className="flex flex-wrap items-center gap-4 text-zinc-400">
-            <a href="#projects" className="hover:text-white transition-colors">Proyek</a>
-            <a href="#architecture" className="hover:text-white transition-colors">Arsitektur</a>
-            <a href="#terminal" className="hover:text-white transition-colors">Terminal</a>
-            <a href="#skills" className="hover:text-white transition-colors">Keahlian</a>
-            <a href="#contact" className="hover:text-white transition-colors">Kontak</a>
+          {/* Quick links */}
+          <div className="flex flex-wrap items-center gap-4 text-zinc-600">
+            <a href="#projects" className="hover:text-zinc-950 transition-colors">Proyek</a>
+            <a href="#about" className="hover:text-zinc-950 transition-colors">Tentang</a>
+            <a href="#skills" className="hover:text-zinc-950 transition-colors">Keahlian</a>
+            <a href="#experience" className="hover:text-zinc-950 transition-colors">Pengalaman</a>
+            <a href="#contact" className="hover:text-zinc-950 transition-colors">Kontak</a>
           </div>
 
           {/* Back to top */}
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-700 transition-colors"
             aria-label="Kembali ke atas"
           >
             <span>Kembali ke Atas</span>
@@ -42,10 +42,10 @@ export const Footer: FC = () => {
         </div>
 
         {/* Bottom Credits */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-500 font-mono text-[11px]">
-          <p>© {new Date().getFullYear()} Adi Kurniawan. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            <span>Built with Vite, React, TypeScript, Tailwind CSS & Clean Engineering Standards</span>
+        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-zinc-400 font-mono text-[11px]">
+          <p>© {new Date().getFullYear()} Adi Kurniawan. Hak cipta dilindungi.</p>
+          <p>
+            Dibuat dengan Vite, React, TypeScript & Tailwind CSS.
           </p>
         </div>
       </div>
