@@ -187,9 +187,11 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Buku Kas Ganda',
     role: 'Backend Architect',
     featured: true,
-    image: '/projects/ecommerce-admin.png',
+    image: '/projects/zakat-campaign.png',
     gallery: [
-      '/projects/ecommerce-admin.png',
+      '/projects/zakat-campaign.png',
+      '/projects/zakat-donation.png',
+      '/projects/zakat-hero.png',
     ],
     colorTheme: {
       gradient: 'from-teal-600 via-emerald-600 to-green-700',
@@ -225,8 +227,11 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Editorial UI',
     role: 'Frontend Developer & Designer',
     featured: false,
-    image: '/projects/fypotret-logo.jpg',
+    image: '/projects/fypotret-hero.png',
     gallery: [
+      '/projects/fypotret-hero.png',
+      '/projects/fypotret-photo1.jpg',
+      '/projects/fypotret-photo2.jpg',
       '/projects/fypotret-logo.jpg',
     ],
     colorTheme: {
@@ -263,8 +268,11 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Update Harga Pasar',
     role: 'Full-Stack Developer',
     featured: false,
-    image: '/projects/prestige-gold-logo.png',
+    image: '/projects/gold-hero.jpg',
     gallery: [
+      '/projects/gold-hero.jpg',
+      '/projects/gold-collection.jpg',
+      '/projects/gold-bullion.jpg',
       '/projects/prestige-gold-logo.png',
     ],
     colorTheme: {
@@ -339,9 +347,11 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
     badge: 'Keamanan Konkurensi',
     role: 'Backend Architect',
     featured: false,
-    image: '/projects/ecommerce-shop.png',
+    image: '/projects/distri-hero.png',
     gallery: [
+      '/projects/distri-hero.png',
       '/projects/ecommerce-shop.png',
+      '/projects/ecommerce-admin.png',
     ],
     colorTheme: {
       gradient: 'from-orange-500 via-amber-600 to-red-500',
