@@ -1,6 +1,6 @@
 import { useEffect, useState, type FC } from 'react';
-import { X, Check, Copy, CheckCheck, Cpu, AlertCircle, ShieldCheck, Image as ImageIcon } from 'lucide-react';
 import type { Project } from '../types/portfolio';
+import { X, Check, Copy, CheckCheck, Cpu, Image as ImageIcon } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -9,7 +9,7 @@ interface ProjectModalProps {
 
 export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
   const [copiedCode, setCopiedCode] = useState(false);
-  const [activeImage, setActiveImage] = useState<string>('');
+  const [activeImage, setActiveImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (project) {
@@ -44,7 +44,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
   const gallery = project.gallery && project.gallery.length > 0 ? project.gallery : [project.image];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-zinc-950/60 backdrop-blur-xs transition-opacity"
@@ -53,34 +53,34 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-4xl bg-white border border-zinc-200 rounded-3xl shadow-2xl overflow-hidden my-8 z-10 max-h-[90vh] flex flex-col">
+      <div className="relative w-full max-w-4xl bg-white border border-zinc-200 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-8 z-10 max-h-[92vh] flex flex-col">
         {/* Top Gradient Ribbon */}
-        <div className={`h-3 w-full bg-gradient-to-r ${project.colorTheme.gradient}`} />
+        <div className={`h-2.5 sm:h-3 w-full bg-gradient-to-r ${project.colorTheme.gradient}`} />
 
         {/* Modal Header */}
-        <div className="flex items-center justify-between p-6 border-b border-zinc-200 bg-white sticky top-0 z-20">
-          <div>
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className={`px-2.5 py-1 rounded-lg text-xs font-semibold border ${project.colorTheme.badgeBg}`}>
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-zinc-200 bg-white sticky top-0 z-20">
+          <div className="pr-2">
+            <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
+              <span className={`px-2 py-0.5 rounded-lg text-[10px] sm:text-xs font-semibold border ${project.colorTheme.badgeBg}`}>
                 {project.categoryLabel}
               </span>
               {project.badge && (
-                <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-medium bg-zinc-100 text-zinc-700 border border-zinc-200">
+                <span className="px-2 py-0.5 rounded-lg text-[10px] sm:text-xs font-mono font-medium bg-zinc-100 text-zinc-700 border border-zinc-200">
                   {project.badge}
                 </span>
               )}
             </div>
-            <h3 className="text-xl sm:text-2xl font-black text-zinc-950 tracking-tight">
+            <h3 className="text-base sm:text-2xl font-black text-zinc-950 tracking-tight leading-snug break-words">
               {project.title}
             </h3>
-            <p className="text-xs text-zinc-500 font-mono mt-0.5">
+            <p className="text-[11px] sm:text-xs text-zinc-500 font-mono mt-0.5">
               Peran: <span className="font-semibold text-zinc-800">{project.role}</span>
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 text-zinc-400 hover:text-zinc-700 rounded-xl hover:bg-zinc-100 transition-colors"
+            className="p-2 text-zinc-400 hover:text-zinc-700 rounded-xl hover:bg-zinc-100 transition-colors shrink-0"
             aria-label="Tutup modal"
           >
             <X className="w-5 h-5" />
@@ -88,30 +88,30 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 space-y-7 overflow-y-auto">
+        <div className="p-4 sm:p-6 space-y-5 sm:space-y-6 overflow-y-auto">
           {/* Main Screenshot Showcase */}
-          <div className="space-y-3">
-            <div className="relative w-full rounded-2xl overflow-hidden border border-zinc-200 shadow-md bg-zinc-900 max-h-[420px] flex items-center justify-center">
+          <div className="space-y-2.5">
+            <div className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-zinc-200 shadow-md bg-zinc-950 max-h-[250px] sm:max-h-[420px] flex items-center justify-center">
               <img
                 src={activeImage || project.image}
                 alt={project.title}
-                className="w-full h-auto max-h-[420px] object-contain"
+                className="w-full h-auto max-h-[250px] sm:max-h-[420px] object-contain"
               />
             </div>
 
-            {/* Thumbnail Gallery Strip if multiple screenshots exist */}
+            {/* Thumbnail Gallery Strip */}
             {gallery.length > 1 && (
               <div>
-                <p className="text-xs font-mono font-semibold text-zinc-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <ImageIcon className="w-3.5 h-3.5" />
+                <p className="text-[11px] sm:text-xs font-mono font-semibold text-zinc-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <ImageIcon className="w-3.5 h-3.5 text-indigo-600" />
                   <span>Tangkapan Layar Sistem (Klik untuk melihat):</span>
                 </p>
-                <div className="flex items-center gap-2.5 overflow-x-auto pb-1">
+                <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
                   {gallery.map((img, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveImage(img)}
-                      className={`relative w-24 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${
+                      className={`relative w-16 h-12 sm:w-24 sm:h-16 rounded-lg sm:rounded-xl overflow-hidden border-2 shrink-0 transition-all ${
                         activeImage === img
                           ? 'border-indigo-600 ring-2 ring-indigo-400/30 scale-105'
                           : 'border-zinc-200 opacity-70 hover:opacity-100'
@@ -131,73 +131,74 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Summary */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1.5">
+            <h4 className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-1">
               Gambaran Proyek
             </h4>
-            <p className="text-sm text-zinc-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
               {project.description}
             </p>
           </div>
 
-          {/* Problem vs Solution */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-200 shadow-2xs">
-              <div className="flex items-center gap-1.5 text-amber-900 font-bold text-xs mb-2">
-                <AlertCircle className="w-4 h-4 text-amber-600" />
-                <span>Masalah & Tantangan</span>
-              </div>
-              <p className="text-xs sm:text-sm text-amber-950/80 leading-relaxed">
+          {/* Problem & Solution Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
+            <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-rose-50/50 border border-rose-200/80">
+              <h4 className="text-xs sm:text-sm font-bold text-rose-950 mb-1">
+                Tantangan / Problem:
+              </h4>
+              <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
                 {project.problem}
               </p>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/80 border border-emerald-200 shadow-2xs">
-              <div className="flex items-center gap-1.5 text-emerald-900 font-bold text-xs mb-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>Solusi yang Dibangun</span>
-              </div>
-              <p className="text-xs sm:text-sm text-emerald-950/80 leading-relaxed">
+            <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/50 border border-emerald-200/80">
+              <h4 className="text-xs sm:text-sm font-bold text-emerald-950 mb-1">
+                Solusi yang Diimplementasikan:
+              </h4>
+              <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
                 {project.solution}
               </p>
             </div>
           </div>
 
-          {/* Architecture Flow */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-zinc-50 border border-zinc-200 shadow-2xs">
-            <h4 className={`text-xs font-mono font-bold uppercase tracking-wider ${project.colorTheme.accentText} mb-1.5`}>
-              Alur & Topologi Arsitektur
+          {/* Architecture Box */}
+          <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-zinc-50 border border-zinc-200">
+            <h4 className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-1">
+              Arsitektur Alur Sistem
             </h4>
-            <p className="text-xs sm:text-sm text-zinc-800 font-mono leading-relaxed">
+            <div className="font-mono text-xs sm:text-sm text-zinc-800 break-words leading-relaxed font-semibold">
               {project.architecture}
-            </p>
+            </div>
           </div>
 
           {/* Key Highlights */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-3">
-              Poin Kunci Implementasi
+            <h4 className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">
+              Poin Kunci & Keunggulan Teknis
             </h4>
-            <div className="space-y-2.5">
-              {project.keyHighlights.map((hl, idx) => (
+            <div className="space-y-1.5 sm:space-y-2">
+              {project.keyHighlights.map((highlight, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-700">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-3.5 h-3.5" />
+                  <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-3 h-3" />
                   </div>
-                  <span className="leading-relaxed">{hl}</span>
+                  <span>{highlight}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Metrics Grid */}
+          {/* Metrics */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2.5">
-              Metrik Kinerja Riil
+            <h4 className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">
+              Metrik & Hasil Uji
             </h4>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               {project.metrics.map((metric, idx) => (
-                <div key={idx} className={`p-3 rounded-xl border border-zinc-200 ${project.colorTheme.lightBg} text-center`}>
-                  <div className={`text-sm font-bold font-mono ${project.colorTheme.accentText}`}>{metric.value}</div>
+                <div
+                  key={idx}
+                  className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border border-zinc-200 ${project.colorTheme.lightBg}`}
+                >
+                  <div className={`text-xs sm:text-sm font-bold font-mono ${project.colorTheme.accentText}`}>{metric.value}</div>
                   <div className="text-[10px] text-zinc-600 font-medium mt-0.5">{metric.label}</div>
                 </div>
               ))}
@@ -208,13 +209,13 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {project.codeSnippet && (
             <div>
               <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-600">
-                  <Cpu className="w-3.5 h-3.5 text-indigo-600" />
-                  <span className="font-semibold">{project.codeSnippet.filename}</span>
+                <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-600 truncate mr-2">
+                  <Cpu className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
+                  <span className="font-semibold truncate">{project.codeSnippet.filename}</span>
                 </div>
                 <button
                   onClick={handleCopyCode}
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-xs font-mono text-zinc-700 font-medium transition-colors"
+                  className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-xs font-mono text-zinc-700 font-medium transition-colors shrink-0"
                 >
                   {copiedCode ? (
                     <>
@@ -224,12 +225,12 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>Salin Kode</span>
+                      <span>Salin</span>
                     </>
                   )}
                 </button>
               </div>
-              <pre className="p-4 rounded-2xl bg-zinc-950 text-zinc-200 overflow-x-auto text-xs font-mono leading-relaxed shadow-xl border border-zinc-800">
+              <pre className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-zinc-950 text-zinc-200 overflow-x-auto text-[11px] sm:text-xs font-mono leading-relaxed shadow-xl border border-zinc-800">
                 <code>{project.codeSnippet.code}</code>
               </pre>
             </div>
@@ -237,14 +238,14 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Tags */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">
+            <h4 className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2">
               Teknologi Terkait
             </h4>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1 sm:gap-1.5">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-100 text-zinc-800 border border-zinc-200"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg text-[10px] sm:text-xs font-mono bg-zinc-100 text-zinc-800 border border-zinc-200"
                 >
                   {tag}
                 </span>
@@ -254,20 +255,13 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 sm:p-5 bg-zinc-50 border-t border-zinc-200 flex items-center justify-end gap-3 sticky bottom-0 z-20">
+        <div className="p-3 sm:p-4 bg-zinc-50 border-t border-zinc-200 flex items-center justify-end gap-3 sticky bottom-0 z-20">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white hover:bg-zinc-100 text-zinc-700 border border-zinc-200 transition-colors"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-zinc-100 text-zinc-800 border border-zinc-300 shadow-2xs transition-colors"
           >
-            Tutup
+            Tutup Jendela
           </button>
-          <a
-            href="#contact"
-            onClick={onClose}
-            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r ${project.colorTheme.gradient} text-white shadow-md transition-all hover:scale-[1.02]`}
-          >
-            Diskusikan Proyek Ini
-          </a>
         </div>
       </div>
     </div>

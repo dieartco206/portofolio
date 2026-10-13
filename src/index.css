@@ -10,11 +10,16 @@
   html {
     scroll-behavior: smooth;
     color-scheme: light;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
     background-color: #fcfcfd;
     color: #18181b;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
 
   /* Custom Light Scrollbar */
@@ -62,5 +67,14 @@
   .vibrant-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06), 0 4px 8px -2px rgba(0, 0, 0, 0.03);
+  }
+
+  /* Hide scrollbar for clean horizontal tab scrolling */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
