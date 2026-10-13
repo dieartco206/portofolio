@@ -10,10 +10,10 @@ export const FeaturedProjects: FC = () => {
 
   const categories: { label: string; value: ProjectCategory; activeColor: string }[] = [
     { label: 'Semua Proyek', value: 'all', activeColor: 'bg-zinc-900 text-white' },
-    { label: 'Sistem Presensi & Biometrik', value: 'enterprise', activeColor: 'bg-emerald-600 text-white shadow-emerald-500/20' },
-    { label: 'Backend & Konkurensi Go', value: 'golang', activeColor: 'bg-indigo-600 text-white shadow-indigo-500/20' },
-    { label: 'FinTech & Bisnis', value: 'saas', activeColor: 'bg-amber-600 text-white shadow-amber-500/20' },
-    { label: 'Web & Desain', value: 'frontend', activeColor: 'bg-rose-600 text-white shadow-rose-500/20' },
+    { label: 'Presensi & E-Learning', value: 'enterprise', activeColor: 'bg-emerald-600 text-white shadow-emerald-500/20' },
+    { label: 'FinTech & Donasi Go', value: 'golang', activeColor: 'bg-teal-600 text-white shadow-teal-500/20' },
+    { label: 'E-Commerce & Supply Chain', value: 'saas', activeColor: 'bg-amber-600 text-white shadow-amber-500/20' },
+    { label: 'HealthTech & Web Portal', value: 'frontend', activeColor: 'bg-sky-600 text-white shadow-sky-500/20' },
   ];
 
   const filteredProjects = projectsData.filter((proj) => {
