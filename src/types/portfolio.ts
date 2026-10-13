@@ -59,6 +59,12 @@ export interface SkillGroup {
   items: SkillItem[];
 }
 
+export interface TimelineProjectHighlight {
+  name: string;
+  desc: string;
+  tech?: string;
+}
+
 export interface TimelineItem {
   period: string;
   role: string;
@@ -68,4 +74,15 @@ export interface TimelineItem {
   achievements: string[];
   skills: string[];
   badgeColor: string;
+  projectHighlights?: TimelineProjectHighlight[];
+}
+
+export interface EducationItem {
+  degree: string;
+  campus: string;
+  period: string;
+  grade: string;
+  status: string;
+  description: string;
+  highlights: string[];
 }

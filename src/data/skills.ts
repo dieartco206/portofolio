@@ -1,4 +1,4 @@
-import type { SkillGroup, TimelineItem } from '../types/portfolio';
+import type { SkillGroup, TimelineItem, EducationItem } from '../types/portfolio';
 
 export const skillGroupsData: SkillGroup[] = [
   {
@@ -154,32 +154,113 @@ export const skillGroupsData: SkillGroup[] = [
 
 export const experienceTimelineData: TimelineItem[] = [
   {
-    period: '2023 — Sekarang',
+    period: 'Oktober 2024 — Sekarang',
     role: 'Lead Systems Architect & Full-Stack Engineer',
-    companyOrContext: 'Proyek Produksi Mandiri & Klien Enterprise',
-    location: 'Indonesia (Remote / Hybrid)',
+    companyOrContext: 'Proyek Skala Produksi Mandiri & Klien Enterprise',
+    location: 'Depok, Jawa Barat (Remote / Hybrid)',
     badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-300',
-    description: 'Merancang dan mengimplementasikan arsitektur perangkat lunak dari hulu ke hilir untuk berbagai produk produksi nyata, mulai dari presensi biometrik hingga multi-portal e-learning.',
+    description: 'Merancang arsitektur perangkat lunak berskala produksi dari hulu ke hilir. Menerapkan metodologi AI-Assisted Development dan Agentic Workflows untuk mengakselerasi rekayasa sistem berkinerja tinggi, dari perancangan arsitektur hingga zero-downtime deployment.',
     achievements: [
-      'Membangun sistem presensi biometrik wajah terdistribusi yang melayani absensi karyawan di berbagai kantor cabang.',
-      'Merancang arsitektur backend Go dengan Clean Architecture (DDD) yang mudah dirawat dan stabil saat diuji konkurensi tinggi.',
-      'Mengelola server VPS Linux mandiri dengan Nginx reverse proxy, isolasi Docker, dan penyimpanan berkas MinIO S3.',
-      'Mengembangkan 3 portal sekolah terintegrasi (Admin, Guru, Siswa) dengan antarmuka yang cepat dan mudah dipahami pengguna.',
+      'Membangun Sistem Presensi Biometrik BSP terdistribusi dengan Face Recognition AI lokal di perangkat browser/tablet dan validasi geofencing GPS anti fake-location.',
+      'Merancang arsitektur backend Go Clean Architecture (DDD) yang tahan uji beban konkurensi tinggi dan transaksi database atomik aman.',
+      'Mengembangkan Multi-Role E-Learning Platform (Admin, Guru, Siswa) dengan CBT exam engine, render formula matematika KaTeX, dan rekap buku nilai otomatis berstandar KKM.',
+      'Mengembangkan KiddoGrowth (Child Development Tracker) berbasis kurva baku persentil WHO Z-score dan logging nutrisi harian.',
     ],
-    skills: ['Go', 'Clean Architecture', 'Face Recognition AI', 'Vue 3', 'React', 'Docker', 'Nginx VPS', 'MySQL'],
+    projectHighlights: [
+      {
+        name: 'Sistem Presensi Biometrik BSP',
+        tech: 'Golang, Vue 3, Docker, MinIO S3, Geofencing GPS',
+        desc: 'Aplikasi presensi multi-cabang dengan Face Recognition AI, geofencing GPS anti-spoofing, dan WebSocket real-time broadcast.',
+      },
+      {
+        name: 'Multi-Role E-Learning Platform',
+        tech: 'Golang Clean Architecture, React, Vue, KaTeX, ExcelJS',
+        desc: 'Sistem akademik 3 portal dengan CBT engine terisolasi, formula matematika presisi, dan ekspor rapor Excel berformat KKM.',
+      },
+      {
+        name: 'KiddoGrowth Healthcare',
+        tech: 'React, TypeScript, Recharts, Go API, Tailwind CSS',
+        desc: 'Engine visualisasi kurva persentil WHO Z-Score (SD -3 s/d +3) dan pelacak jadwal imunisasi dasar balita.',
+      },
+    ],
+    skills: ['Golang', 'Clean Architecture', 'Vue 3', 'React', 'TypeScript', 'Docker Compose', 'Linux VPS', 'WebSocket', 'Face Recognition AI'],
   },
   {
-    period: '2021 — 2023',
-    role: 'Full-Stack Software Engineer',
-    companyOrContext: 'Pengembangan SaaS & Solusi Bisnis',
-    location: 'Indonesia',
-    badgeColor: 'bg-blue-50 text-blue-800 border-blue-300',
-    description: 'Mengembangkan aplikasi web dan layanan backend untuk otomasi kebutuhan bisnis UMKM, e-commerce komoditas, dan pembukuan keuangan.',
+    period: 'Oktober 2022 – Oktober 2024',
+    role: 'Fullstack Developer',
+    companyOrContext: 'PT Dowlat Alib Indonesia',
+    location: 'Jakarta / Depok (Hybrid)',
+    badgeColor: 'bg-indigo-50 text-indigo-800 border-indigo-300',
+    description: 'Bertanggung jawab atas pengembangan platform e-commerce & investasi komoditas logam mulia, sistem seller end-to-end hingga go-live, RESTful API high-throughput, serta pengelolaan penuh infrastruktur server Linux VPS live.',
     achievements: [
-      'Membangun modul kalkulasi keuangan dan generator invoice PDF otomatis yang mempercepat proses penagihan.',
-      'Membuat REST API terstruktur dengan validasi input yang ketat dan dokumentasi kontrak data yang jelas.',
-      'Mendesain antarmuka responsif ramah smartphone dengan waktu muat halaman yang ringan.',
+      'Mengembangkan platform e-commerce & investasi logam mulia (Permata Warisan & Prestige Gold) berbasis Vue 3 dengan grafik harga emas real-time, modul reseller, dan transaksi admin.',
+      'Membangun sistem web seller PocketYou Seller end-to-end hingga go-live (database MySQL, backend Laravel, payment gateway, dan otomasi WhatsApp).',
+      'Merancang arsitektur High-Throughput RESTful API dan database relasional untuk aplikasi mobile SalamBaitullah (Malaysia) yang melayani ribuan pengguna aktif.',
+      'Bertanggung jawab penuh atas operasional server Linux VPS live, konfigurasi Nginx reverse proxy, proteksi SSL, serta otomasi backup data dan disaster recovery.',
     ],
-    skills: ['Go', 'TypeScript', 'React', 'Vue', 'MySQL', 'REST API', 'Tailwind CSS'],
+    projectHighlights: [
+      {
+        name: 'Permata Warisan & Prestige Gold',
+        tech: 'Vue 3, Laravel/Go, Real-Time Market Chart, AI Recommendations',
+        desc: 'Platform e-commerce & investasi emas/perhiasan dengan sinkronisasi harga pasar harian, proteksi checkout 15 menit, dan panel transaksi admin.',
+      },
+      {
+        name: 'PocketYou Seller',
+        tech: 'Laravel, MySQL, Payment Gateway, WhatsApp API',
+        desc: 'Sistem web portal seller end-to-end dari manajemen katalog, mutasi transaksi, hingga notifikasi invoice instan via WhatsApp.',
+      },
+      {
+        name: 'SalamBaitullah (Mobile Apps Malaysia)',
+        tech: 'High-Throughput RESTful API, Relational DB, JWT Auth',
+        desc: 'Arsitektur API backend berkecepatan tinggi untuk aplikasi mobile ibadah & travel dengan ribuan pengguna aktif.',
+      },
+      {
+        name: 'Manajemen Server VPS Production',
+        tech: 'Ubuntu Linux VPS, Nginx, Docker, SSL Certbot, Backup Automation',
+        desc: 'Pengelolaan infrastruktur cloud mandiri, zero-downtime deployment, optimasi reverse proxy, dan penanganan insiden server.',
+      },
+    ],
+    skills: ['Vue 3', 'Laravel', 'PHP', 'MySQL', 'RESTful API', 'Linux VPS', 'Nginx Reverse Proxy', 'Docker', 'Payment Gateway', 'WhatsApp API'],
+  },
+  {
+    period: 'Oktober 2021 – Oktober 2022',
+    role: 'Junior Programmer',
+    companyOrContext: 'PT Dowlat Alib Indonesia',
+    location: 'Jakarta / Depok (Hybrid)',
+    badgeColor: 'bg-blue-50 text-blue-800 border-blue-300',
+    description: 'Mengembangkan antarmuka web dinamis, modul portal admin data management aplikasi mobile, serta kolaborasi pengujian dan dokumentasi endpoint API.',
+    achievements: [
+      'Mengembangkan antarmuka web dinamis dan portal admin PocketYou VIP untuk manajemen data aplikasi mobile berbasis CodeIgniter 4 dan JavaScript.',
+      'Membangun modul manajemen data terpusat untuk mempermudah operasional tim support dalam memverifikasi akun pengguna dan data transaksi.',
+      'Berkolaborasi intensif menggunakan Git version control dan Postman untuk dokumentasi serta automated testing endpoint API lintas tim.',
+    ],
+    projectHighlights: [
+      {
+        name: 'PocketYou VIP Portal',
+        tech: 'CodeIgniter 4, PHP, JavaScript, Bootstrap, MySQL',
+        desc: 'Pengembangan portal admin manajemen pengguna dan konten dinamis aplikasi mobile.',
+      },
+      {
+        name: 'API Testing & Documentation',
+        tech: 'Postman, Git, JSON Schema',
+        desc: 'Penyusunan dokumentasi endpoint dan pengujian fungsionalitas API lintas tim programmer.',
+      },
+    ],
+    skills: ['CodeIgniter 4', 'PHP', 'JavaScript', 'MySQL', 'Postman', 'Git', 'Bootstrap'],
   },
 ];
+
+export const educationData: EducationItem = {
+  degree: 'D3 Sistem Informasi',
+  campus: 'Universitas Bina Sarana Informatika (UBSI)',
+  period: 'Lulus',
+  grade: 'IPK: 3.79 / 4.00',
+  status: 'Lulus dengan Predikat Sangat Memuaskan',
+  description: 'Mendalami rekayasa perangkat lunak, perancangan basis data relasional berkinerja tinggi, arsitektur sistem informasi enterprise, dan pengembangan aplikasi web terstruktur.',
+  highlights: [
+    'Meraih Indeks Prestasi Kumulatif (IPK) 3.79 dari skala 4.00.',
+    'Menyelesaikan tugas akhir implementasi sistem informasi berbasis web dengan metodologi SDLC terstruktur.',
+    'Fokus riset terapan pada performa backend API dan keandalan sistem basis data.',
+  ],
+};
+

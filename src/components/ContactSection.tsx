@@ -8,7 +8,8 @@ export const ContactSection: FC = () => {
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
 
-  const emailAddress = 'dieartco206@gmail.com';
+  const emailAddress = 'adieabay@gmail.com';
+  const phoneNumber = '+62 812-8888-7916';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
@@ -29,7 +30,7 @@ export const ContactSection: FC = () => {
     const encoded = encodeURIComponent(
       `Halo Mas Adi, nama saya ${name || 'Rekan'}.\n\n${message || 'Saya tertarik untuk berdiskusi mengenai proyek perangkat lunak.'}`
     );
-    window.open(`https://wa.me/?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/6281288887916?text=${encoded}`, '_blank');
   };
 
   return (
@@ -83,6 +84,31 @@ export const ContactSection: FC = () => {
               </div>
             </div>
 
+            {/* WhatsApp Phone Card */}
+            <a
+              href="https://wa.me/6281288887916"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-3xl bg-white border border-emerald-200/90 shadow-xs hover:border-emerald-400 transition-all block group"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/20 group-hover:scale-110 transition-transform">
+                    <MessageSquare className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono font-bold text-emerald-700 uppercase tracking-wider">WhatsApp / Telepon</span>
+                    <h3 className="text-sm font-extrabold text-zinc-950 group-hover:text-emerald-700 transition-colors">
+                      {phoneNumber}
+                    </h3>
+                  </div>
+                </div>
+                <span className="text-xs text-emerald-600 font-bold group-hover:translate-x-1 transition-transform">
+                  Chat ↗
+                </span>
+              </div>
+            </a>
+
             {/* GitHub Card */}
             <a
               href="https://github.com/dieartco206"
@@ -112,7 +138,7 @@ export const ContactSection: FC = () => {
             <div className="p-5 rounded-3xl bg-white border border-zinc-200/80 shadow-xs space-y-2.5">
               <div className="flex items-center gap-2 text-xs font-medium text-zinc-700">
                 <MapPin className="w-4 h-4 text-rose-500 shrink-0" />
-                <span>Indonesia (WIB / UTC+7) • Tersedia Remote / On-Site</span>
+                <span>Depok, Jawa Barat • Tersedia Remote & Hybrid</span>
               </div>
               <div className="flex items-center gap-2 text-xs font-medium text-zinc-700">
                 <Clock className="w-4 h-4 text-emerald-600 shrink-0" />

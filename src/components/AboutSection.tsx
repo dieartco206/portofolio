@@ -56,13 +56,13 @@ export const AboutSection: FC = () => {
             </h2>
             <div className="space-y-4 text-sm sm:text-base text-zinc-600 leading-relaxed">
               <p>
-                Saya menyukai proses membangun software dari hulu ke hilir: mulai dari menganalisis kebutuhan operasional, merancang skema tabel database, membangun endpoint API di <span className="font-semibold text-emerald-700">Golang</span>, hingga mendesain antarmuka di <span className="font-semibold text-indigo-700">Vue 3</span> atau <span className="font-semibold text-blue-700">React</span>.
+                Dengan pengalaman <strong>4+ tahun</strong> dalam rekayasa perangkat lunak skala produksi—termasuk rekam jejak di PT Dowlat Alib Indonesia dalam mengembangkan platform e-commerce logam mulia dan API berkecepatan tinggi—saya menyukai proses membangun software dari hulu ke hilir: mulai dari backend di <span className="font-semibold text-emerald-700">Golang & Laravel</span>, antarmuka modern di <span className="font-semibold text-indigo-700">Vue 3 & React</span>, hingga orkestrasi di <span className="font-semibold text-purple-700">Linux VPS & Docker</span>.
               </p>
               <p>
-                Bagi saya, sistem yang bagus bukan yang paling rumit, melainkan yang <strong>dapat diandalkan setiap hari oleh pengguna</strong>, tidak mudah crash saat traffic tinggi, dan mudah di-maintain saat ada penambahan fitur baru.
+                Saya secara aktif menerapkan metodologi <strong>AI-Assisted Development & Agentic Coding Workflows</strong> untuk mengakselerasi siklus pengembangan secara eksponensial—dari perancangan arsitektur, rapid prototyping, hingga pengujian dan deployment tanpa mengorbankan kualitas maupun keamanan data.
               </p>
               <p>
-                Ketika tidak sedang menulis kode, saya biasanya mengulik konfigurasi server Linux, mencoba tooling baru, atau mengoptimasi performa query database.
+                Bagi saya, sistem yang hebat adalah yang <strong>dapat diandalkan setiap hari oleh pengguna</strong>: stabil di traffic tinggi, minim latensi, dan terstruktur rapi untuk pemeliharaan jangka panjang.
               </p>
             </div>
           </div>
