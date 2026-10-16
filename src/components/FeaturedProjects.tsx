@@ -21,14 +21,29 @@ export const FeaturedProjects: FC = () => {
     return proj.category === activeCategory;
   });
 
+  const getCategoryBadgeClass = (category: ProjectCategory) => {
+    switch (category) {
+      case 'enterprise':
+        return 'text-emerald-800 bg-emerald-50 border-emerald-200';
+      case 'golang':
+        return 'text-blue-800 bg-blue-50 border-blue-200';
+      case 'saas':
+        return 'text-amber-800 bg-amber-50 border-amber-200';
+      case 'frontend':
+        return 'text-rose-800 bg-rose-50 border-rose-200';
+      default:
+        return 'text-zinc-700 bg-zinc-100 border-zinc-200';
+    }
+  };
+
   return (
     <section id="projects" className="py-14 sm:py-24 bg-[#f8fafc] border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5 pb-6 border-b border-zinc-200">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-zinc-100 text-zinc-700 border border-zinc-200 mb-3 shadow-2xs">
-              <Layers className="w-3.5 h-3.5 text-zinc-500" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
+              <Layers className="w-3.5 h-3.5 text-blue-600" />
               <span>Sistem Skala Produksi</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
@@ -39,7 +54,7 @@ export const FeaturedProjects: FC = () => {
             </p>
           </div>
 
-          {/* Clean Segmented Tab Control */}
+          {/* Clean Segmented Tab Control with Vibrant Active State */}
           <div className="flex items-center overflow-x-auto no-scrollbar gap-1 p-1 rounded-xl bg-white border border-zinc-200 shadow-2xs max-w-full">
             {categories.map((cat) => {
               const isActive = activeCategory === cat.value;
@@ -49,12 +64,12 @@ export const FeaturedProjects: FC = () => {
                   onClick={() => setActiveCategory(cat.value)}
                   className={`whitespace-nowrap px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-lg text-xs font-medium transition-all shrink-0 ${
                     isActive
-                      ? 'bg-zinc-950 text-white shadow-xs font-semibold'
-                      : 'text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100'
+                      ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/25 font-semibold'
+                      : 'text-zinc-600 hover:text-blue-600 hover:bg-blue-50/60'
                   }`}
                 >
                   <span>{cat.label}</span>
-                  <span className={`ml-1.5 text-[10px] font-mono px-1.5 py-0.2 rounded ${isActive ? 'bg-zinc-800 text-zinc-300' : 'bg-zinc-100 text-zinc-500'}`}>
+                  <span className={`ml-1.5 text-[10px] font-mono px-1.5 py-0.2 rounded ${isActive ? 'bg-blue-700 text-blue-100' : 'bg-zinc-100 text-zinc-500'}`}>
                     {cat.count}
                   </span>
                 </button>
@@ -67,26 +82,27 @@ export const FeaturedProjects: FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {filteredProjects.map((project) => {
             const galleryCount = project.gallery?.length || 1;
+            const badgeClass = getCategoryBadgeClass(project.category);
             return (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="group bg-white rounded-2xl border border-zinc-200/90 hover:border-zinc-400/80 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer overflow-hidden relative card-elevation"
+                className="group bg-white rounded-2xl border border-zinc-200/90 hover:border-blue-400/80 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer overflow-hidden relative card-elevation"
               >
-                {/* Minimalist Browser Frame Header */}
+                {/* Modern Browser Frame Header with Authentic Mac Traffic Lights */}
                 <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-50 border-b border-zinc-200/80">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-zinc-300" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-zinc-300" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-zinc-300" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-400 border border-rose-500/30" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-500/30" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-500/30" />
                   </div>
                   <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white border border-zinc-200 text-[11px] font-mono text-zinc-500 max-w-[210px] sm:max-w-xs truncate">
-                    <span className="text-zinc-400">app://</span>
-                    <span className="text-zinc-700 font-medium truncate">{project.id}.production</span>
+                    <span className="text-blue-500 font-bold">app://</span>
+                    <span className="text-zinc-800 font-medium truncate">{project.id}.production</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     {project.badge && (
-                      <span className="text-[10px] font-mono font-medium text-zinc-700 bg-zinc-100 border border-zinc-200 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
                         {project.badge}
                       </span>
                     )}
@@ -116,7 +132,7 @@ export const FeaturedProjects: FC = () => {
                 <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="text-[11px] font-mono font-bold text-zinc-600 bg-zinc-100 px-2 py-0.5 rounded border border-zinc-200">
+                      <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded border ${badgeClass}`}>
                         {project.categoryLabel}
                       </span>
                       <span className="text-[11px] font-mono text-zinc-400">
@@ -124,7 +140,7 @@ export const FeaturedProjects: FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold text-zinc-950 tracking-tight group-hover:text-zinc-800 transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-zinc-950 tracking-tight group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-xs text-zinc-500 font-mono mt-0.5 mb-3">
@@ -135,12 +151,12 @@ export const FeaturedProjects: FC = () => {
                       {project.description}
                     </p>
 
-                    {/* Technical Metric Badges */}
+                    {/* Technical Metric Badges with Colorful Values */}
                     <div className="grid grid-cols-2 gap-2 mb-4">
                       {project.metrics.slice(0, 2).map((metric, mIdx) => (
-                        <div key={mIdx} className="p-2 sm:p-2.5 rounded-xl bg-zinc-50 border border-zinc-200/80">
+                        <div key={mIdx} className="p-2 sm:p-2.5 rounded-xl bg-zinc-50/80 border border-zinc-200/80 group-hover:bg-blue-50/40 group-hover:border-blue-200/60 transition-colors">
                           <div className="text-[10px] font-mono text-zinc-500 uppercase">{metric.label}</div>
-                          <div className="text-xs sm:text-sm font-bold font-mono text-zinc-900 mt-0.5">{metric.value}</div>
+                          <div className="text-xs sm:text-sm font-bold font-mono text-blue-700 mt-0.5">{metric.value}</div>
                         </div>
                       ))}
                     </div>
@@ -152,7 +168,7 @@ export const FeaturedProjects: FC = () => {
                       {project.tags.slice(0, 4).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-50 text-zinc-700 border border-zinc-200/80 font-medium"
+                          className="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-50 text-zinc-700 border border-zinc-200/80 font-medium group-hover:border-zinc-300 transition-colors"
                         >
                           {tag}
                         </span>
@@ -164,7 +180,7 @@ export const FeaturedProjects: FC = () => {
                       )}
                     </div>
 
-                    <span className="text-xs font-semibold text-zinc-900 group-hover:text-zinc-950 inline-flex items-center gap-1 underline underline-offset-4 decoration-zinc-300 group-hover:decoration-zinc-900 transition-all">
+                    <span className="text-xs font-bold text-blue-600 inline-flex items-center gap-1 underline underline-offset-4 decoration-blue-200 group-hover:decoration-blue-600 transition-all">
                       <span>Detail Sistem</span>
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </span>

@@ -3,27 +3,51 @@ import { skillGroupsData } from '../data/skills';
 import { Server, Layout, Database, Terminal, Cpu } from 'lucide-react';
 
 export const TechStackBento: FC = () => {
-  const getGroupIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Server':
-        return <Server className="w-4 h-4 text-zinc-900" />;
-      case 'Layout':
-        return <Layout className="w-4 h-4 text-zinc-900" />;
-      case 'Database':
-        return <Database className="w-4 h-4 text-zinc-900" />;
-      case 'Terminal':
+  const getGroupVisuals = (id: string) => {
+    switch (id) {
+      case 'backend':
+        return {
+          icon: <Server className="w-5 h-5 text-emerald-600" />,
+          cardBg: 'bg-white hover:border-emerald-300',
+          headerBg: 'bg-emerald-50/70 border-emerald-200/80',
+          badge: 'bg-emerald-100/80 text-emerald-800 border-emerald-200',
+          tag: 'bg-emerald-50/50 text-emerald-900 border-emerald-200/70',
+        };
+      case 'frontend':
+        return {
+          icon: <Layout className="w-5 h-5 text-blue-600" />,
+          cardBg: 'bg-white hover:border-blue-300',
+          headerBg: 'bg-blue-50/70 border-blue-200/80',
+          badge: 'bg-blue-100/80 text-blue-800 border-blue-200',
+          tag: 'bg-blue-50/50 text-blue-900 border-blue-200/70',
+        };
+      case 'database':
+        return {
+          icon: <Database className="w-5 h-5 text-amber-600" />,
+          cardBg: 'bg-white hover:border-amber-300',
+          headerBg: 'bg-amber-50/70 border-amber-200/80',
+          badge: 'bg-amber-100/80 text-amber-800 border-amber-200',
+          tag: 'bg-amber-50/50 text-amber-900 border-amber-200/70',
+        };
+      case 'devops':
       default:
-        return <Terminal className="w-4 h-4 text-zinc-900" />;
+        return {
+          icon: <Terminal className="w-5 h-5 text-purple-600" />,
+          cardBg: 'bg-white hover:border-purple-300',
+          headerBg: 'bg-purple-50/70 border-purple-200/80',
+          badge: 'bg-purple-100/80 text-purple-800 border-purple-200',
+          tag: 'bg-purple-50/50 text-purple-900 border-purple-200/70',
+        };
     }
   };
 
   return (
-    <section id="skills" className="py-14 sm:py-24 bg-[#fafafa] border-b border-zinc-200/80">
+    <section id="skills" className="py-14 sm:py-24 bg-[#fafbfc] border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-zinc-100 text-zinc-700 border border-zinc-200 mb-3 shadow-2xs">
-            <Cpu className="w-3.5 h-3.5 text-zinc-500" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
+            <Cpu className="w-3.5 h-3.5 text-blue-600" />
             <span>Keahlian & Tooling Produksi</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
@@ -36,57 +60,60 @@ export const TechStackBento: FC = () => {
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          {skillGroupsData.map((group) => (
-            <div
-              key={group.id}
-              className="p-5 sm:p-6 lg:p-7 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs hover:border-zinc-400/80 transition-all card-elevation flex flex-col justify-between"
-            >
-              <div>
-                {/* Title Bar */}
-                <div className="flex items-center gap-3 pb-3.5 mb-3.5 border-b border-zinc-100">
-                  <div className="p-2 sm:p-2.5 rounded-xl bg-zinc-100 border border-zinc-200">
-                    {getGroupIcon(group.iconName)}
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-zinc-950">
-                      {group.title}
-                    </h3>
-                    <p className="text-xs text-zinc-500 font-mono">{group.subtitle}</p>
-                  </div>
-                </div>
-
-                {/* Items */}
-                <div className="space-y-3">
-                  {group.items.map((item) => (
-                    <div
-                      key={item.name}
-                      className="p-3 sm:p-3.5 rounded-xl bg-zinc-50/70 border border-zinc-200/80 hover:border-zinc-300 transition-colors"
-                    >
-                      <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1">
-                        <span className="font-bold text-xs sm:text-sm text-zinc-950">{item.name}</span>
-                        <span className="text-[10px] sm:text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 border border-zinc-200">
-                          {item.level}
-                        </span>
-                      </div>
-                      <p className="text-xs text-zinc-600 leading-relaxed mb-2.5">
-                        {item.description}
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {item.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-0.5 rounded text-[10px] font-mono bg-white text-zinc-700 border border-zinc-200 font-medium shadow-2xs"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+          {skillGroupsData.map((group) => {
+            const visual = getGroupVisuals(group.id);
+            return (
+              <div
+                key={group.id}
+                className={`p-5 sm:p-6 lg:p-7 rounded-2xl border border-zinc-200/90 shadow-2xs transition-all card-elevation flex flex-col justify-between ${visual.cardBg}`}
+              >
+                <div>
+                  {/* Title Bar */}
+                  <div className="flex items-center gap-3 pb-4 mb-4 border-b border-zinc-100">
+                    <div className={`p-2.5 sm:p-3 rounded-xl border shadow-2xs ${visual.headerBg}`}>
+                      {visual.icon}
                     </div>
-                  ))}
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold text-zinc-950">
+                        {group.title}
+                      </h3>
+                      <p className="text-xs text-zinc-500 font-mono">{group.subtitle}</p>
+                    </div>
+                  </div>
+
+                  {/* Items */}
+                  <div className="space-y-3">
+                    {group.items.map((item) => (
+                      <div
+                        key={item.name}
+                        className="p-3 sm:p-3.5 rounded-xl bg-zinc-50/70 border border-zinc-200/80 hover:border-zinc-300 transition-colors"
+                      >
+                        <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1">
+                          <span className="font-bold text-xs sm:text-sm text-zinc-950">{item.name}</span>
+                          <span className={`text-[10px] sm:text-[11px] font-mono font-semibold px-2 py-0.5 rounded border ${visual.badge}`}>
+                            {item.level}
+                          </span>
+                        </div>
+                        <p className="text-xs text-zinc-600 leading-relaxed mb-2.5">
+                          {item.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {item.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className={`px-2 py-0.5 rounded text-[10px] font-mono font-medium border shadow-2xs ${visual.tag}`}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

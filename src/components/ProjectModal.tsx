@@ -143,31 +143,31 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Problem & Solution Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-50 border border-zinc-200">
-              <h4 className="text-xs sm:text-sm font-bold text-zinc-950 mb-1.5 flex items-center gap-1.5">
+            <div className="p-4 rounded-xl sm:rounded-2xl bg-rose-50/60 border border-rose-200/80">
+              <h4 className="text-xs sm:text-sm font-bold text-rose-950 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
                 <span>Tantangan / Problem:</span>
               </h4>
-              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
                 {project.problem}
               </p>
             </div>
 
-            <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-50 border border-zinc-200">
-              <h4 className="text-xs sm:text-sm font-bold text-zinc-950 mb-1.5 flex items-center gap-1.5">
+            <div className="p-4 rounded-xl sm:rounded-2xl bg-emerald-50/60 border border-emerald-200/80">
+              <h4 className="text-xs sm:text-sm font-bold text-emerald-950 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 <span>Solusi Arsitektur:</span>
               </h4>
-              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
                 {project.solution}
               </p>
             </div>
           </div>
 
           {/* Architecture Pipeline Box */}
-          <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-900 text-zinc-100 border border-zinc-800">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 mb-2 flex items-center gap-1.5">
-              <Terminal className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-950 text-zinc-100 border border-zinc-800">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
+              <Terminal className="w-3.5 h-3.5 text-blue-400" />
               <span>Arsitektur Alur Sistem</span>
             </h4>
             <div className="font-mono text-xs sm:text-sm text-zinc-200 break-words leading-relaxed font-semibold">
@@ -177,14 +177,14 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Key Highlights */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-2.5">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
               Poin Kunci & Keunggulan Rekayasa
             </h4>
             <div className="space-y-2">
               {project.keyHighlights.map((highlight, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-700">
-                  <div className="w-4 h-4 rounded-full bg-zinc-100 text-zinc-800 flex items-center justify-center shrink-0 mt-0.5 border border-zinc-200">
-                    <Check className="w-2.5 h-2.5" />
+                  <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-300">
+                    <Check className="w-2.5 h-2.5 text-emerald-700" />
                   </div>
                   <span>{highlight}</span>
                 </div>
@@ -194,14 +194,14 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Performance Metrics */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-2.5">
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
               Metrik Sistem & Skalabilitas
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {project.metrics.map((metric, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-zinc-50 border border-zinc-200">
-                  <div className="text-[10px] font-mono uppercase text-zinc-500">{metric.label}</div>
-                  <div className="text-sm sm:text-base font-bold font-mono text-zinc-950 mt-0.5">{metric.value}</div>
+                <div key={idx} className="p-3 rounded-xl bg-blue-50/60 border border-blue-200/80">
+                  <div className="text-[10px] font-mono uppercase text-blue-700 font-semibold">{metric.label}</div>
+                  <div className="text-sm sm:text-base font-bold font-mono text-blue-900 mt-0.5">{metric.value}</div>
                 </div>
               ))}
             </div>
