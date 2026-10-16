@@ -1,6 +1,5 @@
 import { useState, type FC, type FormEvent } from 'react';
-import confetti from 'canvas-confetti';
-import { Mail, MessageSquare, Copy, Check, MapPin, Clock, Sparkles } from 'lucide-react';
+import { Mail, MessageSquare, Copy, Check, MapPin, Clock, Send, ArrowRight } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const ContactSection: FC = () => {
@@ -14,15 +13,7 @@ export const ContactSection: FC = () => {
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(emailAddress);
     setCopiedEmail(true);
-
-    confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.8 },
-      colors: ['#4f46e5', '#10b981', '#f59e0b', '#ec4899', '#06b6d4'],
-    });
-
-    setTimeout(() => setCopiedEmail(false), 2200);
+    setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   const handleWhatsAppSend = (e: FormEvent) => {
@@ -34,49 +25,49 @@ export const ContactSection: FC = () => {
   };
 
   return (
-    <section id="contact" className="py-14 sm:py-24 bg-[#f8fafc] mesh-gradient-section">
-      <div className="max-w-6xl mx-auto px-3.5 sm:px-6 lg:px-8">
+    <section id="contact" className="py-14 sm:py-24 bg-[#f8fafc] border-b border-zinc-200/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-purple-50 text-purple-700 border border-purple-200 mb-2.5 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Hubungi Saya</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-zinc-100 text-zinc-700 border border-zinc-200 mb-3 shadow-2xs">
+            <Mail className="w-3.5 h-3.5 text-zinc-500" />
+            <span>Kanal Komunikasi</span>
           </div>
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
             Mari Berdiskusi & Berkolaborasi
           </h2>
           <p className="text-xs sm:text-sm text-zinc-600 mt-1.5 leading-relaxed">
-            Terbuka untuk konsultasi sistem, proyek baru, atau peran Full-Stack / Backend Engineer. Jangan ragu menyapa melalui saluran di bawah ini.
+            Terbuka untuk konsultasi arsitektur sistem, proyek baru, atau peran Full-Stack / Backend Software Engineer.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left: Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-3 sm:space-y-4">
+          <div className="lg:col-span-5 space-y-3.5">
             {/* Copy Email Card */}
-            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-indigo-200/80 shadow-xs hover:border-indigo-400 transition-all">
+            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs card-elevation">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] sm:text-xs font-mono font-bold text-indigo-700 uppercase tracking-wider">Email Utama</span>
-                <span className="text-[10px] sm:text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-300">
-                  Respon Cepat
+                <span className="text-xs font-mono font-bold text-zinc-500 uppercase tracking-wider">Email Resmi</span>
+                <span className="text-[11px] font-mono font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  Aktif & Responsif
                 </span>
               </div>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-indigo-50/50 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl border border-indigo-100 mt-2">
-                <div className="flex items-center gap-2 truncate">
-                  <Mail className="w-4 h-4 text-indigo-600 shrink-0" />
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-zinc-50 p-3.5 rounded-xl border border-zinc-200/80 mt-2">
+                <div className="flex items-center gap-2.5 truncate">
+                  <Mail className="w-4 h-4 text-zinc-500 shrink-0" />
                   <span className="text-xs sm:text-sm font-mono font-semibold text-zinc-900 truncate">{emailAddress}</span>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="px-3 py-1.5 rounded-xl text-xs font-bold bg-white hover:bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-2xs flex items-center justify-center gap-1.5 shrink-0 transition-all active:scale-95"
+                  className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-white hover:bg-zinc-100 text-zinc-800 border border-zinc-200 shadow-2xs flex items-center justify-center gap-1.5 shrink-0 transition-all active:scale-95"
                 >
                   {copiedEmail ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-emerald-600" />
-                      <span className="text-emerald-700">Tersalin!</span>
+                      <span className="text-emerald-700">Tersalin</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5" />
+                      <Copy className="w-3.5 h-3.5 text-zinc-500" />
                       <span>Salin Email</span>
                     </>
                   )}
@@ -84,28 +75,24 @@ export const ContactSection: FC = () => {
               </div>
             </div>
 
-            {/* WhatsApp Phone Card */}
+            {/* WhatsApp Direct Card */}
             <a
               href="https://wa.me/6281288887916"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-emerald-200/90 shadow-xs hover:border-emerald-400 transition-all block group"
+              className="p-5 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs hover:border-zinc-400 transition-all block group card-elevation"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
-                    <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <div className="p-2.5 rounded-xl bg-zinc-100 text-zinc-900 border border-zinc-200 group-hover:bg-zinc-200 transition-colors">
+                    <MessageSquare className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono font-bold text-emerald-700 uppercase tracking-wider">WhatsApp Langsung</span>
-                    <h3 className="text-xs sm:text-sm font-extrabold text-zinc-950 group-hover:text-emerald-700 transition-colors">
-                      {phoneNumber}
-                    </h3>
+                    <span className="text-xs font-mono font-bold text-zinc-500 uppercase tracking-wider">WhatsApp Langsung</span>
+                    <p className="text-sm font-bold font-mono text-zinc-950 mt-0.5">{phoneNumber}</p>
                   </div>
                 </div>
-                <span className="text-xs text-emerald-600 font-bold group-hover:translate-x-1 transition-transform">
-                  Chat ↗
-                </span>
+                <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 group-hover:text-zinc-950 transition-all" />
               </div>
             </a>
 
@@ -114,94 +101,85 @@ export const ContactSection: FC = () => {
               href="https://github.com/dieartco206"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/90 shadow-xs hover:border-purple-400 transition-all block group"
+              className="p-5 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs hover:border-zinc-400 transition-all block group card-elevation"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-purple-500 to-indigo-600 text-white shadow-md shadow-purple-500/20 group-hover:scale-105 transition-transform">
-                    <GithubIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <div className="p-2.5 rounded-xl bg-zinc-100 text-zinc-900 border border-zinc-200 group-hover:bg-zinc-200 transition-colors">
+                    <GithubIcon className="w-4 h-4" />
                   </div>
                   <div>
-                    <h3 className="text-xs sm:text-sm font-extrabold text-zinc-950 group-hover:text-purple-700 transition-colors">
-                      github.com/dieartco206
-                    </h3>
-                    <p className="text-[11px] text-zinc-500">Repositori & kontribusi kode</p>
+                    <span className="text-xs font-mono font-bold text-zinc-500 uppercase tracking-wider">Repositori Publik</span>
+                    <p className="text-sm font-bold font-mono text-zinc-950 mt-0.5">github.com/dieartco206</p>
                   </div>
                 </div>
-                <span className="text-xs text-purple-600 font-bold group-hover:translate-x-1 transition-transform">
-                  Buka ↗
-                </span>
+                <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 group-hover:text-zinc-950 transition-all" />
               </div>
             </a>
 
-            {/* Location Card */}
-            <div className="p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-zinc-200/80 shadow-xs space-y-2">
-              <div className="flex items-center gap-2 text-xs font-medium text-zinc-700">
-                <MapPin className="w-4 h-4 text-rose-500 shrink-0" />
-                <span>Depok, Jawa Barat • Remote & Hybrid</span>
+            {/* Location & Time Info */}
+            <div className="p-4 rounded-xl bg-zinc-100/70 border border-zinc-200/80 flex items-center justify-between text-xs text-zinc-600 font-mono">
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                <span>Depok, Jawa Barat</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-medium text-zinc-700">
-                <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Senin – Jumat (09:00 - 18:00 WIB)</span>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-zinc-500" />
+                <span>WIB (UTC+7)</span>
               </div>
             </div>
           </div>
 
-          {/* Right: Simple Message Form */}
-          <div className="lg:col-span-7 bg-white border border-zinc-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-8 shadow-xs">
-            <h3 className="text-base sm:text-xl font-black text-zinc-950 mb-1">
-              Kirim Pesan Langsung
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-500 mb-4 sm:mb-6">
-              Pesan akan otomatis dirangkum dan diarahkan ke WhatsApp atau Email Anda.
-            </p>
-
-            <form onSubmit={handleWhatsAppSend} className="space-y-3.5 sm:space-y-4">
-              <div>
-                <label className="block text-[11px] sm:text-xs font-mono font-bold text-zinc-700 mb-1 uppercase tracking-wider">
-                  Nama Anda / Perusahaan
-                </label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Misal: Budi / Tim HR"
-                  className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl bg-zinc-50 border border-zinc-200 text-xs sm:text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-indigo-500 focus:bg-white transition-colors"
-                />
+          {/* Right: Quick Direct WhatsApp Message Form */}
+          <div className="lg:col-span-7">
+            <div className="p-5 sm:p-7 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs card-elevation">
+              <div className="mb-5 pb-4 border-b border-zinc-100">
+                <h3 className="text-base sm:text-lg font-bold text-zinc-950">
+                  Kirim Pesan Cepat via WhatsApp
+                </h3>
+                <p className="text-xs text-zinc-500 mt-1">
+                  Pesan akan otomatis dirangkum dan diteruskan langsung ke WhatsApp saya.
+                </p>
               </div>
 
-              <div>
-                <label className="block text-[11px] sm:text-xs font-mono font-bold text-zinc-700 mb-1 uppercase tracking-wider">
-                  Pesan atau Kebutuhan
-                </label>
-                <textarea
-                  rows={4}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Ceritakan gambaran sistem atau proyek yang ingin Anda diskusikan..."
-                  className="w-full px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl bg-zinc-50 border border-zinc-200 text-xs sm:text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-indigo-500 focus:bg-white transition-colors resize-none"
-                />
-              </div>
+              <form onSubmit={handleWhatsAppSend} className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-xs font-mono font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
+                    Nama Anda / Institusi
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Contoh: Budi Pratama / PT Maju Teknologi"
+                    className="w-full px-3.5 py-2.5 rounded-xl text-xs sm:text-sm bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:border-zinc-950 transition-all"
+                  />
+                </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
+                <div>
+                  <label htmlFor="message" className="block text-xs font-mono font-bold uppercase tracking-wider text-zinc-700 mb-1.5">
+                    Rincian Pesan / Kebutuhan Sistem
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tuliskan kebutuhan sistem, arsitektur yang ingin didiskusikan, atau tawaran kerja sama..."
+                    className="w-full px-3.5 py-2.5 rounded-xl text-xs sm:text-sm bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:border-zinc-950 transition-all resize-none"
+                  />
+                </div>
+
                 <button
                   type="submit"
-                  className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md shadow-emerald-500/20 transition-all active:scale-[0.98]"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-zinc-950 hover:bg-zinc-800 text-white shadow-xs transition-all active:scale-[0.98]"
                 >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Kirim via WhatsApp</span>
+                  <Send className="w-3.5 h-3.5" />
+                  <span>Kirim ke WhatsApp (+62 812-8888-7916)</span>
                 </button>
-                <a
-                  href={`mailto:${emailAddress}?subject=Diskusi Proyek&body=${encodeURIComponent(
-                    message || 'Halo Adi Kurniawan, saya ingin berdiskusi mengenai proyek...'
-                  )}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-semibold bg-white hover:bg-zinc-50 text-zinc-800 border border-zinc-200 transition-all shadow-2xs"
-                >
-                  <Mail className="w-4 h-4 text-indigo-600" />
-                  <span>Kirim via Email</span>
-                </a>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>

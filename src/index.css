@@ -15,17 +15,20 @@
   }
 
   body {
-    background-color: #fcfcfd;
-    color: #18181b;
+    background-color: #fafafa;
+    color: #09090b;
     overflow-x: hidden;
     width: 100%;
     position: relative;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Custom Light Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
 
   ::-webkit-scrollbar-track {
@@ -33,40 +36,37 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
+    background: #d4d4d8;
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #a1a1aa;
   }
 }
 
 @layer utilities {
-  /* Colorful Mesh Gradients for background ambience */
-  .mesh-gradient-hero {
+  /* Architectural Engineering Grid & Dots */
+  .bg-grid-subtle {
     background-image: 
-      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(244, 63, 94, 0.10) 0px, transparent 50%),
-      radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.10) 0px, transparent 50%);
+      linear-gradient(to right, rgba(24, 24, 27, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(24, 24, 27, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
-  .mesh-gradient-section {
-    background-image: 
-      radial-gradient(at 100% 10%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
-      radial-gradient(at 0% 90%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+  .bg-dots-subtle {
+    background-image: radial-gradient(rgba(24, 24, 27, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 
-  /* Vibrant card lift effect */
-  .vibrant-card {
-    background-color: #ffffff;
+  /* Clean elevation shadow */
+  .card-elevation {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .vibrant-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.06), 0 4px 8px -2px rgba(0, 0, 0, 0.03);
+  .card-elevation:hover {
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
   }
 
   /* Hide scrollbar for clean horizontal tab scrolling */
