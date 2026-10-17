@@ -16,7 +16,7 @@ export const ExperienceTimeline: FC = () => {
             Pengalaman Kerja
           </h2>
           <p className="text-xs sm:text-sm text-zinc-600 mt-1.5 leading-relaxed">
-            Rekam jejak 4+ tahun dalam rekayasa sistem produksi dan DevOps VPS.
+            Pengalaman 4+ tahun dalam pengembangan aplikasi web, backend API, dan pengelolaan server VPS.
           </p>
         </div>
 

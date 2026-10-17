@@ -338,7 +338,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-950 text-zinc-100 border border-zinc-800">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-blue-400" />
-              <span>Alur Arsitektur</span>
+              <span>Alur Sistem</span>
             </h4>
             <div className="font-mono text-xs sm:text-sm text-zinc-200 break-words leading-relaxed font-semibold">
               {project.architecture}
@@ -365,7 +365,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* Performance Metrics */}
           <div>
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
-              Metrik Kinerja
+              Spesifikasi & Fitur
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {project.metrics.map((metric, idx) => (
@@ -383,7 +383,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 flex items-center gap-1.5">
                   <Terminal className="w-3.5 h-3.5 text-zinc-700" />
-                  <span>Kode Produksi ({project.codeSnippet.filename})</span>
+                  <span>Contoh Kode ({project.codeSnippet.filename})</span>
                 </span>
                 <button
                   onClick={handleCopyCode}

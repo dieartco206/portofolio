@@ -54,7 +54,7 @@ export const Navbar: FC = () => {
                 </span>
               </div>
               <p className="text-[11px] sm:text-xs text-zinc-500 font-mono hidden sm:block">
-                Fullstack Software Engineer & DevOps
+                Fullstack Web Developer
               </p>
             </div>
           </a>

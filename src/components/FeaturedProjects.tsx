@@ -44,13 +44,13 @@ export const FeaturedProjects: FC = () => {
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-2.5 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-blue-600" />
-              <span>Proyek Produksi</span>
+              <span>Portofolio Proyek</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
-              Portofolio Sistem
+              Daftar Proyek
             </h2>
             <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-xl leading-relaxed">
-              Sistem produksi nyata: backend microservices, database relasional, dan UI web interaktif.
+              Aplikasi web, backend API, dan sistem manajemen yang telah dikembangkan.
             </p>
           </div>
 

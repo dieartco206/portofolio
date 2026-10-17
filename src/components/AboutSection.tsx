@@ -13,31 +13,31 @@ export const AboutSection: FC = () => {
       desc: 'Pemisahan logika bisnis dan database agar kode mudah diuji, dibaca tim, dan siap scale.',
     },
     {
-      title: 'Integritas Data & Concurrency',
+      title: 'Integritas Data & Database',
       icon: <Shield className="w-4 h-4 text-blue-600" />,
-      tag: 'Zero Race Condition',
+      tag: 'Integritas Data',
       themeBg: 'bg-blue-50/50 hover:bg-blue-50/80 border-blue-200/90 hover:border-blue-400',
       tagColor: 'bg-blue-100/90 text-blue-800 border-blue-200',
       iconBg: 'bg-blue-100/80 border-blue-200/80',
-      desc: 'Cegah double check-in dan selisih stok via transaksi database ACID & Go sync primitives.',
+      desc: 'Penanganan transaksi database ACID dan validasi data terstruktur untuk menjaga konsistensi data.',
     },
     {
-      title: 'Optimasi Latensi & Database',
+      title: 'Optimasi Query & Caching',
       icon: <Zap className="w-4 h-4 text-amber-600" />,
-      tag: 'Throughput',
+      tag: 'Performa',
       themeBg: 'bg-amber-50/50 hover:bg-amber-50/80 border-amber-200/90 hover:border-amber-400',
       tagColor: 'bg-amber-100/90 text-amber-800 border-amber-200',
       iconBg: 'bg-amber-100/80 border-amber-200/80',
-      desc: 'Skema relasional, indeks komposit, dan Redis cache agar respon API konsisten < 50ms.',
+      desc: 'Optimasi skema tabel relasional, indexing query, dan pemanfaatan Redis caching.',
     },
     {
-      title: 'Ergonomi Mobile-First',
+      title: 'Desain Responsif & Nyaman',
       icon: <Smartphone className="w-4 h-4 text-purple-600" />,
-      tag: 'Apple HIG / WCAG',
+      tag: 'Responsif',
       themeBg: 'bg-purple-50/50 hover:bg-purple-50/80 border-purple-200/90 hover:border-purple-400',
       tagColor: 'bg-purple-100/90 text-purple-800 border-purple-200',
       iconBg: 'bg-purple-100/80 border-purple-200/80',
-      desc: 'Layout responsif smartphone, target sentuh minimal 44px, dan waktu muat secepat kilat.',
+      desc: 'Tampilan rapi dan proporsional di smartphone maupun desktop, dengan navigasi yang mudah.',
     },
   ];
 
@@ -54,7 +54,7 @@ export const AboutSection: FC = () => {
             </div>
             
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight leading-tight">
-              Solusi praktis untuk masalah nyata.
+              Solusi praktis untuk kebutuhan nyata.
             </h2>
 
             {/* Engineer Profile Card Snippet */}
@@ -66,7 +66,7 @@ export const AboutSection: FC = () => {
               />
               <div>
                 <h4 className="text-sm font-bold text-zinc-950">Adi Kurniawan</h4>
-                <p className="text-xs text-zinc-600 font-mono">Fullstack Engineer & Systems Architect</p>
+                <p className="text-xs text-zinc-600 font-mono">Fullstack Web Developer</p>
                 <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 font-mono font-semibold mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   <span>Depok, Jawa Barat</span>
@@ -76,10 +76,10 @@ export const AboutSection: FC = () => {
 
             <div className="space-y-3 text-xs sm:text-sm lg:text-base text-zinc-600 leading-relaxed">
               <p>
-                Pengalaman <strong>4+ tahun</strong> membangun aplikasi skala produksi—termasuk di PT Dowlat Alib Indonesia (e-commerce logam mulia & API mobile). Terbiasa menangani siklus hulu-hilir: backend <span className="font-semibold text-emerald-900 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-200">Go & Laravel</span>, frontend modern <span className="font-semibold text-blue-900 bg-blue-50 px-1 py-0.5 rounded border border-blue-200">Vue 3 & React</span>, serta orkestrasi <span className="font-semibold text-purple-900 bg-purple-50 px-1 py-0.5 rounded border border-purple-200">Linux VPS & Docker</span>.
+                Pengalaman <strong>4+ tahun</strong> mengembangkan aplikasi web dan backend—termasuk di PT Dowlat Alib Indonesia (e-commerce logam mulia & API mobile). Terbiasa menangani siklus hulu-hilir: backend <span className="font-semibold text-emerald-900 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-200">Go & Laravel</span>, frontend <span className="font-semibold text-blue-900 bg-blue-50 px-1 py-0.5 rounded border border-blue-200">Vue 3 & React</span>, serta deployment <span className="font-semibold text-purple-900 bg-purple-50 px-1 py-0.5 rounded border border-purple-200">Linux VPS & Docker</span>.
               </p>
               <p>
-                Fokus utama: sistem yang <strong>dapat diandalkan setiap hari</strong>—stabil pada traffic tinggi, minim latensi, dan terstruktur rapi untuk kolaborasi jangka panjang.
+                Fokus utama: sistem yang <strong>stabil, mudah dirawat, dan terstruktur rapi</strong> untuk penggunaan jangka panjang.
               </p>
             </div>
           </div>

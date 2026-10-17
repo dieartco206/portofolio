@@ -17,7 +17,7 @@ export const Footer: FC = () => {
             </div>
             <div className="text-left">
               <span className="font-bold text-zinc-950 text-sm">Adi Kurniawan</span>
-              <p className="text-[11px] text-zinc-500 font-mono">Fullstack Software Engineer & DevOps</p>
+              <p className="text-[11px] text-zinc-500 font-mono">Fullstack Web Developer</p>
             </div>
           </div>
 

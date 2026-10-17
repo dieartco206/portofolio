@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { ArrowRight, Terminal, CheckCircle2, MapPin } from 'lucide-react';
+import { ArrowRight, Terminal, MapPin } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const Hero: FC = () => {
@@ -24,24 +24,24 @@ export const Hero: FC = () => {
 
             {/* Headline with vibrant tech accents */}
             <h1 className="text-3xl sm:text-5xl lg:text-[3.1rem] font-black tracking-tight text-zinc-950 leading-[1.15]">
-              Membangun backend{' '}
+              Pengembangan aplikasi web &{' '}
               <span className="text-blue-600 underline decoration-blue-200 underline-offset-4 decoration-4">
-                performa tinggi
+                backend API
               </span>{' '}
-              & sistem web skala produksi.
+              yang handal.
             </h1>
 
             {/* Concise Bio */}
             <p className="text-sm sm:text-base lg:text-lg text-zinc-600 leading-relaxed max-w-2xl">
-              Software engineer <strong className="text-zinc-950 font-bold">Adi Kurniawan</strong> (4+ tahun pengalaman). Berfokus pada arsitektur backend{' '}
+              Software developer <strong className="text-zinc-950 font-bold">Adi Kurniawan</strong> dengan 4+ tahun pengalaman. Terbiasa membangun backend{' '}
               <span className="font-semibold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
                 Go & Laravel
               </span>
-              , antarmuka reaktif{' '}
+              , antarmuka web{' '}
               <span className="font-semibold text-blue-800 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
                 Vue 3 & React
               </span>
-              , serta DevOps mandiri{' '}
+              , serta deployment server{' '}
               <span className="font-semibold text-purple-800 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">
                 Linux VPS & Docker
               </span>
@@ -84,7 +84,7 @@ export const Hero: FC = () => {
               <div className="relative rounded-2xl overflow-hidden bg-gradient-to-b from-blue-50 to-emerald-50/40 border border-zinc-200/80">
                 <img
                   src="/adi-kurniawan.png"
-                  alt="Adi Kurniawan - Software Engineer"
+                  alt="Adi Kurniawan - Software Developer"
                   className="w-full h-auto aspect-[3/4] object-cover object-top hover:scale-[1.02] transition-transform duration-300"
                 />
 
@@ -92,7 +92,7 @@ export const Hero: FC = () => {
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-white/95 backdrop-blur-md text-zinc-900 border border-zinc-200/90 shadow-xs">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span>Lead Systems Architect</span>
+                    <span>Fullstack Developer</span>
                   </span>
                   <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-semibold bg-blue-600/90 backdrop-blur-md text-white shadow-xs">
                     4+ Thn
@@ -104,11 +104,7 @@ export const Hero: FC = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-bold text-sm sm:text-base tracking-tight">Adi Kurniawan</h3>
-                      <p className="text-[11px] sm:text-xs text-zinc-300 font-mono">D3 SI UBSI • IPK 3.79</p>
-                    </div>
-                    <div className="flex items-center gap-1 bg-emerald-500/20 border border-emerald-400/40 px-2 py-0.5 rounded text-[10px] font-mono text-emerald-300 font-bold">
-                      <CheckCircle2 className="w-3 h-3" />
-                      <span>Verified</span>
+                      <p className="text-[11px] sm:text-xs text-zinc-300 font-mono">D3 Sistem Informasi UBSI • IPK 3.79</p>
                     </div>
                   </div>
                 </div>
@@ -118,11 +114,11 @@ export const Hero: FC = () => {
               <div className="mt-3 grid grid-cols-2 gap-2 text-center">
                 <div className="p-2 rounded-xl bg-blue-50/70 border border-blue-200/70">
                   <div className="text-[11px] font-mono font-bold text-blue-900">Backend & API</div>
-                  <div className="text-[10px] font-mono text-blue-700">Golang, Fiber, DDD</div>
+                  <div className="text-[10px] font-mono text-blue-700">Golang & Laravel</div>
                 </div>
                 <div className="p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/70">
-                  <div className="text-[11px] font-mono font-bold text-emerald-900">Infra & DevOps</div>
-                  <div className="text-[10px] font-mono text-emerald-700">Linux VPS & Docker</div>
+                  <div className="text-[11px] font-mono font-bold text-emerald-900">Web & DevOps</div>
+                  <div className="text-[10px] font-mono text-emerald-700">Vue/React & Linux VPS</div>
                 </div>
               </div>
             </div>
@@ -133,26 +129,26 @@ export const Hero: FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-10 sm:mt-14 pt-6 border-t border-zinc-200/80">
           <div className="p-3.5 sm:p-4 rounded-2xl bg-blue-50/60 border border-blue-200/80 shadow-2xs card-elevation">
             <div className="text-2xl sm:text-3xl font-black font-mono text-blue-600">4+ Tahun</div>
-            <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Pengalaman Produksi</div>
-            <div className="text-[10px] font-mono text-blue-700/80">Fullstack & DevOps</div>
+            <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Pengalaman Kerja</div>
+            <div className="text-[10px] font-mono text-blue-700/80">Web & Backend Dev</div>
           </div>
 
           <div className="p-3.5 sm:p-4 rounded-2xl bg-indigo-50/60 border border-indigo-200/80 shadow-2xs card-elevation">
-            <div className="text-2xl sm:text-3xl font-black font-mono text-indigo-600">7+ Sistem</div>
-            <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Aplikasi Live</div>
-            <div className="text-[10px] font-mono text-indigo-700/80">Multi-Cabang & ERP</div>
+            <div className="text-2xl sm:text-3xl font-black font-mono text-indigo-600">7+ Proyek</div>
+            <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Aplikasi Selesai</div>
+            <div className="text-[10px] font-mono text-indigo-700/80">E-Commerce & Sistem</div>
           </div>
 
           <div className="p-3.5 sm:p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 shadow-2xs card-elevation">
-            <div className="text-2xl sm:text-3xl font-black font-mono text-emerald-600">99.9%</div>
-            <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Uptime Server VPS</div>
-            <div className="text-[10px] font-mono text-emerald-700/80">Docker & Nginx SSL</div>
+            <div className="text-2xl sm:text-3xl font-black font-mono text-emerald-600">Linux VPS</div>
+            <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Deployment Mandiri</div>
+            <div className="text-[10px] font-mono text-emerald-700/80">Docker & Nginx Reverse Proxy</div>
           </div>
 
           <div className="p-3.5 sm:p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 shadow-2xs card-elevation">
             <div className="text-2xl sm:text-3xl font-black font-mono text-amber-600">3.79 / 4.00</div>
             <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">IPK Kelulusan D3</div>
-            <div className="text-[10px] font-mono text-amber-700/80">Sistem Informasi UBSI</div>
+            <div className="text-[10px] font-mono text-amber-700/80">Universitas BSI</div>
           </div>
         </div>
 
