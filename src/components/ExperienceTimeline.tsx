@@ -135,7 +135,7 @@ export const ExperienceTimeline: FC = () => {
                 <span className="text-base font-bold text-zinc-950">
                   {educationData.degree}
                 </span>
-                <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded border border-emerald-300">
+                <span className="text-xs font-semibold text-zinc-700 bg-white/90 px-2 py-0.5 rounded border border-zinc-200">
                   {educationData.status}
                 </span>
               </div>

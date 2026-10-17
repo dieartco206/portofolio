@@ -27,8 +27,8 @@ export const Hero: FC = () => {
               Pengembangan aplikasi web &{' '}
               <span className="text-blue-600 underline decoration-blue-200 underline-offset-4 decoration-4">
                 backend API
-              </span>{' '}
-              yang handal.
+              </span>
+              .
             </h1>
 
             {/* Concise Bio */}

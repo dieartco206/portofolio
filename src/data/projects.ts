@@ -296,7 +296,7 @@ func (s *QuizService) SubmitExam(ctx context.Context, studentID, examID int64, a
       lightBg: 'bg-blue-50/60',
       iconBg: 'bg-blue-600',
     },
-    description: 'Website institusi pendidikan modern untuk Sekolah Islam Terpadu Binakheir yang menyajikan profil sekolah, kurikulum unggulan, galeri kegiatan, serta alur pendaftaran siswa baru (PPDB online).',
+    description: 'Website institusi pendidikan modern untuk Sekolah Islam Terpadu Binakheir yang menyajikan profil sekolah, kurikulum sekolah, galeri kegiatan, serta alur pendaftaran siswa baru (PPDB online).',
     problem: 'Brosur fisik pendaftaran sering tidak sampai ke calon wali murid, informasi program sekolah sulit diakses, dan alur pendaftaran belum terpusat.',
     solution: 'Membangun portal sekolah interaktif berbasis React dengan animasi halus, sajian informasi kurikulum komprehensif, dan tombol formulir pendaftaran PPDB yang mudah diakses.',
     architecture: 'React + TypeScript -> Tailwind CSS -> Framer Motion -> PPDB Registration Flow.',

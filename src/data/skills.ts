@@ -4,7 +4,7 @@ export const skillGroupsData: SkillGroup[] = [
   {
     id: 'backend',
     title: 'Backend & Sistem',
-    subtitle: 'Logika bisnis cepat, aman, dan mudah di-maintain',
+    subtitle: 'Logika bisnis terstruktur, efisien, dan maintainable',
     iconName: 'Server',
     themeColor: 'text-emerald-700',
     borderTheme: 'border-emerald-200/90 hover:border-emerald-400',
@@ -19,21 +19,21 @@ export const skillGroupsData: SkillGroup[] = [
       },
       {
         name: 'RESTful API & WebSocket',
-        level: 'Mahir',
+        level: 'API & Protokol',
         experience: 'Real-Time Sync',
         description: 'Desain REST API terstruktur dan sinkronisasi dua arah real-time via WebSocket.',
         tags: ['WebSocket', 'RESTful API', 'JSON DTO', 'Middleware'],
       },
       {
         name: 'Keamanan & Autentikasi',
-        level: 'Penerapan Standar',
+        level: 'Keamanan Data',
         experience: 'Proteksi Data',
         description: 'JWT RBAC, hashing Argon2/Bcrypt, sanitasi input, dan proteksi SQL Injection.',
         tags: ['JWT RBAC', 'Bcrypt / Argon2', 'CORS Security', 'Sanitasi Input'],
       },
       {
         name: 'Python Skrip & Otomasi',
-        level: 'Praktis',
+        level: 'Scripting & Tooling',
         experience: 'Tooling & Skrip',
         description: 'Skrip pemeliharaan database, manipulasi data batch, dan bot otomasi server.',
         tags: ['Automation', 'Data Scripts', 'Maintenance Bot'],
@@ -43,7 +43,7 @@ export const skillGroupsData: SkillGroup[] = [
   {
     id: 'frontend',
     title: 'Frontend & Mobile',
-    subtitle: 'Antarmuka responsif, modern, dan ringan',
+    subtitle: 'Antarmuka responsif, terstruktur, dan modular',
     iconName: 'Layout',
     themeColor: 'text-blue-700',
     borderTheme: 'border-blue-200/90 hover:border-blue-400',
@@ -51,28 +51,28 @@ export const skillGroupsData: SkillGroup[] = [
     items: [
       {
         name: 'Vue 3 & Ekosistemnya',
-        level: 'Mahir',
+        level: 'Frontend Framework',
         experience: 'Web & Desktop',
         description: 'Composition API, Pinia state, Vite, dan integrasi Electron untuk desktop app.',
         tags: ['Vue 3', 'Composition API', 'Pinia', 'Vite', 'Electron'],
       },
       {
         name: 'React & TypeScript',
-        level: 'Mahir',
+        level: 'Frontend Library',
         experience: 'Aplikasi Web Modern',
         description: 'Komponen modular type-safe, custom hooks, dan rendering optimal.',
         tags: ['React', 'TypeScript', 'Hooks', 'Vite', 'Tailwind CSS'],
       },
       {
         name: 'Tailwind CSS & Desain Bersih',
-        level: 'Fasih',
+        level: 'Styling & Desain',
         experience: 'Desain Antarmuka',
         description: 'Layout mobile-first responsif, hierarki tipografi rapi, dan micro-interaction.',
         tags: ['Tailwind CSS', 'Responsive', 'Mobile-First', 'Aksesibilitas'],
       },
       {
         name: 'Flutter & Mobile App',
-        level: 'Menengah',
+        level: 'Mobile Framework',
         experience: 'Android & iOS',
         description: 'Aplikasi mobile cross-platform responsif dengan REST API dan offline storage.',
         tags: ['Flutter', 'Dart', 'Cross-Platform', 'Mobile UI'],
@@ -82,7 +82,7 @@ export const skillGroupsData: SkillGroup[] = [
   {
     id: 'database',
     title: 'Database & Penyimpanan',
-    subtitle: 'Integritas data dan query berkecepatan tinggi',
+    subtitle: 'Skema relasional, optimasi query, dan manajemen data',
     iconName: 'Database',
     themeColor: 'text-amber-800',
     borderTheme: 'border-amber-200/90 hover:border-amber-400',
@@ -255,10 +255,10 @@ export const educationData: EducationItem = {
   campus: 'Universitas Bina Sarana Informatika (UBSI)',
   period: 'Lulus',
   grade: 'IPK: 3.79 / 4.00',
-  status: 'Lulus Sangat Memuaskan',
+  status: 'Lulus',
   description: 'Rekayasa perangkat lunak, perancangan basis data relasional, dan pengembangan aplikasi web.',
   highlights: [
-    'Meraih IPK 3.79 dari skala 4.00 (Sangat Memuaskan).',
+    'Meraih IPK 3.79 dari skala 4.00.',
     'Tugas akhir implementasi sistem informasi web berstandar SDLC.',
   ],
 };
