@@ -42,7 +42,7 @@ export const FeaturedProjects: FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 pb-5 border-b border-zinc-200">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-2.5 shadow-2xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-2.5 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-blue-600" />
               <span>Portofolio Proyek</span>
             </div>
@@ -69,7 +69,7 @@ export const FeaturedProjects: FC = () => {
                   }`}
                 >
                   <span>{cat.label}</span>
-                  <span className={`ml-1.5 text-[10px] font-mono px-1.5 py-0.2 rounded ${isActive ? 'bg-blue-700 text-blue-100' : 'bg-zinc-100 text-zinc-500'}`}>
+                  <span className={`ml-1.5 text-[10px] font-semibold px-1.5 py-0.2 rounded ${isActive ? 'bg-blue-700 text-blue-100' : 'bg-zinc-100 text-zinc-500'}`}>
                     {cat.count}
                   </span>
                 </button>
@@ -96,13 +96,13 @@ export const FeaturedProjects: FC = () => {
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-500/30" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-500/30" />
                   </div>
-                  <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white border border-zinc-200 text-[11px] font-mono text-zinc-500 max-w-[210px] sm:max-w-xs truncate">
+                  <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white border border-zinc-200 text-[11px] font-medium text-zinc-500 max-w-[210px] sm:max-w-xs truncate">
                     <span className="text-blue-500 font-bold">app://</span>
                     <span className="text-zinc-800 font-medium truncate">{project.id}.production</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     {project.badge && (
-                      <span className="text-[10px] font-mono font-bold text-blue-800 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-bold text-blue-800 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
                         {project.badge}
                       </span>
                     )}
@@ -123,7 +123,7 @@ export const FeaturedProjects: FC = () => {
 
                   {/* Floating Screenshot Count Pill */}
                   <div className="absolute bottom-3 right-3">
-                    <span className="text-[11px] font-mono font-semibold text-zinc-900 bg-white/95 px-2.5 py-1 rounded-lg border border-zinc-200 shadow-xs backdrop-blur-xs flex items-center gap-1.5">
+                    <span className="text-[11px] font-semibold text-zinc-900 bg-white/95 px-2.5 py-1 rounded-lg border border-zinc-200 shadow-xs backdrop-blur-xs flex items-center gap-1.5">
                       <span>{galleryCount} Foto UI Asli</span>
                     </span>
                   </div>
@@ -133,10 +133,10 @@ export const FeaturedProjects: FC = () => {
                 <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded border ${badgeClass}`}>
+                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded border ${badgeClass}`}>
                         {project.categoryLabel}
                       </span>
-                      <span className="text-[11px] font-mono text-zinc-400">
+                      <span className="text-[11px] font-medium text-zinc-500">
                         Peran: <strong className="text-zinc-700 font-semibold">{project.role}</strong>
                       </span>
                     </div>
@@ -144,7 +144,7 @@ export const FeaturedProjects: FC = () => {
                     <h3 className="text-base sm:text-xl font-bold text-zinc-950 tracking-tight group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-xs text-zinc-500 font-mono mt-0.5 mb-3">
+                    <p className="text-xs text-zinc-500 font-medium mt-0.5 mb-3">
                       {project.subtitle}
                     </p>
 
@@ -156,8 +156,8 @@ export const FeaturedProjects: FC = () => {
                     <div className="grid grid-cols-2 gap-2 mb-4">
                       {project.metrics.slice(0, 2).map((metric, mIdx) => (
                         <div key={mIdx} className="p-2 sm:p-2.5 rounded-xl bg-zinc-50/80 border border-zinc-200/80 group-hover:bg-blue-50/40 group-hover:border-blue-200/60 transition-colors">
-                          <div className="text-[10px] font-mono text-zinc-500 uppercase">{metric.label}</div>
-                          <div className="text-xs sm:text-sm font-bold font-mono text-blue-700 mt-0.5">{metric.value}</div>
+                          <div className="text-[10px] font-semibold text-zinc-500 uppercase">{metric.label}</div>
+                          <div className="text-xs sm:text-sm font-bold text-blue-700 mt-0.5">{metric.value}</div>
                         </div>
                       ))}
                     </div>
@@ -169,13 +169,13 @@ export const FeaturedProjects: FC = () => {
                       {project.tags.slice(0, 4).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-50 text-zinc-700 border border-zinc-200/80 font-medium group-hover:border-zinc-300 transition-colors"
+                          className="px-2 py-0.5 rounded text-[11px] bg-zinc-50 text-zinc-700 border border-zinc-200/80 font-medium group-hover:border-zinc-300 transition-colors"
                         >
                           {tag}
                         </span>
                       ))}
                       {project.tags.length > 4 && (
-                        <span className="px-1.5 py-0.5 rounded text-[10px] font-mono text-zinc-400 bg-zinc-50 border border-zinc-100">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] text-zinc-400 bg-zinc-50 border border-zinc-100 font-medium">
                           +{project.tags.length - 4}
                         </span>
                       )}

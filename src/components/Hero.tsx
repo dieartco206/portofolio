@@ -12,11 +12,11 @@ export const Hero: FC = () => {
           <div className="lg:col-span-7 space-y-5">
             {/* Status Pills */}
             <div className="flex flex-wrap items-center gap-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-mono font-medium shadow-2xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold shadow-2xs">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Available for Work</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-200 text-xs font-mono font-medium shadow-2xs">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-200 text-xs font-semibold shadow-2xs">
                 <MapPin className="w-3.5 h-3.5 text-blue-600" />
                 <span>Depok, Indonesia</span>
               </div>
@@ -100,11 +100,11 @@ export const Hero: FC = () => {
 
                 {/* Top overlay badge */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-white/95 backdrop-blur-md text-zinc-900 border border-zinc-200/90 shadow-xs">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold bg-white/95 backdrop-blur-md text-zinc-900 border border-zinc-200/90 shadow-xs">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span>Fullstack Developer</span>
                   </span>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-semibold bg-blue-600/90 backdrop-blur-md text-white shadow-xs">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-bold bg-blue-600/90 backdrop-blur-md text-white shadow-xs">
                     4+ Thn
                   </span>
                 </div>
@@ -114,7 +114,7 @@ export const Hero: FC = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-bold text-sm sm:text-base tracking-tight">Adi Kurniawan</h3>
-                      <p className="text-[11px] sm:text-xs text-zinc-300 font-mono">D3 Sistem Informasi UBSI • IPK 3.79</p>
+                      <p className="text-[11px] sm:text-xs text-zinc-300 font-medium">D3 Sistem Informasi UBSI • IPK 3.79</p>
                     </div>
                   </div>
                 </div>
@@ -123,12 +123,12 @@ export const Hero: FC = () => {
               {/* Sub-card tags */}
               <div className="mt-3 grid grid-cols-2 gap-2 text-center">
                 <div className="p-2 rounded-xl bg-blue-50/70 border border-blue-200/70">
-                  <div className="text-[11px] font-mono font-bold text-blue-900">Backend & API</div>
-                  <div className="text-[10px] font-mono text-blue-700">Golang & Laravel</div>
+                  <div className="text-[11px] font-bold text-blue-900">Backend & API</div>
+                  <div className="text-[10px] font-medium text-blue-700">Golang & Laravel</div>
                 </div>
                 <div className="p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/70">
-                  <div className="text-[11px] font-mono font-bold text-emerald-900">Web & DevOps</div>
-                  <div className="text-[10px] font-mono text-emerald-700">Vue/React & Linux VPS</div>
+                  <div className="text-[11px] font-bold text-emerald-900">Web & DevOps</div>
+                  <div className="text-[10px] font-medium text-emerald-700">Vue/React & Linux VPS</div>
                 </div>
               </div>
             </div>
@@ -138,27 +138,27 @@ export const Hero: FC = () => {
         {/* Engineering Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-10 sm:mt-14 pt-6 border-t border-zinc-200/80">
           <div className="p-3.5 sm:p-4 rounded-2xl bg-blue-50/60 border border-blue-200/80 shadow-2xs card-elevation">
-            <div className="text-2xl sm:text-3xl font-black font-mono text-blue-600">4+ Tahun</div>
+            <div className="text-2xl sm:text-3xl font-black text-blue-600 tracking-tight">4+ Tahun</div>
             <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Pengalaman Kerja</div>
-            <div className="text-[10px] font-mono text-blue-700/80">Web & Backend Dev</div>
+            <div className="text-[10px] font-medium text-blue-700/80">Web & Backend Dev</div>
           </div>
 
           <div className="p-3.5 sm:p-4 rounded-2xl bg-indigo-50/60 border border-indigo-200/80 shadow-2xs card-elevation">
-            <div className="text-2xl sm:text-3xl font-black font-mono text-indigo-600">7+ Proyek</div>
+            <div className="text-2xl sm:text-3xl font-black text-indigo-600 tracking-tight">7+ Proyek</div>
             <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Aplikasi Selesai</div>
-            <div className="text-[10px] font-mono text-indigo-700/80">E-Commerce & Sistem</div>
+            <div className="text-[10px] font-medium text-indigo-700/80">E-Commerce & Sistem</div>
           </div>
 
           <div className="p-3.5 sm:p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 shadow-2xs card-elevation">
-            <div className="text-2xl sm:text-3xl font-black font-mono text-emerald-600">Linux VPS</div>
+            <div className="text-2xl sm:text-3xl font-black text-emerald-600 tracking-tight">Linux VPS</div>
             <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">Deployment Mandiri</div>
-            <div className="text-[10px] font-mono text-emerald-700/80">Docker & Nginx Reverse Proxy</div>
+            <div className="text-[10px] font-medium text-emerald-700/80">Docker & Nginx Reverse Proxy</div>
           </div>
 
           <div className="p-3.5 sm:p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 shadow-2xs card-elevation">
-            <div className="text-2xl sm:text-3xl font-black font-mono text-amber-600">3.79 / 4.00</div>
+            <div className="text-2xl sm:text-3xl font-black text-amber-600 tracking-tight">3.79 / 4.00</div>
             <div className="text-xs sm:text-sm text-zinc-800 font-bold mt-0.5">IPK Kelulusan D3</div>
-            <div className="text-[10px] font-mono text-amber-700/80">Universitas BSI</div>
+            <div className="text-[10px] font-medium text-amber-700/80">Universitas BSI</div>
           </div>
         </div>
 

@@ -12,12 +12,12 @@ export const Footer: FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-5 pb-6 border-b border-zinc-100 text-center md:text-left">
           {/* Identity */}
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-zinc-950 text-white flex items-center justify-center font-bold font-mono text-xs border border-zinc-800 shadow-2xs">
+            <div className="w-8 h-8 rounded-xl bg-zinc-950 text-white flex items-center justify-center font-bold text-xs border border-zinc-800 shadow-2xs">
               AK
             </div>
             <div className="text-left">
               <span className="font-bold text-zinc-950 text-sm">Adi Kurniawan</span>
-              <p className="text-[11px] text-zinc-500 font-mono">Fullstack Web Developer</p>
+              <p className="text-[11px] text-zinc-500 font-medium">Fullstack Web Developer</p>
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export const Footer: FC = () => {
         </div>
 
         {/* Bottom Credits */}
-        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-zinc-400 font-mono text-[10px] sm:text-[11px] text-center sm:text-left">
+        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-zinc-400 font-medium text-[10px] sm:text-[11px] text-center sm:text-left">
           <p>© {new Date().getFullYear()} Adi Kurniawan. Hak cipta dilindungi.</p>
           <p>
             Dibangun dengan standar rekayasa React, TypeScript, Vite & Tailwind CSS.

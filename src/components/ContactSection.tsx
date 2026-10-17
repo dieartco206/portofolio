@@ -28,7 +28,7 @@ export const ContactSection: FC = () => {
     <section id="contact" className="py-14 sm:py-24 bg-[#f8fafc] border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
             <Mail className="w-3.5 h-3.5 text-blue-600" />
             <span>Kontak</span>
           </div>
@@ -46,19 +46,19 @@ export const ContactSection: FC = () => {
             {/* Copy Email Card */}
             <div className="p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/80 shadow-2xs card-elevation">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono font-bold text-blue-800 uppercase tracking-wider">Email</span>
-                <span className="text-[11px] font-mono font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                <span className="text-xs font-bold text-blue-800 uppercase tracking-wider">Email</span>
+                <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                   Aktif
                 </span>
               </div>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-blue-50/50 p-3.5 rounded-xl border border-blue-200/70 mt-2">
                 <div className="flex items-center gap-2.5 truncate">
                   <Mail className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span className="text-xs sm:text-sm font-mono font-semibold text-zinc-900 truncate">{emailAddress}</span>
+                  <span className="text-xs sm:text-sm font-semibold text-zinc-900 truncate">{emailAddress}</span>
                 </div>
                 <button
                   onClick={handleCopyEmail}
-                  className="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-white hover:bg-blue-50 text-blue-900 border border-blue-200 shadow-2xs flex items-center justify-center gap-1.5 shrink-0 transition-all active:scale-95"
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white hover:bg-blue-50 text-blue-900 border border-blue-200 shadow-2xs flex items-center justify-center gap-1.5 shrink-0 transition-all active:scale-95"
                 >
                   {copiedEmail ? (
                     <>
@@ -88,8 +88,8 @@ export const ContactSection: FC = () => {
                     <MessageSquare className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono font-bold text-emerald-800 uppercase tracking-wider">WhatsApp</span>
-                    <p className="text-sm font-bold font-mono text-zinc-950 mt-0.5">{phoneNumber}</p>
+                    <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">WhatsApp</span>
+                    <p className="text-sm font-bold text-zinc-950 mt-0.5">{phoneNumber}</p>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-emerald-500 group-hover:translate-x-1 transition-all" />
@@ -109,8 +109,8 @@ export const ContactSection: FC = () => {
                     <GithubIcon className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono font-bold text-zinc-500 uppercase tracking-wider">GitHub</span>
-                    <p className="text-sm font-bold font-mono text-zinc-950 mt-0.5">github.com/dieartco206</p>
+                    <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">GitHub</span>
+                    <p className="text-sm font-bold text-zinc-950 mt-0.5">github.com/dieartco206</p>
                   </div>
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 group-hover:text-blue-600 transition-all" />
@@ -118,7 +118,7 @@ export const ContactSection: FC = () => {
             </a>
 
             {/* Location & Time Info */}
-            <div className="p-4 rounded-xl bg-zinc-100/70 border border-zinc-200/80 flex items-center justify-between text-xs text-zinc-600 font-mono">
+            <div className="p-4 rounded-xl bg-zinc-100/70 border border-zinc-200/80 flex items-center justify-between text-xs text-zinc-600 font-medium">
               <div className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-blue-600" />
                 <span>Depok, Jawa Barat</span>
@@ -144,7 +144,7 @@ export const ContactSection: FC = () => {
 
               <form onSubmit={handleWhatsAppSend} className="space-y-4">
                 <div>
-                  <label htmlFor="contact-name" className="block text-xs font-mono font-bold text-zinc-700 mb-1.5 uppercase tracking-wider">
+                  <label htmlFor="contact-name" className="block text-xs font-bold text-zinc-700 mb-1.5 uppercase tracking-wider">
                     Nama / Perusahaan
                   </label>
                   <input
@@ -153,12 +153,12 @@ export const ContactSection: FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Contoh: Budi Santoso"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/50 text-xs sm:text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/50 text-xs sm:text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all font-medium"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="contact-message" className="block text-xs font-mono font-bold text-zinc-700 mb-1.5 uppercase tracking-wider">
+                  <label htmlFor="contact-message" className="block text-xs font-bold text-zinc-700 mb-1.5 uppercase tracking-wider">
                     Pesan
                   </label>
                   <textarea
@@ -167,12 +167,12 @@ export const ContactSection: FC = () => {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Halo Mas Adi, saya tertarik mendiskusikan proyek..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/50 text-xs sm:text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all resize-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50/50 text-xs sm:text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all resize-none font-medium"
                   />
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                  <p className="text-[11px] text-zinc-500 font-mono">
+                  <p className="text-[11px] text-zinc-500 font-medium">
                     🟢 Respons cepat via WhatsApp
                   </p>
                   <button

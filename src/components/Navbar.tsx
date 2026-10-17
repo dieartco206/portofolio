@@ -48,12 +48,12 @@ export const Navbar: FC = () => {
                   Adi Kurniawan
                 </span>
                 {/* Available for work badge */}
-                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200/80">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
                   <span className="hidden sm:inline">Available for Work</span>
                 </span>
               </div>
-              <p className="text-[11px] sm:text-xs text-zinc-500 font-mono hidden sm:block">
+              <p className="text-[11px] sm:text-xs text-zinc-500 font-medium hidden sm:block">
                 Fullstack Web Developer
               </p>
             </div>
@@ -138,7 +138,7 @@ export const Navbar: FC = () => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="sm:hidden border-b border-zinc-200 bg-white/98 backdrop-blur-md px-4 py-4 space-y-2 shadow-xl animate-in slide-in-from-top-2 duration-150">
-          <div className="flex items-center gap-2 px-3 py-2 text-xs font-mono text-zinc-500 bg-zinc-50 rounded-lg border border-zinc-100">
+          <div className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-zinc-500 bg-zinc-50 rounded-lg border border-zinc-100">
             <Terminal className="w-3.5 h-3.5 text-zinc-400" />
             <span>Navigation / Menu Utama</span>
           </div>

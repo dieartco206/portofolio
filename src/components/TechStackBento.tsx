@@ -46,7 +46,7 @@ export const TechStackBento: FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
             <Cpu className="w-3.5 h-3.5 text-blue-600" />
             <span>Tech Stack</span>
           </div>
@@ -77,7 +77,7 @@ export const TechStackBento: FC = () => {
                       <h3 className="text-base sm:text-lg font-bold text-zinc-950">
                         {group.title}
                       </h3>
-                      <p className="text-xs text-zinc-500 font-mono">{group.subtitle}</p>
+                      <p className="text-xs text-zinc-500 font-medium">{group.subtitle}</p>
                     </div>
                   </div>
 
@@ -90,7 +90,7 @@ export const TechStackBento: FC = () => {
                       >
                         <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1">
                           <span className="font-bold text-xs sm:text-sm text-zinc-950">{item.name}</span>
-                          <span className={`text-[10px] sm:text-[11px] font-mono font-semibold px-2 py-0.5 rounded border ${visual.badge}`}>
+                          <span className={`text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded border ${visual.badge}`}>
                             {item.level}
                           </span>
                         </div>
@@ -101,7 +101,7 @@ export const TechStackBento: FC = () => {
                           {item.tags.map((tag) => (
                             <span
                               key={tag}
-                              className={`px-2 py-0.5 rounded text-[10px] font-mono font-medium border shadow-2xs ${visual.tag}`}
+                              className={`px-2 py-0.5 rounded text-[10px] font-medium border shadow-2xs ${visual.tag}`}
                             >
                               {tag}
                             </span>

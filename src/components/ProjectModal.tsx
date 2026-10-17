@@ -113,22 +113,22 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         <div className="flex items-center justify-between p-3.5 sm:p-6 border-b border-zinc-200 bg-white sticky top-0 z-30">
           <div className="pr-2 sm:pr-3 min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
-              <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200">
+              <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200">
                 {project.categoryLabel}
               </span>
               {project.badge && (
-                <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+                <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200/80">
                   {project.badge}
                 </span>
               )}
-              <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-semibold bg-zinc-100 text-zinc-700 border border-zinc-200">
+              <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold bg-zinc-100 text-zinc-700 border border-zinc-200">
                 {gallery.length} Screenshot
               </span>
             </div>
             <h3 className="text-[15px] sm:text-xl lg:text-2xl font-black text-zinc-950 tracking-tight leading-tight">
               {project.title}
             </h3>
-            <p className="text-[11px] sm:text-xs text-zinc-500 font-mono mt-0.5">
+            <p className="text-[11px] sm:text-xs text-zinc-500 font-medium mt-0.5">
               Peran: <strong className="text-zinc-800 font-semibold">{project.role}</strong>
             </p>
           </div>
@@ -198,7 +198,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
               {/* Floating Counter & Caption Badge */}
               <div className="absolute bottom-3 inset-x-0 flex justify-center px-4 pointer-events-none z-20">
-                <div className="bg-black/80 backdrop-blur-md text-white px-3 sm:px-4 py-1.5 rounded-full text-xs font-mono font-medium flex items-center gap-2 border border-white/15 shadow-lg max-w-full">
+                <div className="bg-black/80 backdrop-blur-md text-white px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium flex items-center gap-2 border border-white/15 shadow-lg max-w-full">
                   <span className="font-bold text-blue-400 shrink-0">
                     {safeIndex + 1} / {gallery.length}
                   </span>
@@ -227,13 +227,13 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             {gallery.length > 1 && (
               <div className="bg-zinc-50/80 p-3 rounded-2xl border border-zinc-200/90">
                 <div className="flex items-center justify-between mb-2 px-1">
-                  <span className="text-xs font-mono font-bold text-zinc-700 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-xs font-bold text-zinc-700 uppercase tracking-wider flex items-center gap-1.5">
                     <ImageIcon className="w-3.5 h-3.5 text-blue-600" />
                     <span>Galeri ({gallery.length})</span>
                   </span>
 
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
+                    <span className="text-[11px] font-medium text-zinc-500 hidden sm:inline">
                       Navigasi:
                     </span>
                     {/* Scroll Left Button */}
@@ -290,7 +290,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                           loading="lazy"
                           decoding="async"
                         />
-                        <div className="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] font-mono px-1 py-0.5 truncate pointer-events-none">
+                        <div className="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] font-medium px-1 py-0.5 truncate pointer-events-none">
                           {idx + 1}. {thumbTitle}
                         </div>
                       </button>
@@ -303,7 +303,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Project Summary */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
               Ringkasan
             </h4>
             <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
@@ -336,18 +336,18 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Architecture Pipeline Box */}
           <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-950 text-zinc-100 border border-zinc-800">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-blue-400" />
               <span>Alur Sistem</span>
             </h4>
-            <div className="font-mono text-xs sm:text-sm text-zinc-200 break-words leading-relaxed font-semibold">
+            <div className="text-xs sm:text-sm text-zinc-200 break-words leading-relaxed font-semibold">
               {project.architecture}
             </div>
           </div>
 
           {/* Key Highlights */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-800 mb-2.5">
               Fitur Utama
             </h4>
             <div className="space-y-2">
@@ -364,14 +364,14 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Performance Metrics */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-800 mb-2.5">
               Spesifikasi & Fitur
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               {project.metrics.map((metric, idx) => (
                 <div key={idx} className="p-2 sm:p-3 rounded-xl bg-blue-50/60 border border-blue-200/80">
-                  <div className="text-[9px] sm:text-[10px] font-mono uppercase text-blue-700 font-semibold">{metric.label}</div>
-                  <div className="text-xs sm:text-sm font-bold font-mono text-blue-900 mt-0.5 truncate">{metric.value}</div>
+                  <div className="text-[9px] sm:text-[10px] font-semibold uppercase text-blue-700">{metric.label}</div>
+                  <div className="text-xs sm:text-sm font-bold text-blue-900 mt-0.5 truncate">{metric.value}</div>
                 </div>
               ))}
             </div>
@@ -381,13 +381,13 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {project.codeSnippet && (
             <div>
               <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-600 flex items-center gap-1.5 shrink-0">
+                <span className="text-xs font-bold uppercase tracking-wider text-zinc-600 flex items-center gap-1.5 shrink-0">
                   <Terminal className="w-3.5 h-3.5 text-zinc-700" />
                   <span>Contoh Kode</span>
                 </span>
                 <button
                   onClick={handleCopyCode}
-                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-semibold text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded-lg border border-zinc-200 transition-colors shrink-0"
+                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded-lg border border-zinc-200 transition-colors shrink-0"
                 >
                   {copiedCode ? (
                     <>
@@ -403,11 +403,11 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 </button>
               </div>
               <div className="rounded-xl overflow-hidden bg-zinc-950 border border-zinc-800">
-                <div className="flex items-center justify-between px-3.5 py-2 bg-zinc-900 border-b border-zinc-800 text-[11px] font-mono text-zinc-400">
+                <div className="flex items-center justify-between px-3.5 py-2 bg-zinc-900 border-b border-zinc-800 text-[11px] font-medium text-zinc-400">
                   <span>{project.codeSnippet.filename}</span>
-                  <span className="uppercase text-zinc-500">{project.codeSnippet.language}</span>
+                  <span className="uppercase text-zinc-500 font-semibold">{project.codeSnippet.language}</span>
                 </div>
-                <pre className="p-4 text-xs font-mono text-emerald-400 overflow-x-auto leading-relaxed">
+                <pre className="p-4 text-xs font-code text-emerald-400 overflow-x-auto leading-relaxed">
                   <code>{project.codeSnippet.code}</code>
                 </pre>
               </div>
@@ -416,14 +416,14 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
           {/* Tech Stack Tags */}
           <div className="pt-3 border-t border-zinc-100">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-2">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">
               Teknologi
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-zinc-100 text-zinc-800 border border-zinc-200 font-medium"
+                  className="px-2.5 py-1 rounded-lg text-xs bg-zinc-100 text-zinc-800 border border-zinc-200 font-semibold"
                 >
                   {tag}
                 </span>
@@ -434,7 +434,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
         {/* Modal Footer with Quick Navigation Tips */}
         <div className="p-3.5 sm:p-5 border-t border-zinc-200 bg-zinc-50 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
-          <div className="hidden sm:flex items-center gap-2 text-xs text-zinc-500 font-mono">
+          <div className="hidden sm:flex items-center gap-2 text-xs text-zinc-500 font-medium">
             <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">←</span>
             <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">→</span>
             <span>Navigasi keyboard atau klik tombol</span>

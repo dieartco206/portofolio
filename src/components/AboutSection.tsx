@@ -48,7 +48,7 @@ export const AboutSection: FC = () => {
           
           {/* Left Column: Personal Narrative */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 shadow-2xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 shadow-2xs">
               <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
               <span>Prinsip Kerja</span>
             </div>
@@ -66,8 +66,8 @@ export const AboutSection: FC = () => {
               />
               <div>
                 <h4 className="text-sm font-bold text-zinc-950">Adi Kurniawan</h4>
-                <p className="text-xs text-zinc-600 font-mono">Fullstack Web Developer</p>
-                <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 font-mono font-semibold mt-0.5">
+                <p className="text-xs text-zinc-600 font-medium">Fullstack Web Developer</p>
+                <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 font-semibold mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   <span>Depok, Jawa Barat</span>
                 </div>
@@ -96,7 +96,7 @@ export const AboutSection: FC = () => {
                     <div className={`p-2 rounded-xl shadow-2xs border ${item.iconBg}`}>
                       {item.icon}
                     </div>
-                    <span className={`text-[10px] font-mono font-semibold px-2 py-0.5 rounded border ${item.tagColor}`}>
+                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded border ${item.tagColor}`}>
                       {item.tag}
                     </span>
                   </div>
