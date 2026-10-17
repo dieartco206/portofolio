@@ -116,6 +116,7 @@ export const FeaturedProjects: FC = () => {
                     alt={project.title}
                     className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   {/* Subtle Gradient Vignette */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />

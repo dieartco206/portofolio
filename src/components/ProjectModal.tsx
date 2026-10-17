@@ -162,6 +162,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 src={activeImage || project.image}
                 alt={currentPhotoTitle || project.title}
                 key={activeImage}
+                decoding="async"
                 className="w-full h-auto max-h-[300px] sm:max-h-[500px] object-contain transition-opacity duration-200"
               />
 
@@ -287,6 +288,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                           alt={thumbTitle || `Screenshot ${idx + 1}`}
                           className="w-full h-full object-cover object-top"
                           loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] font-mono px-1 py-0.5 truncate pointer-events-none">
                           {idx + 1}. {thumbTitle}
