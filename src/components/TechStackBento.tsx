@@ -8,42 +8,42 @@ export const TechStackBento: FC = () => {
     switch (id) {
       case 'backend':
         return {
-          icon: <Server className="w-5 h-5 text-emerald-400" />,
-          cardGlow: 'hover:border-emerald-500/40',
-          headerBg: 'bg-emerald-500/10 border-emerald-500/20',
-          badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-          tag: 'bg-zinc-900 text-zinc-300 border-white/[0.08] hover:border-emerald-500/30',
+          icon: <Server className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
+          cardGlow: 'hover:border-emerald-400 dark:hover:border-emerald-500/40',
+          headerBg: 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20',
+          badge: 'bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20',
+          tag: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border-zinc-200 dark:border-white/[0.08] hover:border-emerald-400 dark:hover:border-emerald-500/30',
         };
       case 'frontend':
         return {
-          icon: <Layout className="w-5 h-5 text-blue-400" />,
-          cardGlow: 'hover:border-blue-500/40',
-          headerBg: 'bg-blue-500/10 border-blue-500/20',
-          badge: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-          tag: 'bg-zinc-900 text-zinc-300 border-white/[0.08] hover:border-blue-500/30',
+          icon: <Layout className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+          cardGlow: 'hover:border-blue-400 dark:hover:border-blue-500/40',
+          headerBg: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20',
+          badge: 'bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20',
+          tag: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border-zinc-200 dark:border-white/[0.08] hover:border-blue-400 dark:hover:border-blue-500/30',
         };
       case 'database':
         return {
-          icon: <Database className="w-5 h-5 text-amber-400" />,
-          cardGlow: 'hover:border-amber-500/40',
-          headerBg: 'bg-amber-500/10 border-amber-500/20',
-          badge: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-          tag: 'bg-zinc-900 text-zinc-300 border-white/[0.08] hover:border-amber-500/30',
+          icon: <Database className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
+          cardGlow: 'hover:border-amber-400 dark:hover:border-amber-500/40',
+          headerBg: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20',
+          badge: 'bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20',
+          tag: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border-zinc-200 dark:border-white/[0.08] hover:border-amber-400 dark:hover:border-amber-500/30',
         };
       case 'devops':
       default:
         return {
-          icon: <Cloud className="w-5 h-5 text-purple-400" />,
-          cardGlow: 'hover:border-purple-500/40',
-          headerBg: 'bg-purple-500/10 border-purple-500/20',
-          badge: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-          tag: 'bg-zinc-900 text-zinc-300 border-white/[0.08] hover:border-purple-500/30',
+          icon: <Cloud className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
+          cardGlow: 'hover:border-purple-400 dark:hover:border-purple-500/40',
+          headerBg: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20',
+          badge: 'bg-purple-50 text-purple-800 border-purple-200 dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20',
+          tag: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border-zinc-200 dark:border-white/[0.08] hover:border-purple-400 dark:hover:border-purple-500/30',
         };
     }
   };
 
   return (
-    <section id="skills" className="py-14 sm:py-24 bg-[#090a0f] border-b border-white/[0.08]">
+    <section id="skills" className="py-14 sm:py-24 bg-[#fafbfc] dark:bg-[#090a0f] border-b border-zinc-200/80 dark:border-white/[0.08] transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header with In-View Motion */}
@@ -54,14 +54,14 @@ export const TechStackBento: FC = () => {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-8 sm:mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-3 shadow-sm">
-            <Cpu className="w-3.5 h-3.5 text-blue-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-800 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20 mb-3 shadow-2xs">
+            <Cpu className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
             <span>Tech Stack & Arsitektur</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 dark:text-white tracking-tight">
             Keahlian Teknis & Alat Produksi
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-1.5 leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1.5 leading-relaxed">
             Teknologi yang digunakan secara aktif dalam membangun sistem produksi berkinerja tinggi.
           </p>
         </motion.div>
@@ -82,19 +82,19 @@ export const TechStackBento: FC = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`p-5 sm:p-6 lg:p-7 rounded-2xl bg-zinc-900/60 border border-white/[0.08] luxury-card flex flex-col justify-between transition-all ${visual.cardGlow}`}
+                className={`p-5 sm:p-6 lg:p-7 rounded-2xl bg-white dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/[0.08] luxury-card flex flex-col justify-between transition-all ${visual.cardGlow}`}
               >
                 <div>
                   {/* Title Bar */}
-                  <div className="flex items-center gap-3 pb-4 mb-4 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-3 pb-4 mb-4 border-b border-zinc-100 dark:border-white/[0.08]">
                     <div className={`p-2.5 sm:p-3 rounded-xl border ${visual.headerBg}`}>
                       {visual.icon}
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-white">
+                      <h3 className="text-base sm:text-lg font-bold text-zinc-950 dark:text-white">
                         {group.title}
                       </h3>
-                      <p className="text-xs text-zinc-400 font-medium">{group.subtitle}</p>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{group.subtitle}</p>
                     </div>
                   </div>
 
@@ -103,15 +103,15 @@ export const TechStackBento: FC = () => {
                     {group.items.map((item) => (
                       <div
                         key={item.name}
-                        className="p-3.5 sm:p-4 rounded-xl bg-zinc-950/60 border border-white/[0.06] hover:border-white/15 transition-all shadow-sm"
+                        className="p-3.5 sm:p-4 rounded-xl bg-zinc-50/70 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-white/[0.06] hover:bg-white dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-white/15 transition-all shadow-2xs"
                       >
                         <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
-                          <span className="font-bold text-xs sm:text-sm text-white">{item.name}</span>
+                          <span className="font-bold text-xs sm:text-sm text-zinc-950 dark:text-white">{item.name}</span>
                           <span className={`text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-md border ${visual.badge}`}>
                             {item.level}
                           </span>
                         </div>
-                        <p className="text-xs text-zinc-400 leading-relaxed mb-2.5">
+                        <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-2.5">
                           {item.description}
                         </p>
                         <div className="flex flex-wrap gap-1.5">

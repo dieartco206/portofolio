@@ -6,44 +6,44 @@ export const AboutSection: FC = () => {
   const philosophies = [
     {
       title: 'Clean Architecture & Go',
-      icon: <CheckCircle2 className="w-4 h-4 text-emerald-400" />,
+      icon: <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
       tag: 'Reliabilitas',
-      iconBg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-      tagColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+      iconBg: 'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20',
+      tagColor: 'bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20',
       desc: 'Pemisahan logika bisnis dan database agar kode mudah diuji, dibaca tim, dan siap scale.',
-      glow: 'hover:border-emerald-500/40',
+      glow: 'hover:border-emerald-400 dark:hover:border-emerald-500/40',
     },
     {
       title: 'Integritas Data & Database',
-      icon: <Shield className="w-4 h-4 text-blue-400" />,
+      icon: <Shield className="w-4 h-4 text-blue-600 dark:text-blue-400" />,
       tag: 'Integritas Data',
-      iconBg: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-      tagColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+      iconBg: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20',
+      tagColor: 'bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-500/10 dark:text-blue-400 dark:border-blue-500/20',
       desc: 'Penanganan transaksi database ACID dan validasi data terstruktur untuk menjaga konsistensi data.',
-      glow: 'hover:border-blue-500/40',
+      glow: 'hover:border-blue-400 dark:hover:border-blue-500/40',
     },
     {
       title: 'Optimasi Query & Caching',
-      icon: <Zap className="w-4 h-4 text-amber-400" />,
+      icon: <Zap className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
       tag: 'Performa',
-      iconBg: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-      tagColor: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+      iconBg: 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20',
+      tagColor: 'bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20',
       desc: 'Optimasi skema tabel relasional, composite indexing query, dan pemanfaatan Redis caching.',
-      glow: 'hover:border-amber-500/40',
+      glow: 'hover:border-amber-400 dark:hover:border-amber-500/40',
     },
     {
       title: 'Desain Responsif & Nyaman',
-      icon: <Smartphone className="w-4 h-4 text-purple-400" />,
+      icon: <Smartphone className="w-4 h-4 text-purple-600 dark:text-purple-400" />,
       tag: 'Responsif',
-      iconBg: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-      tagColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+      iconBg: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20',
+      tagColor: 'bg-purple-50 text-purple-800 border-purple-200 dark:bg-purple-500/10 dark:text-purple-400 dark:border-purple-500/20',
       desc: 'Tampilan rapi dan proporsional di smartphone maupun desktop, dengan navigasi yang mudah.',
-      glow: 'hover:border-purple-500/40',
+      glow: 'hover:border-purple-400 dark:hover:border-purple-500/40',
     },
   ];
 
   return (
-    <section id="about" className="py-14 sm:py-24 bg-[#090a0f] border-b border-white/[0.08] relative overflow-hidden bg-ambient-section">
+    <section id="about" className="py-14 sm:py-24 bg-white dark:bg-[#090a0f] border-b border-zinc-200 dark:border-white/[0.08] relative overflow-hidden bg-ambient-section transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
           
@@ -55,18 +55,18 @@ export const AboutSection: FC = () => {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 space-y-5"
           >
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20 shadow-sm">
-              <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 dark:bg-blue-500/10 text-blue-800 dark:text-blue-400 border border-blue-200 dark:border-blue-500/20 shadow-2xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
               <span>Prinsip Kerja & Profil</span>
             </div>
             
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 dark:text-white tracking-tight leading-tight">
               Solusi praktis untuk kebutuhan nyata.
             </h2>
 
-            <div className="space-y-3.5 text-xs sm:text-sm lg:text-base text-zinc-300 leading-relaxed">
+            <div className="space-y-3.5 text-xs sm:text-sm lg:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
               <p>
-                Pengalaman <strong>4+ tahun</strong> mengembangkan aplikasi web dan backend—termasuk di PT Dowlat Alib Indonesia (e-commerce logam mulia & API mobile). Terbiasa menangani siklus hulu-hilir: backend <span className="font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Go & Laravel</span>, frontend <span className="font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">Vue 3 & React</span>, serta deployment <span className="font-semibold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">Linux VPS & Docker</span>.
+                Pengalaman <strong>4+ tahun</strong> mengembangkan aplikasi web dan backend—termasuk di PT Dowlat Alib Indonesia (e-commerce logam mulia & API mobile). Terbiasa menangani siklus hulu-hilir: backend <span className="font-semibold text-emerald-950 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-500/20">Go & Laravel</span>, frontend <span className="font-semibold text-blue-950 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10 px-2 py-0.5 rounded border border-blue-200 dark:border-blue-500/20">Vue 3 & React</span>, serta deployment <span className="font-semibold text-purple-950 dark:text-purple-400 bg-purple-50 dark:bg-purple-500/10 px-2 py-0.5 rounded border border-purple-200 dark:border-purple-500/20">Linux VPS & Docker</span>.
               </p>
               <p>
                 Fokus utama: sistem yang <strong>stabil, mudah dirawat, dan terstruktur rapi</strong> untuk penggunaan jangka panjang.
@@ -74,31 +74,31 @@ export const AboutSection: FC = () => {
             </div>
 
             {/* Recruiter Quick Snapshot Box */}
-            <div className="p-5 rounded-2xl bg-zinc-900/80 border border-white/10 shadow-xl space-y-3 backdrop-blur-md">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-400">
+            <div className="p-5 rounded-2xl bg-zinc-50/80 dark:bg-zinc-900/80 border border-zinc-200/90 dark:border-white/10 shadow-sm dark:shadow-xl space-y-3 backdrop-blur-md">
+              <div className="flex items-center justify-between border-b border-zinc-200/80 dark:border-white/[0.08] pb-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-800 dark:text-blue-400">
                   Ringkasan Kualifikasi HRD
                 </span>
-                <span className="text-[10px] text-zinc-400">Ready to Deploy</span>
+                <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-medium">Ready to Deploy</span>
               </div>
-              <ul className="space-y-2 text-xs text-zinc-300">
+              <ul className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300">
                 <li className="flex items-center gap-2.5">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
                   <span><strong>Status:</strong> Siap bergabung (Remote / Onsite Jabodetabek)</span>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
+                  <div className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
                   <span><strong>Peran Utama:</strong> Fullstack Developer / Backend Go Developer</span>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <div className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
+                  <div className="w-2 h-2 rounded-full bg-purple-600 dark:bg-purple-400 shadow-[0_0_8px_rgba(192,132,252,0.8)]" />
                   <span><strong>Pendidikan:</strong> D3 Sistem Informasi UBSI (IPK 3.79 / 4.00)</span>
                 </li>
               </ul>
             </div>
           </motion.div>
 
-          {/* Right Column: Structured Engineering Cards with Luxury Style */}
+          {/* Right Column: Structured Engineering Cards */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {philosophies.map((item, idx) => (
               <motion.div
@@ -112,7 +112,7 @@ export const AboutSection: FC = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`p-5 sm:p-6 rounded-2xl bg-zinc-900/60 border border-white/[0.08] luxury-card flex flex-col justify-between transition-all ${item.glow}`}
+                className={`p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900/60 border border-zinc-200/90 dark:border-white/[0.08] luxury-card flex flex-col justify-between transition-all ${item.glow}`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3.5">
@@ -123,10 +123,10 @@ export const AboutSection: FC = () => {
                       {item.tag}
                     </span>
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-white mb-1.5">
+                  <h3 className="text-sm sm:text-base font-bold text-zinc-950 dark:text-white mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed">
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

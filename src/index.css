@@ -3,69 +3,112 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
     overflow-x: hidden;
     width: 100%;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
-  body {
+  /* Default Light Mode Base */
+  html:not(.dark) {
+    color-scheme: light;
+  }
+  html:not(.dark) body {
+    background-color: #fafbfc;
+    color: #09090b;
+  }
+  html:not(.dark) * {
+    border-color: #e4e4e7;
+  }
+
+  /* Dark Mode Base */
+  html.dark {
+    color-scheme: dark;
+  }
+  html.dark body {
     background-color: #090a0f;
     color: #f4f4f5;
+  }
+  html.dark * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
     overflow-x: hidden;
     width: 100%;
     position: relative;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   pre, code, kbd, samp {
     font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
-  /* Custom Dark Sleek Scrollbar */
+  /* Custom Sleek Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
 
-  ::-webkit-scrollbar-track {
-    background: #090a0f;
+  html:not(.dark) ::-webkit-scrollbar-track {
+    background: #f4f4f5;
+  }
+  html:not(.dark) ::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+    border-radius: 9999px;
+  }
+  html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+    background: #a1a1aa;
   }
 
-  ::-webkit-scrollbar-thumb {
+  html.dark ::-webkit-scrollbar-track {
+    background: #090a0f;
+  }
+  html.dark ::-webkit-scrollbar-thumb {
     background: #27272a;
     border-radius: 9999px;
   }
-
-  ::-webkit-scrollbar-thumb:hover {
+  html.dark ::-webkit-scrollbar-thumb:hover {
     background: #3f3f46;
   }
 }
 
 @layer utilities {
-  /* Architectural Engineering Grid & Dots for Dark Luxury */
-  .bg-grid-dark {
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  /* Architectural Engineering Grid */
+  .bg-grid-pattern {
     background-size: 40px 40px;
   }
 
-  .bg-dots-dark {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
+  html:not(.dark) .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(24, 24, 27, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(24, 24, 27, 0.04) 1px, transparent 1px);
   }
 
-  /* High-End Dark Luxury Glass Card */
-  .luxury-card {
+  html.dark .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  }
+
+  /* High-End Luxury Cards (Auto Adaptive Dark / Light) */
+  html:not(.dark) .luxury-card {
+    background: #ffffff;
+    border: 1px solid rgba(228, 228, 231, 0.95);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 8px 24px -4px rgba(15, 23, 42, 0.05);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html:not(.dark) .luxury-card:hover {
+    border-color: rgba(59, 130, 246, 0.45);
+    box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+  }
+
+  html.dark .luxury-card {
     background: rgba(15, 17, 26, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -74,26 +117,32 @@
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .luxury-card:hover {
+  html.dark .luxury-card:hover {
     border-color: rgba(96, 165, 250, 0.35);
     background: rgba(18, 22, 36, 0.88);
     box-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.6), 0 0 24px -4px rgba(59, 130, 246, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
   }
 
-  /* Premium Metallic Gradient Text */
-  .gradient-heading {
+  /* Gradient Text */
+  html:not(.dark) .gradient-heading {
+    background: linear-gradient(135deg, #09090b 0%, #1e293b 50%, #475569 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  html.dark .gradient-heading {
     background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 45%, #94a3b8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .gradient-blue {
-    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  /* Hide scrollbar for clean horizontal tab scrolling */
+  /* Hide scrollbar */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -103,14 +152,25 @@
   }
 
   /* Luminous Ambient Glow Backgrounds */
-  .bg-hero-ambient {
+  html:not(.dark) .bg-hero-ambient {
+    background: 
+      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(59, 130, 246, 0.08), transparent 70%),
+      radial-gradient(circle 450px at 90% 15%, rgba(16, 185, 129, 0.04), transparent 70%),
+      radial-gradient(circle 400px at 10% 40%, rgba(99, 102, 241, 0.04), transparent 70%);
+  }
+
+  html.dark .bg-hero-ambient {
     background: 
       radial-gradient(ellipse 70% 50% at 50% -10%, rgba(59, 130, 246, 0.18), transparent 70%),
       radial-gradient(circle 500px at 85% 15%, rgba(139, 92, 246, 0.12), transparent 70%),
       radial-gradient(circle 450px at 15% 35%, rgba(16, 185, 129, 0.08), transparent 70%);
   }
 
-  .bg-ambient-section {
+  html:not(.dark) .bg-ambient-section {
+    background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.035) 0%, rgba(14, 165, 233, 0.03) 50%, transparent 80%);
+  }
+
+  html.dark .bg-ambient-section {
     background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.08) 0%, rgba(14, 165, 233, 0.05) 50%, transparent 80%);
   }
 }
