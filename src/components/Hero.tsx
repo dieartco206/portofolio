@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { ArrowRight, Terminal, MapPin } from 'lucide-react';
+import { ArrowRight, Terminal, MapPin, FileText } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const Hero: FC = () => {
@@ -49,7 +49,7 @@ export const Hero: FC = () => {
             </p>
 
             {/* Action Buttons Row */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
               <a
                 href="#projects"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/25 transition-all active:scale-[0.98]"
@@ -57,6 +57,16 @@ export const Hero: FC = () => {
                 <Terminal className="w-4 h-4 text-white" />
                 <span>Lihat Proyek</span>
                 <ArrowRight className="w-4 h-4 ml-0.5" />
+              </a>
+              <a
+                href="/CV_Adi_Kurniawan_Fullstack.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-bold bg-zinc-950 hover:bg-zinc-800 text-white shadow-sm transition-all active:scale-[0.98]"
+                title="Lihat / Unduh CV Resmi Format PDF"
+              >
+                <FileText className="w-4 h-4 text-white" />
+                <span>Unduh CV</span>
               </a>
               <a
                 href="https://github.com/dieartco206"

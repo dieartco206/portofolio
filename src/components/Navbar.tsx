@@ -1,5 +1,5 @@
 import { useState, useEffect, type FC } from 'react';
-import { Menu, X, Mail, MessageSquare, Terminal } from 'lucide-react';
+import { Menu, X, Mail, MessageSquare, Terminal, FileText } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const Navbar: FC = () => {
@@ -73,7 +73,18 @@ export const Navbar: FC = () => {
           </nav>
 
           {/* Right Action Buttons Desktop */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-2">
+            <a
+              href="/CV_Adi_Kurniawan_Fullstack.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Unduh CV PDF"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-zinc-200 bg-white hover:bg-zinc-50 text-xs font-semibold text-zinc-800 shadow-2xs transition-all active:scale-95"
+              title="Unduh CV Resmi (PDF)"
+            >
+              <FileText className="w-3.5 h-3.5 text-blue-600" />
+              <span>CV (PDF)</span>
+            </a>
             <a
               href="https://github.com/dieartco206"
               target="_blank"
@@ -85,15 +96,25 @@ export const Navbar: FC = () => {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 transition-all active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 transition-all active:scale-[0.98]"
             >
               <Mail className="w-3.5 h-3.5" />
-              <span>Hubungi Saya</span>
+              <span>Kontak</span>
             </a>
           </div>
 
           {/* Mobile Actions: WhatsApp Icon + Hamburger Menu */}
           <div className="flex sm:hidden items-center gap-2">
+            <a
+              href="/CV_Adi_Kurniawan_Fullstack.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Unduh CV PDF"
+              className="p-2.5 rounded-xl border border-zinc-200 bg-white text-zinc-800 hover:bg-zinc-50 transition-colors shadow-2xs"
+              title="Unduh CV"
+            >
+              <FileText className="w-4 h-4 text-blue-600" />
+            </a>
             <a
               href="https://wa.me/6281288887916"
               target="_blank"
@@ -133,6 +154,15 @@ export const Navbar: FC = () => {
           ))}
           <div className="pt-2 border-t border-zinc-100 flex flex-col gap-2">
             <a
+              href="/CV_Adi_Kurniawan_Fullstack.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-zinc-950 hover:bg-zinc-800 transition-colors shadow-xs"
+            >
+              <FileText className="w-4 h-4 text-white" />
+              <span>Unduh CV Resmi (PDF)</span>
+            </a>
+            <a
               href="https://github.com/dieartco206"
               target="_blank"
               rel="noopener noreferrer"
@@ -144,7 +174,7 @@ export const Navbar: FC = () => {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-zinc-950 text-white"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-blue-600 text-white"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Hubungi Saya</span>
