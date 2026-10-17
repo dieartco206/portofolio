@@ -1,5 +1,5 @@
 import { useState, useEffect, type FC } from 'react';
-import { Menu, X, Mail, MessageSquare, Terminal, FileText } from 'lucide-react';
+import { Menu, X, Mail, MessageSquare, FileText } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const Navbar: FC = () => {
@@ -138,10 +138,6 @@ export const Navbar: FC = () => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="sm:hidden border-b border-zinc-200 bg-white/98 backdrop-blur-md px-4 py-4 space-y-2 shadow-xl animate-in slide-in-from-top-2 duration-150">
-          <div className="flex items-center gap-2 px-3 py-2 text-xs font-medium text-zinc-500 bg-zinc-50 rounded-lg border border-zinc-100">
-            <Terminal className="w-3.5 h-3.5 text-zinc-400" />
-            <span>Navigation / Menu Utama</span>
-          </div>
           {navLinks.map((link) => (
             <a
               key={link.href}

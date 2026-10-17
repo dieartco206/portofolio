@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, type FC } from 'react';
 import type { Project } from '../types/portfolio';
-import { X, Check, Terminal, Image as ImageIcon, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { X, Check, Image as ImageIcon, ChevronLeft, ChevronRight, ExternalLink, Workflow } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -326,12 +326,12 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           </div>
 
           {/* Architecture Pipeline Box */}
-          <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-950 text-zinc-100 border border-zinc-800">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
-              <Terminal className="w-3.5 h-3.5 text-blue-400" />
-              <span>Alur Sistem</span>
+          <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-50/80 border border-zinc-200">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2 flex items-center gap-1.5">
+              <Workflow className="w-3.5 h-3.5 text-blue-600" />
+              <span>Arsitektur & Alur Sistem</span>
             </h4>
-            <div className="text-xs sm:text-sm text-zinc-200 break-words leading-relaxed font-semibold">
+            <div className="text-xs sm:text-sm text-zinc-700 break-words leading-relaxed font-medium">
               {project.architecture}
             </div>
           </div>
@@ -387,12 +387,12 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           </div>
         </div>
 
-        {/* Modal Footer with Quick Navigation Tips */}
-        <div className="p-3.5 sm:p-5 border-t border-zinc-200 bg-zinc-50 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
-          <div className="hidden sm:flex items-center gap-2 text-xs text-zinc-500 font-medium">
-            <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">←</span>
-            <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">→</span>
-            <span>Navigasi keyboard atau klik tombol</span>
+        {/* Modal Footer */}
+        <div className="p-3.5 sm:p-4 border-t border-zinc-200 bg-zinc-50 flex items-center justify-between gap-3">
+          <div>
+            <span className="text-xs text-zinc-500 font-medium hidden sm:inline">
+              Foto {safeIndex + 1} dari {gallery.length}
+            </span>
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">

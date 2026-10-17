@@ -57,24 +57,7 @@ export const AboutSection: FC = () => {
               Solusi praktis untuk kebutuhan nyata.
             </h2>
 
-            {/* Engineer Profile Card Snippet */}
-            <div className="flex items-center gap-3 p-3 rounded-2xl bg-gradient-to-r from-blue-50/80 to-emerald-50/80 border border-blue-200/80 shadow-2xs">
-              <img
-                src="/avatar.png"
-                alt="Adi Kurniawan"
-                className="w-11 h-11 rounded-xl object-cover ring-2 ring-blue-500/30 border border-white shadow-xs shrink-0"
-              />
-              <div>
-                <h4 className="text-sm font-bold text-zinc-950">Adi Kurniawan</h4>
-                <p className="text-xs text-zinc-600 font-medium">Fullstack Web Developer</p>
-                <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 font-semibold mt-0.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>Depok, Jawa Barat</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-3 text-xs sm:text-sm lg:text-base text-zinc-600 leading-relaxed">
+            <div className="space-y-3 text-xs sm:text-sm lg:text-base text-zinc-600 leading-relaxed pt-1">
               <p>
                 Pengalaman <strong>4+ tahun</strong> mengembangkan aplikasi web dan backend—termasuk di PT Dowlat Alib Indonesia (e-commerce logam mulia & API mobile). Terbiasa menangani siklus hulu-hilir: backend <span className="font-semibold text-emerald-900 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-200">Go & Laravel</span>, frontend <span className="font-semibold text-blue-900 bg-blue-50 px-1 py-0.5 rounded border border-blue-200">Vue 3 & React</span>, serta deployment <span className="font-semibold text-purple-900 bg-purple-50 px-1 py-0.5 rounded border border-purple-200">Linux VPS & Docker</span>.
               </p>

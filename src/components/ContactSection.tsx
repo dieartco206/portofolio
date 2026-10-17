@@ -1,5 +1,5 @@
 import { useState, type FC, type FormEvent } from 'react';
-import { Mail, MessageSquare, Copy, Check, MapPin, Clock, Send, ArrowRight } from 'lucide-react';
+import { Mail, MessageSquare, Copy, Check, MapPin, Send, ArrowRight } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const ContactSection: FC = () => {
@@ -45,11 +45,8 @@ export const ContactSection: FC = () => {
           <div className="lg:col-span-5 space-y-3.5">
             {/* Copy Email Card */}
             <div className="p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/80 shadow-2xs card-elevation">
-              <div className="flex items-center justify-between mb-2">
+              <div className="mb-2">
                 <span className="text-xs font-bold text-blue-800 uppercase tracking-wider">Email</span>
-                <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                  Aktif
-                </span>
               </div>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 bg-blue-50/50 p-3.5 rounded-xl border border-blue-200/70 mt-2">
                 <div className="flex items-center gap-2.5 truncate">
@@ -117,16 +114,15 @@ export const ContactSection: FC = () => {
               </div>
             </a>
 
-            {/* Location & Time Info */}
+            {/* Location Info */}
             <div className="p-4 rounded-xl bg-zinc-100/70 border border-zinc-200/80 flex items-center justify-between text-xs text-zinc-600 font-medium">
               <div className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-blue-600" />
-                <span>Depok, Jawa Barat</span>
+                <span>Depok, Jawa Barat, Indonesia</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-emerald-600" />
-                <span>WIB (UTC+7)</span>
-              </div>
+              <span className="text-[11px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                Remote / Onsite
+              </span>
             </div>
           </div>
 
@@ -171,13 +167,10 @@ export const ContactSection: FC = () => {
                   />
                 </div>
 
-                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                  <p className="text-[11px] text-zinc-500 font-medium">
-                    🟢 Respons cepat via WhatsApp
-                  </p>
+                <div className="pt-2 flex justify-end">
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-500/20 transition-all active:scale-[0.98]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-500/20 transition-all active:scale-[0.98]"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Kirim Pesan</span>

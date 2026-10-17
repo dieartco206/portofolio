@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { skillGroupsData } from '../data/skills';
-import { Server, Layout, Database, Terminal, Cpu } from 'lucide-react';
+import { Server, Layout, Database, Cloud, Cpu } from 'lucide-react';
 
 export const TechStackBento: FC = () => {
   const getGroupVisuals = (id: string) => {
@@ -32,7 +32,7 @@ export const TechStackBento: FC = () => {
       case 'devops':
       default:
         return {
-          icon: <Terminal className="w-5 h-5 text-purple-600" />,
+          icon: <Cloud className="w-5 h-5 text-purple-600" />,
           cardBg: 'bg-white hover:border-purple-300',
           headerBg: 'bg-purple-50/70 border-purple-200/80',
           badge: 'bg-purple-100/80 text-purple-800 border-purple-200',

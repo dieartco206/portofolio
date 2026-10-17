@@ -21,20 +21,7 @@ export const FeaturedProjects: FC = () => {
     return proj.category === activeCategory;
   });
 
-  const getCategoryBadgeClass = (category: ProjectCategory) => {
-    switch (category) {
-      case 'enterprise':
-        return 'text-emerald-800 bg-emerald-50 border-emerald-200';
-      case 'golang':
-        return 'text-blue-800 bg-blue-50 border-blue-200';
-      case 'saas':
-        return 'text-amber-800 bg-amber-50 border-amber-200';
-      case 'frontend':
-        return 'text-rose-800 bg-rose-50 border-rose-200';
-      default:
-        return 'text-zinc-700 bg-zinc-100 border-zinc-200';
-    }
-  };
+
 
   return (
     <section id="projects" className="py-14 sm:py-20 bg-[#f8fafc] border-b border-zinc-200/80">
@@ -82,33 +69,12 @@ export const FeaturedProjects: FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {filteredProjects.map((project) => {
             const galleryCount = project.gallery?.length || 1;
-            const badgeClass = getCategoryBadgeClass(project.category);
             return (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
                 className="group bg-white rounded-2xl border border-zinc-200/90 hover:border-blue-400/80 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer overflow-hidden relative card-elevation"
               >
-                {/* Modern Browser Frame Header with Authentic Mac Traffic Lights */}
-                <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-50 border-b border-zinc-200/80">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-400 border border-rose-500/30" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400 border border-amber-500/30" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 border border-emerald-500/30" />
-                  </div>
-                  <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-white border border-zinc-200 text-[11px] font-medium text-zinc-500 max-w-[210px] sm:max-w-xs truncate">
-                    <span className="text-blue-500 font-bold">app://</span>
-                    <span className="text-zinc-800 font-medium truncate">{project.id}.production</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    {project.badge && (
-                      <span className="text-[10px] font-bold text-blue-800 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded">
-                        {project.badge}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
                 {/* Screenshot Preview with Clean Framing */}
                 <div className="relative w-full h-48 sm:h-64 bg-zinc-950 overflow-hidden border-b border-zinc-100 flex items-center justify-center">
                   <img
@@ -119,24 +85,35 @@ export const FeaturedProjects: FC = () => {
                     decoding="async"
                   />
                   {/* Subtle Gradient Vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
 
-                  {/* Floating Screenshot Count Pill */}
-                  <div className="absolute bottom-3 right-3">
-                    <span className="text-[11px] font-semibold text-zinc-900 bg-white/95 px-2.5 py-1 rounded-lg border border-zinc-200 shadow-xs backdrop-blur-xs flex items-center gap-1.5">
-                      <span>{galleryCount} Foto UI Asli</span>
+                  {/* Clean Top Badges */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg border shadow-xs backdrop-blur-md bg-white/95 text-zinc-900 border-zinc-200/90">
+                      {project.categoryLabel}
                     </span>
+                    {project.badge && (
+                      <span className="text-[10px] font-bold text-blue-800 bg-blue-50/95 backdrop-blur-md border border-blue-200 px-2.5 py-1 rounded-lg shadow-xs">
+                        {project.badge}
+                      </span>
+                    )}
                   </div>
+
+                  {/* Photo count indicator if gallery has multiple photos */}
+                  {galleryCount > 1 && (
+                    <div className="absolute bottom-3 right-3">
+                      <span className="text-[11px] font-semibold text-zinc-900 bg-white/95 px-2.5 py-1 rounded-lg border border-zinc-200 shadow-xs backdrop-blur-xs flex items-center gap-1.5">
+                        <span>{galleryCount} Foto</span>
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Project Body */}
-                <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className={`text-[11px] font-bold px-2 py-0.5 rounded border ${badgeClass}`}>
-                        {project.categoryLabel}
-                      </span>
-                      <span className="text-[11px] font-medium text-zinc-500">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs font-medium text-zinc-500">
                         Peran: <strong className="text-zinc-700 font-semibold">{project.role}</strong>
                       </span>
                     </div>

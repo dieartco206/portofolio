@@ -45,7 +45,7 @@ export const Footer: FC = () => {
         <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-zinc-400 font-medium text-[10px] sm:text-[11px] text-center sm:text-left">
           <p>© {new Date().getFullYear()} Adi Kurniawan. Hak cipta dilindungi.</p>
           <p>
-            Dibangun dengan standar rekayasa React, TypeScript, Vite & Tailwind CSS.
+            Dibangun dengan React, TypeScript, Vite & Tailwind CSS.
           </p>
         </div>
       </div>

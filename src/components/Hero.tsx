@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { ArrowRight, Terminal, MapPin, FileText } from 'lucide-react';
+import { ArrowRight, MapPin, FileText } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 
 export const Hero: FC = () => {
@@ -54,7 +54,6 @@ export const Hero: FC = () => {
                 href="#projects"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-500/25 transition-all active:scale-[0.98]"
               >
-                <Terminal className="w-4 h-4 text-white" />
                 <span>Lihat Proyek</span>
                 <ArrowRight className="w-4 h-4 ml-0.5" />
               </a>
@@ -117,18 +116,6 @@ export const Hero: FC = () => {
                       <p className="text-[11px] sm:text-xs text-zinc-300 font-medium">D3 Sistem Informasi UBSI • IPK 3.79</p>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Sub-card tags */}
-              <div className="mt-3 grid grid-cols-2 gap-2 text-center">
-                <div className="p-2 rounded-xl bg-blue-50/70 border border-blue-200/70">
-                  <div className="text-[11px] font-bold text-blue-900">Backend & API</div>
-                  <div className="text-[10px] font-medium text-blue-700">Golang & Laravel</div>
-                </div>
-                <div className="p-2 rounded-xl bg-emerald-50/70 border border-emerald-200/70">
-                  <div className="text-[11px] font-bold text-emerald-900">Web & DevOps</div>
-                  <div className="text-[10px] font-medium text-emerald-700">Vue/React & Linux VPS</div>
                 </div>
               </div>
             </div>
