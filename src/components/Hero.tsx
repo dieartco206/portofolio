@@ -7,33 +7,15 @@ export const Hero: FC = () => {
     <section className="relative pt-24 pb-12 sm:pt-32 sm:pb-16 border-b border-zinc-200/80 bg-white overflow-hidden bg-grid-subtle bg-ambient-top">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Profile Avatar & Identity Header */}
-        <div className="flex items-center gap-4 sm:gap-5 mb-6">
-          <div className="relative shrink-0">
-            <img
-              src="/adi-kurniawan.png"
-              alt="Adi Kurniawan"
-              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover object-top ring-2 ring-zinc-200 border-2 border-white shadow-sm"
-            />
-            <span
-              className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white"
-              title="Available for Work"
-            />
+        {/* Status Badges */}
+        <div className="flex flex-wrap items-center gap-2 mb-5">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold shadow-2xs">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Available for Work</span>
           </div>
-          <div>
-            <div className="flex flex-wrap items-center gap-2 mb-1.5">
-              <span className="font-bold text-base sm:text-xl text-zinc-950 tracking-tight">
-                Adi Kurniawan
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold shadow-2xs">
-                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Available for Work</span>
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5 text-xs sm:text-sm text-zinc-500 font-medium">
-              <MapPin className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-              <span>Depok, Jawa Barat, Indonesia</span>
-            </div>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-200 text-xs font-semibold shadow-2xs">
+            <MapPin className="w-3.5 h-3.5 text-blue-600" />
+            <span>Depok, Indonesia</span>
           </div>
         </div>
 
