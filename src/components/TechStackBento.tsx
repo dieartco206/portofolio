@@ -48,13 +48,13 @@ export const TechStackBento: FC = () => {
         <div className="max-w-3xl mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
             <Cpu className="w-3.5 h-3.5 text-blue-600" />
-            <span>Keahlian & Tooling Produksi</span>
+            <span>Tech Stack</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
-            Teknologi yang Saya Kuasai
+            Keahlian Teknis
           </h2>
           <p className="text-xs sm:text-sm text-zinc-600 mt-1.5 leading-relaxed">
-            Perangkat lunak, bahasa pemrograman, dan infrastruktur yang saya operasikan setiap hari di lingkungan kerja produksi.
+            Teknologi yang digunakan dalam pengembangan sistem produksi harian.
           </p>
         </div>
 

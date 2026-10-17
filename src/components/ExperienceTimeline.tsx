@@ -10,13 +10,13 @@ export const ExperienceTimeline: FC = () => {
         <div className="mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
             <Briefcase className="w-3.5 h-3.5 text-blue-600" />
-            <span>Pengalaman Kerja & Pendidikan</span>
+            <span>Pengalaman & Pendidikan</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
-            Rekam Jejak Profesional
+            Pengalaman Kerja
           </h2>
           <p className="text-xs sm:text-sm text-zinc-600 mt-1.5 leading-relaxed">
-            Pengalaman kerja 4+ tahun dalam membangun sistem berskala produksi, platform e-commerce, RESTful API high-throughput, serta otomasi DevOps dan manajemen server Linux VPS live.
+            Rekam jejak 4+ tahun dalam rekayasa sistem produksi dan DevOps VPS.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export const ExperienceTimeline: FC = () => {
                     <div className="mb-4 pt-4 border-t border-zinc-200/80">
                       <p className="text-xs font-mono font-bold uppercase tracking-wider text-blue-700 mb-2.5 flex items-center gap-1.5">
                         <Layers className="w-3.5 h-3.5 text-blue-600" />
-                        <span>Proyek & Modul yang Ditangani:</span>
+                        <span>Proyek Terkait:</span>
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {item.projectHighlights.map((proj, pIdx) => (

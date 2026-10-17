@@ -122,7 +122,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 </span>
               )}
               <span className="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-zinc-100 text-zinc-700 border border-zinc-200">
-                {gallery.length} Tangkapan Layar
+                {gallery.length} Screenshot
               </span>
             </div>
             <h3 className="text-lg sm:text-2xl font-black text-zinc-950 tracking-tight leading-snug">
@@ -228,12 +228,12 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 <div className="flex items-center justify-between mb-2 px-1">
                   <span className="text-xs font-mono font-bold text-zinc-700 uppercase tracking-wider flex items-center gap-1.5">
                     <ImageIcon className="w-3.5 h-3.5 text-blue-600" />
-                    <span>Daftar {gallery.length} Tangkapan Layar</span>
+                    <span>Galeri ({gallery.length})</span>
                   </span>
 
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-                      Geser atau klik tombol panah:
+                      Navigasi:
                     </span>
                     {/* Scroll Left Button */}
                     <button
@@ -302,7 +302,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* Project Summary */}
           <div>
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-              Gambaran Sistem
+              Ringkasan
             </h4>
             <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
               {project.description}
@@ -314,7 +314,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             <div className="p-4 rounded-xl sm:rounded-2xl bg-rose-50/60 border border-rose-200/80">
               <h4 className="text-xs sm:text-sm font-bold text-rose-950 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-                <span>Tantangan / Problem:</span>
+                <span>Tantangan:</span>
               </h4>
               <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
                 {project.problem}
@@ -324,7 +324,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             <div className="p-4 rounded-xl sm:rounded-2xl bg-emerald-50/60 border border-emerald-200/80">
               <h4 className="text-xs sm:text-sm font-bold text-emerald-950 mb-1.5 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                <span>Solusi Arsitektur:</span>
+                <span>Solusi:</span>
               </h4>
               <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
                 {project.solution}
@@ -336,7 +336,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-950 text-zinc-100 border border-zinc-800">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-blue-400" />
-              <span>Arsitektur Alur Sistem</span>
+              <span>Alur Arsitektur</span>
             </h4>
             <div className="font-mono text-xs sm:text-sm text-zinc-200 break-words leading-relaxed font-semibold">
               {project.architecture}
@@ -346,7 +346,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* Key Highlights */}
           <div>
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
-              Poin Kunci & Keunggulan Rekayasa
+              Fitur Utama
             </h4>
             <div className="space-y-2">
               {project.keyHighlights.map((highlight, idx) => (
@@ -363,7 +363,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* Performance Metrics */}
           <div>
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
-              Metrik Sistem & Skalabilitas
+              Metrik Kinerja
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {project.metrics.map((metric, idx) => (
@@ -381,7 +381,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 flex items-center gap-1.5">
                   <Terminal className="w-3.5 h-3.5 text-zinc-700" />
-                  <span>Snippet Kode Produksi ({project.codeSnippet.filename})</span>
+                  <span>Kode Produksi ({project.codeSnippet.filename})</span>
                 </span>
                 <button
                   onClick={handleCopyCode}
@@ -415,7 +415,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* Tech Stack Tags */}
           <div className="pt-3 border-t border-zinc-100">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 mb-2">
-              Stack Teknologi
+              Teknologi
             </h4>
             <div className="flex flex-wrap gap-1.5">
               {project.tags.map((tag) => (
@@ -435,7 +435,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           <div className="flex items-center gap-2 text-xs text-zinc-500 font-mono">
             <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">←</span>
             <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">→</span>
-            <span>Gunakan panah keyboard atau klik panah untuk ganti foto</span>
+            <span>Navigasi keyboard atau klik tombol</span>
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
@@ -446,14 +446,14 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                   onClick={handlePrev}
                   className="px-3.5 py-2 rounded-xl text-xs font-bold border border-zinc-200 bg-white hover:bg-zinc-100 text-zinc-800 transition-colors"
                 >
-                  ← Foto Sebelumnya
+                  ← Sebelumnya
                 </button>
                 <button
                   type="button"
                   onClick={handleNext}
                   className="px-3.5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 transition-colors"
                 >
-                  Foto Selanjutnya →
+                  Selanjutnya →
                 </button>
               </>
             )}

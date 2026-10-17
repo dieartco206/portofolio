@@ -9,11 +9,11 @@ export const FeaturedProjects: FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories: { label: string; value: ProjectCategory; count: number }[] = [
-    { label: 'Semua Proyek', value: 'all', count: projectsData.length },
-    { label: 'Enterprise & Presensi', value: 'enterprise', count: projectsData.filter(p => p.category === 'enterprise').length },
-    { label: 'FinTech & Donasi', value: 'golang', count: projectsData.filter(p => p.category === 'golang').length },
-    { label: 'E-Commerce & Supply', value: 'saas', count: projectsData.filter(p => p.category === 'saas').length },
-    { label: 'HealthTech & Web', value: 'frontend', count: projectsData.filter(p => p.category === 'frontend').length },
+    { label: 'Semua', value: 'all', count: projectsData.length },
+    { label: 'Enterprise', value: 'enterprise', count: projectsData.filter(p => p.category === 'enterprise').length },
+    { label: 'FinTech', value: 'golang', count: projectsData.filter(p => p.category === 'golang').length },
+    { label: 'E-Commerce', value: 'saas', count: projectsData.filter(p => p.category === 'saas').length },
+    { label: 'HealthTech', value: 'frontend', count: projectsData.filter(p => p.category === 'frontend').length },
   ];
 
   const filteredProjects = projectsData.filter((proj) => {
@@ -37,20 +37,20 @@ export const FeaturedProjects: FC = () => {
   };
 
   return (
-    <section id="projects" className="py-14 sm:py-24 bg-[#f8fafc] border-b border-zinc-200/80">
+    <section id="projects" className="py-14 sm:py-20 bg-[#f8fafc] border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5 pb-6 border-b border-zinc-200">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4 pb-5 border-b border-zinc-200">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-2.5 shadow-2xs">
               <Layers className="w-3.5 h-3.5 text-blue-600" />
-              <span>Sistem Skala Produksi</span>
+              <span>Proyek Produksi</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight">
-              Proyek yang Pernah Saya Bangun
+              Portofolio Sistem
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-600 mt-1.5 max-w-2xl leading-relaxed">
-              Arsitektur sistem perangkat lunak nyata yang dibangun dari perancangan database relasional, logika backend mikroservis, hingga antarmuka pengguna interaktif.
+            <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-xl leading-relaxed">
+              Sistem produksi nyata: backend microservices, database relasional, dan UI web interaktif.
             </p>
           </div>
 

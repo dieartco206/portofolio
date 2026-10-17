@@ -4,57 +4,57 @@ import { CheckCircle2, Shield, Zap, Smartphone, ShieldCheck } from 'lucide-react
 export const AboutSection: FC = () => {
   const philosophies = [
     {
-      title: 'Clean Architecture & Modular Go',
+      title: 'Clean Architecture & Go',
       icon: <CheckCircle2 className="w-4 h-4 text-emerald-600" />,
       tag: 'Reliabilitas',
       themeBg: 'bg-emerald-50/50 hover:bg-emerald-50/80 border-emerald-200/90 hover:border-emerald-400',
       tagColor: 'bg-emerald-100/90 text-emerald-800 border-emerald-200',
       iconBg: 'bg-emerald-100/80 border-emerald-200/80',
-      desc: 'Memisahkan business logic dari database layer menggunakan Clean Architecture / Hexagonal. Kode mudah dibaca tim, teruji, dan siap diskalakan tanpa refactoring masif.',
+      desc: 'Pemisahan logika bisnis dan database agar kode mudah diuji, dibaca tim, dan siap scale.',
     },
     {
-      title: 'Integritas Data & Concurrency Safety',
+      title: 'Integritas Data & Concurrency',
       icon: <Shield className="w-4 h-4 text-blue-600" />,
       tag: 'Zero Race Condition',
       themeBg: 'bg-blue-50/50 hover:bg-blue-50/80 border-blue-200/90 hover:border-blue-400',
       tagColor: 'bg-blue-100/90 text-blue-800 border-blue-200',
       iconBg: 'bg-blue-100/80 border-blue-200/80',
-      desc: 'Mencegah double check-in, selisih stok, dan data race pada lonjakan traffic tinggi menggunakan database transactional locking (ACID) dan Go sync primitives.',
+      desc: 'Cegah double check-in dan selisih stok via transaksi database ACID & Go sync primitives.',
     },
     {
-      title: 'Optimasi Latensi & Indeks Database',
+      title: 'Optimasi Latensi & Database',
       icon: <Zap className="w-4 h-4 text-amber-600" />,
       tag: 'Throughput',
       themeBg: 'bg-amber-50/50 hover:bg-amber-50/80 border-amber-200/90 hover:border-amber-400',
       tagColor: 'bg-amber-100/90 text-amber-800 border-amber-200',
       iconBg: 'bg-amber-100/80 border-amber-200/80',
-      desc: 'Merancang schema relational dengan composite indexes, Redis in-memory cache, dan payload JSON ramping agar response time API konsisten di bawah 50 milidetik.',
+      desc: 'Skema relasional, indeks komposit, dan Redis cache agar respon API konsisten < 50ms.',
     },
     {
-      title: 'Ergonomi & Aksesibilitas Mobile-First',
+      title: 'Ergonomi Mobile-First',
       icon: <Smartphone className="w-4 h-4 text-purple-600" />,
       tag: 'Apple HIG / WCAG',
       themeBg: 'bg-purple-50/50 hover:bg-purple-50/80 border-purple-200/90 hover:border-purple-400',
       tagColor: 'bg-purple-100/90 text-purple-800 border-purple-200',
       iconBg: 'bg-purple-100/80 border-purple-200/80',
-      desc: 'Antarmuka web modern yang responsif dengan target sentuh jari minimal 44x44px, fluid typography yang tidak pernah patah, dan waktu muat cepat di smartphone.',
+      desc: 'Layout responsif smartphone, target sentuh minimal 44px, dan waktu muat secepat kilat.',
     },
   ];
 
   return (
-    <section id="about" className="py-14 sm:py-24 bg-white border-b border-zinc-200 relative overflow-hidden bg-ambient-section">
+    <section id="about" className="py-14 sm:py-20 bg-white border-b border-zinc-200 relative overflow-hidden bg-ambient-section">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
           
           {/* Left Column: Personal Narrative */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 shadow-2xs">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 shadow-2xs">
               <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
-              <span>Prinsip Rekayasa Sistem</span>
+              <span>Prinsip Kerja</span>
             </div>
             
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-zinc-950 tracking-tight leading-tight">
-              Fokus pada solusi praktis yang memecahkan masalah nyata.
+              Solusi praktis untuk masalah nyata.
             </h2>
 
             {/* Engineer Profile Card Snippet */}
@@ -62,40 +62,37 @@ export const AboutSection: FC = () => {
               <img
                 src="/avatar.png"
                 alt="Adi Kurniawan"
-                className="w-12 h-12 rounded-xl object-cover ring-2 ring-blue-500/30 border border-white shadow-xs shrink-0"
+                className="w-11 h-11 rounded-xl object-cover ring-2 ring-blue-500/30 border border-white shadow-xs shrink-0"
               />
               <div>
                 <h4 className="text-sm font-bold text-zinc-950">Adi Kurniawan</h4>
                 <p className="text-xs text-zinc-600 font-mono">Fullstack Engineer & Systems Architect</p>
-                <div className="flex items-center gap-2 text-[10px] text-emerald-700 font-mono font-semibold mt-0.5">
+                <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 font-mono font-semibold mt-0.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  <span>Depok, Jawa Barat • Siap Kolaborasi</span>
+                  <span>Depok, Jawa Barat</span>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm lg:text-base text-zinc-600 leading-relaxed">
+            <div className="space-y-3 text-xs sm:text-sm lg:text-base text-zinc-600 leading-relaxed">
               <p>
-                Dengan pengalaman <strong>4+ tahun</strong> dalam rekayasa perangkat lunak skala produksi—termasuk rekam jejak di PT Dowlat Alib Indonesia dalam mengembangkan platform e-commerce logam mulia dan API berkecepatan tinggi—saya menyukai proses membangun software dari hulu ke hilir: mulai dari backend di <span className="font-semibold text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Golang & Laravel</span>, antarmuka modern di <span className="font-semibold text-blue-900 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">Vue 3 & React</span>, hingga orkestrasi di <span className="font-semibold text-purple-900 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">Linux VPS & Docker</span>.
+                Pengalaman <strong>4+ tahun</strong> membangun aplikasi skala produksi—termasuk di PT Dowlat Alib Indonesia (e-commerce logam mulia & API mobile). Terbiasa menangani siklus hulu-hilir: backend <span className="font-semibold text-emerald-900 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-200">Go & Laravel</span>, frontend modern <span className="font-semibold text-blue-900 bg-blue-50 px-1 py-0.5 rounded border border-blue-200">Vue 3 & React</span>, serta orkestrasi <span className="font-semibold text-purple-900 bg-purple-50 px-1 py-0.5 rounded border border-purple-200">Linux VPS & Docker</span>.
               </p>
               <p>
-                Saya secara aktif menerapkan metodologi <strong>AI-Assisted Development & Agentic Coding Workflows</strong> untuk mengakselerasi siklus pengembangan secara eksponensial—dari perancangan arsitektur, rapid prototyping, hingga pengujian dan deployment tanpa mengorbankan kualitas maupun keamanan data.
-              </p>
-              <p>
-                Bagi saya, sistem yang hebat adalah yang <strong>dapat diandalkan setiap hari oleh pengguna</strong>: stabil di traffic tinggi, minim latensi, dan terstruktur rapi untuk pemeliharaan jangka panjang.
+                Fokus utama: sistem yang <strong>dapat diandalkan setiap hari</strong>—stabil pada traffic tinggi, minim latensi, dan terstruktur rapi untuk kolaborasi jangka panjang.
               </p>
             </div>
           </div>
 
           {/* Right Column: Structured Engineering Cards with Vibrant Colors */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
             {philosophies.map((item, idx) => (
               <div
                 key={idx}
-                className={`p-4 sm:p-5 rounded-2xl border shadow-2xs transition-all card-elevation flex flex-col justify-between ${item.themeBg}`}
+                className={`p-4 rounded-2xl border shadow-2xs transition-all card-elevation flex flex-col justify-between ${item.themeBg}`}
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
                     <div className={`p-2 rounded-xl shadow-2xs border ${item.iconBg}`}>
                       {item.icon}
                     </div>
@@ -103,7 +100,7 @@ export const AboutSection: FC = () => {
                       {item.tag}
                     </span>
                   </div>
-                  <h3 className="text-sm sm:text-base font-bold text-zinc-950 mb-1.5">
+                  <h3 className="text-sm sm:text-base font-bold text-zinc-950 mb-1">
                     {item.title}
                   </h3>
                   <p className="text-xs text-zinc-600 leading-relaxed">
