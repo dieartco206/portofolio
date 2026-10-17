@@ -97,7 +97,7 @@ export const FeaturedProjects: FC = () => {
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
                   onClick={() => setSelectedProject(project)}
-                  className="group bg-white rounded-2xl border border-zinc-200/90 hover:border-blue-400/80 flex flex-col justify-between transition-shadow duration-300 hover:shadow-xl cursor-pointer overflow-hidden relative card-elevation"
+                  className="group bg-white rounded-2xl border border-zinc-200/90 hover:border-blue-400/80 flex flex-col justify-between transition-all duration-300 luxury-card cursor-pointer overflow-hidden relative"
                 >
                   {/* Screenshot Preview with Clean Framing */}
                   <div className="relative w-full h-48 sm:h-64 bg-zinc-950 overflow-hidden border-b border-zinc-100 flex items-center justify-center">
@@ -109,7 +109,7 @@ export const FeaturedProjects: FC = () => {
                       decoding="async"
                     />
                     {/* Subtle Gradient Vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
 
                     {/* Clean Top Badges */}
                     <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
@@ -136,13 +136,13 @@ export const FeaturedProjects: FC = () => {
                   {/* Project Body */}
                   <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
                     <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-medium text-zinc-500">
-                          Peran: <strong className="text-zinc-700 font-semibold">{project.role}</strong>
+                      <div className="flex items-center gap-2 mb-2.5">
+                        <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-zinc-50 text-zinc-700 border border-zinc-200">
+                          Peran: <strong className="text-zinc-900 font-bold">{project.role}</strong>
                         </span>
                       </div>
 
-                      <h3 className="text-base sm:text-xl font-bold text-zinc-950 tracking-tight group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-base sm:text-xl font-black text-zinc-950 tracking-tight group-hover:text-blue-600 transition-colors">
                         {project.title}
                       </h3>
                       <p className="text-xs text-zinc-500 font-medium mt-0.5 mb-3">
@@ -158,9 +158,9 @@ export const FeaturedProjects: FC = () => {
                         {project.metrics.slice(0, 2).map((metric, mIdx) => (
                           <div
                             key={mIdx}
-                            className="p-2 sm:p-2.5 rounded-xl bg-zinc-50/80 border border-zinc-200/80 group-hover:bg-blue-50/40 group-hover:border-blue-200/60 transition-colors"
+                            className="p-2.5 sm:p-3 rounded-xl bg-zinc-50/70 border border-zinc-200/80 group-hover:bg-blue-50/40 group-hover:border-blue-200/60 transition-colors"
                           >
-                            <div className="text-[10px] font-semibold text-zinc-500 uppercase">{metric.label}</div>
+                            <div className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">{metric.label}</div>
                             <div className="text-xs sm:text-sm font-bold text-blue-700 mt-0.5">{metric.value}</div>
                           </div>
                         ))}

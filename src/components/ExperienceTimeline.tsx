@@ -55,7 +55,7 @@ export const ExperienceTimeline: FC = () => {
                 {/* Content Box */}
                 <motion.div
                   whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                  className="p-5 sm:p-6 lg:p-7 rounded-2xl bg-zinc-50/70 border border-zinc-200/90 shadow-2xs hover:border-blue-300 transition-colors card-elevation"
+                  className="p-5 sm:p-6 lg:p-7 rounded-2xl bg-white border border-zinc-200/90 hover:border-blue-300 transition-colors luxury-card"
                 >
                   {/* Meta details */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -159,7 +159,7 @@ export const ExperienceTimeline: FC = () => {
 
           <motion.div
             whileHover={{ y: -3, transition: { duration: 0.2 } }}
-            className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-50/50 via-orange-50/30 to-amber-50/50 border border-amber-200/90 card-elevation flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+            className="p-5 sm:p-6 rounded-2xl bg-white border border-amber-200/90 shadow-2xs luxury-card flex flex-col sm:flex-row sm:items-center justify-between gap-4"
           >
             <div>
               <div className="flex flex-wrap items-center gap-2 mb-1">

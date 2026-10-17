@@ -62,7 +62,7 @@ export const ContactSection: FC = () => {
             {/* Copy Email Card */}
             <motion.div
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/80 shadow-2xs card-elevation"
+              className="p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/80 luxury-card"
             >
               <div className="mb-2">
                 <span className="text-xs font-bold text-blue-800 uppercase tracking-wider">Email</span>
@@ -99,7 +99,7 @@ export const ContactSection: FC = () => {
               href="https://wa.me/6281288887916"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-white border border-emerald-200/90 shadow-2xs hover:border-emerald-400 hover:shadow-md transition-all block group card-elevation"
+              className="p-5 rounded-2xl bg-white border border-emerald-200/90 hover:border-emerald-400 block group luxury-card"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -121,7 +121,7 @@ export const ContactSection: FC = () => {
               href="https://github.com/dieartco206"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs hover:border-blue-400 hover:shadow-md transition-all block group card-elevation"
+              className="p-5 rounded-2xl bg-white border border-zinc-200/90 hover:border-blue-400 block group luxury-card"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
@@ -138,7 +138,7 @@ export const ContactSection: FC = () => {
             </motion.a>
 
             {/* Location Info */}
-            <div className="p-4 rounded-xl bg-zinc-100/70 border border-zinc-200/80 flex items-center justify-between text-xs text-zinc-600 font-medium">
+            <div className="p-4 rounded-xl bg-white border border-zinc-200/80 shadow-2xs flex items-center justify-between text-xs text-zinc-600 font-medium">
               <div className="flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-blue-600" />
                 <span>Depok, Jawa Barat, Indonesia</span>
@@ -157,7 +157,7 @@ export const ContactSection: FC = () => {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="p-5 sm:p-7 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs card-elevation">
+            <div className="p-5 sm:p-7 rounded-2xl bg-white border border-zinc-200/90 luxury-card">
               <div className="mb-5 pb-4 border-b border-zinc-100">
                 <h3 className="text-base sm:text-lg font-bold text-zinc-950">
                   Kirim Pesan WhatsApp

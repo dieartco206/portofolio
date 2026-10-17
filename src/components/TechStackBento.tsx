@@ -82,7 +82,7 @@ export const TechStackBento: FC = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`p-5 sm:p-6 lg:p-7 rounded-2xl border border-zinc-200/90 shadow-2xs transition-shadow duration-300 hover:shadow-lg card-elevation flex flex-col justify-between ${visual.cardBg}`}
+                className={`p-5 sm:p-6 lg:p-7 rounded-2xl border border-zinc-200/90 luxury-card flex flex-col justify-between ${visual.cardBg}`}
               >
                 <div>
                   {/* Title Bar */}
@@ -103,11 +103,11 @@ export const TechStackBento: FC = () => {
                     {group.items.map((item) => (
                       <div
                         key={item.name}
-                        className="p-3 sm:p-3.5 rounded-xl bg-zinc-50/70 border border-zinc-200/80 hover:border-zinc-300 transition-colors"
+                        className="p-3.5 sm:p-4 rounded-xl bg-zinc-50/70 border border-zinc-200/80 hover:bg-white hover:border-zinc-300 transition-all shadow-2xs"
                       >
-                        <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1">
+                        <div className="flex flex-wrap items-center justify-between gap-1.5 mb-1.5">
                           <span className="font-bold text-xs sm:text-sm text-zinc-950">{item.name}</span>
-                          <span className={`text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded border ${visual.badge}`}>
+                          <span className={`text-[10px] sm:text-[11px] font-semibold px-2 py-0.5 rounded-md border ${visual.badge}`}>
                             {item.level}
                           </span>
                         </div>

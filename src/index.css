@@ -16,7 +16,7 @@
   }
 
   body {
-    background-color: #fafafa;
+    background-color: #fafbfc;
     color: #09090b;
     overflow-x: hidden;
     width: 100%;
@@ -32,8 +32,8 @@
 
   /* Custom Light Scrollbar */
   ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
@@ -54,24 +54,37 @@
   /* Architectural Engineering Grid & Dots */
   .bg-grid-subtle {
     background-image: 
-      linear-gradient(to right, rgba(24, 24, 27, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(24, 24, 27, 0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
+      linear-gradient(to right, rgba(24, 24, 27, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(24, 24, 27, 0.035) 1px, transparent 1px);
+    background-size: 36px 36px;
   }
 
   .bg-dots-subtle {
-    background-image: radial-gradient(rgba(24, 24, 27, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(24, 24, 27, 0.06) 1px, transparent 1px);
     background-size: 20px 20px;
   }
 
   /* Clean elevation shadow */
   .card-elevation {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .card-elevation:hover {
-    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.06), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 14px 30px -6px rgba(15, 23, 42, 0.07), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+  }
+
+  /* Luxury card style */
+  .luxury-card {
+    background: #ffffff;
+    border: 1px solid rgba(228, 228, 231, 0.85);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 6px 18px -4px rgba(15, 23, 42, 0.04);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .luxury-card:hover {
+    border-color: rgba(59, 130, 246, 0.35);
+    box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
   }
 
   /* Hide scrollbar for clean horizontal tab scrolling */
@@ -83,12 +96,15 @@
     scrollbar-width: none;
   }
 
-  /* Vibrant tech ambient lighting (non-slop, clean structured) */
-  .bg-ambient-top {
-    background: radial-gradient(circle at 30% 0%, rgba(59, 130, 246, 0.09) 0%, rgba(16, 185, 129, 0.06) 40%, transparent 75%);
+  /* Refined Luxury Ambient Top Lighting */
+  .bg-hero-ambient {
+    background: 
+      radial-gradient(ellipse 65% 50% at 50% -10%, rgba(59, 130, 246, 0.08), transparent 70%),
+      radial-gradient(circle 400px at 90% 15%, rgba(16, 185, 129, 0.04), transparent 70%),
+      radial-gradient(circle 350px at 10% 40%, rgba(99, 102, 241, 0.035), transparent 70%);
   }
 
   .bg-ambient-section {
-    background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.06) 0%, rgba(14, 165, 233, 0.04) 50%, transparent 80%);
+    background: radial-gradient(circle at 80% 20%, rgba(99, 102, 241, 0.04) 0%, rgba(14, 165, 233, 0.03) 50%, transparent 80%);
   }
 }
