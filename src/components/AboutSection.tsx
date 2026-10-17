@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { CheckCircle2, Shield, Zap, Smartphone, ShieldCheck } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export const AboutSection: FC = () => {
   const philosophies = [
@@ -46,8 +47,14 @@ export const AboutSection: FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
           
-          {/* Left Column: Personal Narrative */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Left Column: Personal Narrative with In-View Motion */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-4"
+          >
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 shadow-2xs">
               <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
               <span>Prinsip Kerja</span>
@@ -65,14 +72,23 @@ export const AboutSection: FC = () => {
                 Fokus utama: sistem yang <strong>stabil, mudah dirawat, dan terstruktur rapi</strong> untuk penggunaan jangka panjang.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Structured Engineering Cards with Vibrant Colors */}
+          {/* Right Column: Structured Engineering Cards with Staggered Motion */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
             {philosophies.map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className={`p-4 rounded-2xl border shadow-2xs transition-all card-elevation flex flex-col justify-between ${item.themeBg}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{
+                  duration: 0.5,
+                  delay: idx * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={`p-4 rounded-2xl border shadow-2xs transition-shadow duration-300 hover:shadow-lg card-elevation flex flex-col justify-between ${item.themeBg}`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2.5">
@@ -90,7 +106,7 @@ export const AboutSection: FC = () => {
                     {item.desc}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 

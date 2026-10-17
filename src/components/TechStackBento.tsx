@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { skillGroupsData } from '../data/skills';
 import { Server, Layout, Database, Cloud, Cpu } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export const TechStackBento: FC = () => {
   const getGroupVisuals = (id: string) => {
@@ -44,8 +45,15 @@ export const TechStackBento: FC = () => {
   return (
     <section id="skills" className="py-14 sm:py-24 bg-[#fafbfc] border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mb-8 sm:mb-12">
+        
+        {/* Header with In-View Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-8 sm:mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
             <Cpu className="w-3.5 h-3.5 text-blue-600" />
             <span>Tech Stack</span>
@@ -56,16 +64,25 @@ export const TechStackBento: FC = () => {
           <p className="text-xs sm:text-sm text-zinc-600 mt-1.5 leading-relaxed">
             Teknologi yang digunakan dalam pengembangan sistem produksi harian.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 4 Cards Grid */}
+        {/* 4 Cards Grid with Staggered In-View Animation */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-          {skillGroupsData.map((group) => {
+          {skillGroupsData.map((group, idx) => {
             const visual = getGroupVisuals(group.id);
             return (
-              <div
+              <motion.div
                 key={group.id}
-                className={`p-5 sm:p-6 lg:p-7 rounded-2xl border border-zinc-200/90 shadow-2xs transition-all card-elevation flex flex-col justify-between ${visual.cardBg}`}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{
+                  duration: 0.5,
+                  delay: idx * 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={`p-5 sm:p-6 lg:p-7 rounded-2xl border border-zinc-200/90 shadow-2xs transition-shadow duration-300 hover:shadow-lg card-elevation flex flex-col justify-between ${visual.cardBg}`}
               >
                 <div>
                   {/* Title Bar */}
@@ -111,7 +128,7 @@ export const TechStackBento: FC = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

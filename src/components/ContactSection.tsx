@@ -1,6 +1,7 @@
 import { useState, type FC, type FormEvent } from 'react';
 import { Mail, MessageSquare, Copy, Check, MapPin, Send, ArrowRight } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
+import { motion } from 'motion/react';
 
 export const ContactSection: FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -27,7 +28,15 @@ export const ContactSection: FC = () => {
   return (
     <section id="contact" className="py-14 sm:py-24 bg-[#f8fafc] border-b border-zinc-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-8 sm:mb-12">
+        
+        {/* Section Header with In-View Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-8 sm:mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3 shadow-2xs">
             <Mail className="w-3.5 h-3.5 text-blue-600" />
             <span>Kontak</span>
@@ -38,13 +47,23 @@ export const ContactSection: FC = () => {
           <p className="text-xs sm:text-sm text-zinc-600 mt-1.5 leading-relaxed">
             Terbuka untuk diskusi proyek atau peluang kerja Full-Stack & Backend.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
-          {/* Left: Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-3.5">
+          
+          {/* Left: Contact Info Cards with In-View Slide */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-3.5"
+          >
             {/* Copy Email Card */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/80 shadow-2xs card-elevation">
+            <motion.div
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              className="p-5 sm:p-6 rounded-2xl bg-white border border-blue-200/80 shadow-2xs card-elevation"
+            >
               <div className="mb-2">
                 <span className="text-xs font-bold text-blue-800 uppercase tracking-wider">Email</span>
               </div>
@@ -53,9 +72,11 @@ export const ContactSection: FC = () => {
                   <Mail className="w-4 h-4 text-blue-600 shrink-0" />
                   <span className="text-xs sm:text-sm font-semibold text-zinc-900 truncate">{emailAddress}</span>
                 </div>
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.96 }}
                   onClick={handleCopyEmail}
-                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white hover:bg-blue-50 text-blue-900 border border-blue-200 shadow-2xs flex items-center justify-center gap-1.5 shrink-0 transition-all active:scale-95"
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white hover:bg-blue-50 text-blue-900 border border-blue-200 shadow-2xs flex items-center justify-center gap-1.5 shrink-0 transition-colors"
                 >
                   {copiedEmail ? (
                     <>
@@ -68,12 +89,13 @@ export const ContactSection: FC = () => {
                       <span>Salin</span>
                     </>
                   )}
-                </button>
+                </motion.button>
               </div>
-            </div>
+            </motion.div>
 
-            {/* WhatsApp Direct Card with Vibrant Emerald Accent */}
-            <a
+            {/* WhatsApp Direct Card */}
+            <motion.a
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
               href="https://wa.me/6281288887916"
               target="_blank"
               rel="noopener noreferrer"
@@ -89,12 +111,13 @@ export const ContactSection: FC = () => {
                     <p className="text-sm font-bold text-zinc-950 mt-0.5">{phoneNumber}</p>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-emerald-500 group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-emerald-500 group-hover:translate-x-1 transition-transform" />
               </div>
-            </a>
+            </motion.a>
 
-            {/* GitHub Card with Tech Blue Accent */}
-            <a
+            {/* GitHub Card */}
+            <motion.a
+              whileHover={{ y: -3, transition: { duration: 0.2 } }}
               href="https://github.com/dieartco206"
               target="_blank"
               rel="noopener noreferrer"
@@ -112,7 +135,7 @@ export const ContactSection: FC = () => {
                 </div>
                 <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 group-hover:text-blue-600 transition-all" />
               </div>
-            </a>
+            </motion.a>
 
             {/* Location Info */}
             <div className="p-4 rounded-xl bg-zinc-100/70 border border-zinc-200/80 flex items-center justify-between text-xs text-zinc-600 font-medium">
@@ -124,10 +147,16 @@ export const ContactSection: FC = () => {
                 Remote / Onsite
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Quick Direct WhatsApp Message Form */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
             <div className="p-5 sm:p-7 rounded-2xl bg-white border border-zinc-200/90 shadow-2xs card-elevation">
               <div className="mb-5 pb-4 border-b border-zinc-100">
                 <h3 className="text-base sm:text-lg font-bold text-zinc-950">
@@ -168,17 +197,19 @@ export const ContactSection: FC = () => {
                 </div>
 
                 <div className="pt-2 flex justify-end">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-500/20 transition-all active:scale-[0.98]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-500/20 transition-colors"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>Kirim Pesan</span>
-                  </button>
+                  </motion.button>
                 </div>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
