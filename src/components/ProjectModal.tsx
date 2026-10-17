@@ -110,25 +110,25 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
       {/* Modal Container */}
       <div className="relative w-full max-w-4xl bg-white border border-zinc-200 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-8 z-10 max-h-[92vh] flex flex-col">
         {/* Modal Header */}
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-zinc-200 bg-white sticky top-0 z-30">
-          <div className="pr-3">
-            <div className="flex flex-wrap items-center gap-2 mb-1.5">
-              <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200">
+        <div className="flex items-center justify-between p-3.5 sm:p-6 border-b border-zinc-200 bg-white sticky top-0 z-30">
+          <div className="pr-2 sm:pr-3 min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
+              <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200">
                 {project.categoryLabel}
               </span>
               {project.badge && (
-                <span className="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+                <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/80">
                   {project.badge}
                 </span>
               )}
-              <span className="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-zinc-100 text-zinc-700 border border-zinc-200">
+              <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono font-semibold bg-zinc-100 text-zinc-700 border border-zinc-200">
                 {gallery.length} Screenshot
               </span>
             </div>
-            <h3 className="text-lg sm:text-2xl font-black text-zinc-950 tracking-tight leading-snug">
+            <h3 className="text-[15px] sm:text-xl lg:text-2xl font-black text-zinc-950 tracking-tight leading-tight">
               {project.title}
             </h3>
-            <p className="text-xs text-zinc-500 font-mono mt-0.5">
+            <p className="text-[11px] sm:text-xs text-zinc-500 font-mono mt-0.5">
               Peran: <strong className="text-zinc-800 font-semibold">{project.role}</strong>
             </p>
           </div>
@@ -367,11 +367,11 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 mb-2.5">
               Spesifikasi & Fitur
             </h4>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               {project.metrics.map((metric, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-blue-50/60 border border-blue-200/80">
-                  <div className="text-[10px] font-mono uppercase text-blue-700 font-semibold">{metric.label}</div>
-                  <div className="text-sm sm:text-base font-bold font-mono text-blue-900 mt-0.5">{metric.value}</div>
+                <div key={idx} className="p-2 sm:p-3 rounded-xl bg-blue-50/60 border border-blue-200/80">
+                  <div className="text-[9px] sm:text-[10px] font-mono uppercase text-blue-700 font-semibold">{metric.label}</div>
+                  <div className="text-xs sm:text-sm font-bold font-mono text-blue-900 mt-0.5 truncate">{metric.value}</div>
                 </div>
               ))}
             </div>
@@ -380,14 +380,14 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           {/* Code Snippet Preview (if provided) */}
           {project.codeSnippet && (
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 flex items-center gap-1.5">
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-600 flex items-center gap-1.5 shrink-0">
                   <Terminal className="w-3.5 h-3.5 text-zinc-700" />
-                  <span>Contoh Kode ({project.codeSnippet.filename})</span>
+                  <span>Contoh Kode</span>
                 </span>
                 <button
                   onClick={handleCopyCode}
-                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-semibold text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded-lg border border-zinc-200 transition-colors"
+                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-semibold text-zinc-700 bg-zinc-100 hover:bg-zinc-200 rounded-lg border border-zinc-200 transition-colors shrink-0"
                 >
                   {copiedCode ? (
                     <>
@@ -433,27 +433,27 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         </div>
 
         {/* Modal Footer with Quick Navigation Tips */}
-        <div className="p-4 sm:p-5 border-t border-zinc-200 bg-zinc-50 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-xs text-zinc-500 font-mono">
+        <div className="p-3.5 sm:p-5 border-t border-zinc-200 bg-zinc-50 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3">
+          <div className="hidden sm:flex items-center gap-2 text-xs text-zinc-500 font-mono">
             <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">←</span>
             <span className="inline-block px-1.5 py-0.5 rounded bg-white border border-zinc-200 text-zinc-700 font-bold">→</span>
             <span>Navigasi keyboard atau klik tombol</span>
           </div>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
             {gallery.length > 1 && (
               <>
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="px-3.5 py-2 rounded-xl text-xs font-bold border border-zinc-200 bg-white hover:bg-zinc-100 text-zinc-800 transition-colors"
+                  className="flex-1 sm:flex-initial px-3 py-2 rounded-xl text-xs font-bold border border-zinc-200 bg-white hover:bg-zinc-100 text-zinc-800 transition-colors text-center whitespace-nowrap"
                 >
                   ← Sebelumnya
                 </button>
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-3.5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 transition-colors"
+                  className="flex-1 sm:flex-initial px-3 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 transition-colors text-center whitespace-nowrap"
                 >
                   Selanjutnya →
                 </button>
@@ -461,7 +461,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             )}
             <button
               onClick={onClose}
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-zinc-950 text-white hover:bg-zinc-800 transition-colors"
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-zinc-950 text-white hover:bg-zinc-800 transition-colors whitespace-nowrap"
             >
               Tutup
             </button>

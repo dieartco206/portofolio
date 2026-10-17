@@ -141,7 +141,7 @@ export const FeaturedProjects: FC = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-lg sm:text-xl font-bold text-zinc-950 tracking-tight group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-base sm:text-xl font-bold text-zinc-950 tracking-tight group-hover:text-blue-600 transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-xs text-zinc-500 font-mono mt-0.5 mb-3">

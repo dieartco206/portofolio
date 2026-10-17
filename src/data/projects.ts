@@ -3,7 +3,7 @@ import type { Project } from '../types/portfolio';
 export const projectsData: Project[] = [
   {
     id: 'absensi-bsp',
-    title: 'Sistem Presensi Karyawan Wajah & GPS',
+    title: 'Sistem Presensi Wajah & GPS',
     subtitle: 'Aplikasi Presensi Multi-Cabang',
     category: 'enterprise',
     categoryLabel: 'Sistem Presensi & Biometrik',
@@ -40,10 +40,10 @@ export const projectsData: Project[] = [
       'Ekspor rekap kehadiran dalam format Excel dan PDF.',
     ],
     metrics: [
-      { label: 'Metode Absen', value: 'Wajah & GPS' },
-      { label: 'Deployment', value: 'Linux VPS & Docker' },
-      { label: 'Validasi', value: 'Radius Geofence' },
-      { label: 'Format Rekap', value: 'Excel & PDF' },
+      { label: 'Metode', value: 'Wajah & GPS' },
+      { label: 'Server', value: 'Linux VPS' },
+      { label: 'Radius', value: 'Geofence GPS' },
+      { label: 'Laporan', value: 'Excel & PDF' },
     ],
     tags: ['Go', 'Face AI', 'WebSocket', 'MySQL', 'Nginx', 'Docker', 'Vue 3', 'Geofencing'],
     codeSnippet: {
@@ -77,7 +77,7 @@ func (u *AttendanceUsecase) VerifyAttendance(ctx context.Context, req *dto.Atten
   },
   {
     id: 'elearning-suite',
-    title: 'Platform E-Learning & Ujian CBT Sekolah',
+    title: 'Platform E-Learning & Ujian CBT',
     subtitle: 'Sistem Informasi Akademik 3 Portal',
     category: 'enterprise',
     categoryLabel: 'Pendidikan & Sekolah',
@@ -114,9 +114,9 @@ func (u *AttendanceUsecase) VerifyAttendance(ctx context.Context, req *dto.Atten
       'Struktur kode backend Go Clean Architecture yang mudah dirawat.',
     ],
     metrics: [
-      { label: 'Portal', value: 'Admin, Guru, Siswa' },
-      { label: 'Fitur CBT', value: 'Ujian & Rumus KaTeX' },
-      { label: 'Penilaian', value: 'Hitung Nilai KKM' },
+      { label: 'Portal', value: '3 Portal Terpadu' },
+      { label: 'Fitur CBT', value: 'Ujian & Rumus' },
+      { label: 'Penilaian', value: 'Otomatis KKM' },
       { label: 'Laporan', value: 'Ekspor Excel' },
     ],
     tags: ['Go', 'Clean Architecture', 'React', 'Vue', 'KaTeX', 'ExcelJS', 'JWT Auth', 'Docker'],
