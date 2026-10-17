@@ -98,7 +98,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-zinc-950/70 backdrop-blur-xs"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md"
             onClick={onClose}
             aria-hidden="true"
           />
@@ -109,29 +109,29 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-4xl bg-white border border-zinc-200 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-8 z-10 max-h-[92vh] flex flex-col"
+            className="relative w-full max-w-4xl bg-[#0c0e17] border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden my-3 sm:my-8 z-10 max-h-[92vh] flex flex-col text-white"
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-3.5 sm:p-6 border-b border-zinc-200 bg-white sticky top-0 z-30">
+            <div className="flex items-center justify-between p-3.5 sm:p-6 border-b border-white/[0.08] bg-[#0c0e17]/95 backdrop-blur-xl sticky top-0 z-30">
               <div className="pr-2 sm:pr-3 min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1">
-                  <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1.5">
+                  <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-blue-500/10 text-blue-400 border border-blue-500/20">
                     {project.categoryLabel}
                   </span>
                   {project.badge && (
-                    <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200/80">
+                    <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                       {project.badge}
                     </span>
                   )}
-                  <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold bg-zinc-100 text-zinc-700 border border-zinc-200">
+                  <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-semibold bg-zinc-900 text-zinc-300 border border-white/10">
                     {gallery.length} Screenshot
                   </span>
                 </div>
-                <h3 className="text-[15px] sm:text-xl lg:text-2xl font-black text-zinc-950 tracking-tight leading-tight">
+                <h3 className="text-[15px] sm:text-xl lg:text-2xl font-black text-white tracking-tight leading-tight">
                   {project.title}
                 </h3>
-                <p className="text-[11px] sm:text-xs text-zinc-500 font-medium mt-0.5">
-                  Peran: <strong className="text-zinc-800 font-semibold">{project.role}</strong>
+                <p className="text-[11px] sm:text-xs text-zinc-400 font-medium mt-0.5">
+                  Peran: <strong className="text-white font-semibold">{project.role}</strong>
                 </p>
               </div>
 
@@ -139,7 +139,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
-                className="p-2 text-zinc-400 hover:text-zinc-950 rounded-xl hover:bg-zinc-100 transition-colors shrink-0"
+                className="p-2 text-zinc-400 hover:text-white rounded-xl hover:bg-white/10 transition-colors shrink-0"
                 aria-label="Tutup modal"
               >
                 <X className="w-5 h-5" />
@@ -151,7 +151,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
               {/* Main Interactive Screenshot Carousel Stage */}
               <div className="space-y-3">
                 <div
-                  className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-zinc-200 shadow-sm bg-zinc-950 min-h-[220px] sm:min-h-[420px] max-h-[300px] sm:max-h-[500px] flex items-center justify-center group select-none"
+                  className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black min-h-[220px] sm:min-h-[420px] max-h-[300px] sm:max-h-[500px] flex items-center justify-center group select-none"
                   onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
                   onTouchEnd={(e) => {
                     if (touchStartX === null) return;
@@ -183,7 +183,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                         e.stopPropagation();
                         handlePrev();
                       }}
-                      className="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-black/60 hover:bg-black/85 text-white backdrop-blur-md border border-white/20 shadow-xl transition-colors z-20"
+                      className="absolute left-2.5 sm:left-4 top-1/2 -translate-y-1/2 p-2.5 sm:p-3 rounded-full bg-black/70 hover:bg-black/90 text-white backdrop-blur-md border border-white/20 shadow-xl transition-colors z-20"
                       aria-label="Foto sebelumnya"
                     >
                       <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -209,13 +209,13 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
                   {/* Floating Counter & Caption Badge */}
                   <div className="absolute bottom-3 inset-x-0 flex justify-center px-4 pointer-events-none z-20">
-                    <div className="bg-black/80 backdrop-blur-md text-white px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium flex items-center gap-2 border border-white/15 shadow-lg max-w-full">
+                    <div className="bg-black/85 backdrop-blur-md text-white px-3 sm:px-4 py-1.5 rounded-full text-xs font-medium flex items-center gap-2 border border-white/15 shadow-xl max-w-full">
                       <span className="font-bold text-blue-400 shrink-0">
                         {safeIndex + 1} / {gallery.length}
                       </span>
                       {currentPhotoTitle && (
                         <>
-                          <span className="text-zinc-500">•</span>
+                          <span className="text-zinc-600">•</span>
                           <span className="text-zinc-200 truncate">{currentPhotoTitle}</span>
                         </>
                       )}
@@ -227,7 +227,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                     href={activeImage || project.image}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-3 right-3 p-2 rounded-lg bg-black/60 hover:bg-black/80 text-white backdrop-blur-xs border border-white/20 shadow-xs transition-all z-20"
+                    className="absolute top-3 right-3 p-2 rounded-lg bg-black/70 hover:bg-black/90 text-white backdrop-blur-xs border border-white/20 shadow-xs transition-all z-20"
                     title="Buka gambar ukuran penuh di tab baru"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -236,72 +236,69 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
                 {/* Thumbnail Strip with Explicit Controls */}
                 {gallery.length > 1 && (
-                  <div className="bg-zinc-50/80 p-3 rounded-2xl border border-zinc-200/90">
+                  <div className="bg-zinc-900/60 p-3 rounded-2xl border border-white/[0.08]">
                     <div className="flex items-center justify-between mb-2 px-1">
-                      <span className="text-xs font-bold text-zinc-700 uppercase tracking-wider flex items-center gap-1.5">
-                        <ImageIcon className="w-3.5 h-3.5 text-blue-600" />
-                        <span>Galeri ({gallery.length})</span>
+                      <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
+                        <ImageIcon className="w-3.5 h-3.5 text-blue-400" />
+                        <span>Galeri Screenshots ({gallery.length})</span>
                       </span>
 
                       <div className="flex items-center gap-2">
                         <span className="text-[11px] font-medium text-zinc-500 hidden sm:inline">
-                          Navigasi:
+                          Geser Galeri:
                         </span>
                         <motion.button
-                          whileTap={{ scale: 0.95 }}
+                          whileTap={{ scale: 0.9 }}
                           type="button"
                           onClick={() => scrollThumbnails('left')}
-                          className="p-1.5 rounded-lg border border-zinc-200 bg-white hover:bg-zinc-100 hover:border-zinc-300 text-zinc-700 transition-colors shadow-2xs"
-                          aria-label="Geser daftar ke kiri"
+                          className="p-1.5 rounded-lg border border-white/10 hover:bg-white/10 text-zinc-300 transition-colors"
+                          aria-label="Geser thumbnail ke kiri"
                         >
                           <ChevronLeft className="w-4 h-4" />
                         </motion.button>
                         <motion.button
-                          whileTap={{ scale: 0.95 }}
+                          whileTap={{ scale: 0.9 }}
                           type="button"
                           onClick={() => scrollThumbnails('right')}
-                          className="p-1.5 rounded-lg border border-blue-200 bg-blue-50 hover:bg-blue-100 text-blue-700 transition-colors shadow-2xs font-bold"
-                          aria-label="Geser daftar ke kanan"
+                          className="p-1.5 rounded-lg border border-white/10 hover:bg-white/10 text-zinc-300 transition-colors"
+                          aria-label="Geser thumbnail ke kanan"
                         >
                           <ChevronRight className="w-4 h-4" />
                         </motion.button>
                       </div>
                     </div>
 
-                    {/* Smooth Horizontal Scrollable Thumbnail Strip */}
                     <div
                       ref={thumbnailContainerRef}
-                      className="flex items-center gap-2 overflow-x-auto pb-2 pt-1 px-1 scroll-smooth"
-                      style={{
-                        scrollbarWidth: 'thin',
-                        scrollbarColor: '#93c5fd #f1f5f9',
-                      }}
+                      className="flex items-center gap-2.5 overflow-x-auto py-1 px-1 scroll-smooth no-scrollbar"
+                      style={{ WebkitOverflowScrolling: 'touch' }}
                     >
                       {gallery.map((img, idx) => {
-                        const isSelected = (activeImage || gallery[0]) === img;
+                        const isSelected = (activeImage || project.image) === img;
                         const thumbTitle = getCleanTitle(img);
                         return (
                           <motion.button
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
                             key={idx}
-                            ref={isSelected ? activeThumbRef : undefined}
+                            ref={isSelected ? activeThumbRef : null}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            type="button"
                             onClick={() => setActiveImage(img)}
-                            className={`relative w-24 h-16 sm:w-32 sm:h-20 rounded-xl overflow-hidden border-2 shrink-0 transition-all text-left group ${
+                            className={`relative shrink-0 w-20 sm:w-28 h-14 sm:h-20 rounded-xl overflow-hidden border-2 transition-all ${
                               isSelected
-                                ? 'border-blue-600 ring-4 ring-blue-500/25 opacity-100 shadow-md'
-                                : 'border-zinc-200 opacity-60 hover:opacity-100 hover:border-zinc-300'
+                                ? 'border-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.6)] ring-2 ring-blue-500/30'
+                                : 'border-white/10 opacity-60 hover:opacity-100 hover:border-white/30'
                             }`}
-                            title={thumbTitle}
+                            aria-label={`Pilih foto ${idx + 1}`}
                           >
                             <img
                               src={img}
-                              alt={thumbTitle || `Screenshot ${idx + 1}`}
+                              alt={thumbTitle || `Thumbnail ${idx + 1}`}
                               className="w-full h-full object-cover object-top"
                               loading="lazy"
                               decoding="async"
                             />
-                            <div className="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] font-medium px-1 py-0.5 truncate pointer-events-none">
+                            <div className="absolute bottom-0 inset-x-0 bg-black/75 text-white text-[9px] font-medium px-1 py-0.5 truncate pointer-events-none">
                               {idx + 1}. {thumbTitle}
                             </div>
                           </motion.button>
@@ -314,58 +311,58 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
               {/* Project Summary */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
-                  Ringkasan
+                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-1.5">
+                  Ringkasan Sistem
                 </h4>
-                <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
               {/* Problem & Solution Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl sm:rounded-2xl bg-rose-50/60 border border-rose-200/80">
-                  <h4 className="text-xs sm:text-sm font-bold text-rose-950 mb-1.5 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-                    <span>Tantangan:</span>
+                <div className="p-4 rounded-xl sm:rounded-2xl bg-rose-500/10 border border-rose-500/20">
+                  <h4 className="text-xs sm:text-sm font-bold text-rose-300 mb-1.5 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 shadow-[0_0_6px_rgba(244,63,94,0.8)]" />
+                    <span>Tantangan Teknis:</span>
                   </h4>
-                  <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                     {project.problem}
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl sm:rounded-2xl bg-emerald-50/60 border border-emerald-200/80">
-                  <h4 className="text-xs sm:text-sm font-bold text-emerald-950 mb-1.5 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span>Solusi:</span>
+                <div className="p-4 rounded-xl sm:rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
+                  <h4 className="text-xs sm:text-sm font-bold text-emerald-300 mb-1.5 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
+                    <span>Solusi Rekayasa:</span>
                   </h4>
-                  <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
                     {project.solution}
                   </p>
                 </div>
               </div>
 
               {/* Architecture Pipeline Box */}
-              <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-50/80 border border-zinc-200">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2 flex items-center gap-1.5">
-                  <Workflow className="w-3.5 h-3.5 text-blue-600" />
+              <div className="p-4 rounded-xl sm:rounded-2xl bg-zinc-900/70 border border-white/10">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-1.5">
+                  <Workflow className="w-3.5 h-3.5 text-blue-400" />
                   <span>Arsitektur & Alur Sistem</span>
                 </h4>
-                <div className="text-xs sm:text-sm text-zinc-700 break-words leading-relaxed font-medium">
+                <div className="text-xs sm:text-sm text-zinc-300 break-words leading-relaxed font-mono">
                   {project.architecture}
                 </div>
               </div>
 
               {/* Key Highlights */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-800 mb-2.5">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2.5">
                   Fitur Utama
                 </h4>
                 <div className="space-y-2">
                   {project.keyHighlights.map((highlight, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-700">
-                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-300">
-                        <Check className="w-2.5 h-2.5 text-emerald-700" />
+                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30">
+                        <Check className="w-2.5 h-2.5 text-emerald-400" />
                       </div>
                       <span>{highlight}</span>
                     </div>
@@ -375,29 +372,29 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
               {/* Performance Metrics */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-800 mb-2.5">
-                  Spesifikasi & Fitur
+                <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2.5">
+                  Spesifikasi & Kinerja
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                   {project.metrics.map((metric, idx) => (
-                    <div key={idx} className="p-2 sm:p-3 rounded-xl bg-blue-50/60 border border-blue-200/80">
-                      <div className="text-[9px] sm:text-[10px] font-semibold uppercase text-blue-700">{metric.label}</div>
-                      <div className="text-xs sm:text-sm font-bold text-blue-900 mt-0.5 truncate">{metric.value}</div>
+                    <div key={idx} className="p-2 sm:p-3 rounded-xl bg-zinc-900/80 border border-white/[0.08]">
+                      <div className="text-[9px] sm:text-[10px] font-semibold uppercase text-zinc-400">{metric.label}</div>
+                      <div className="text-xs sm:text-sm font-bold text-blue-400 mt-0.5 truncate">{metric.value}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Tech Stack Tags */}
-              <div className="pt-3 border-t border-zinc-100">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">
+              <div className="pt-3 border-t border-white/[0.08]">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
                   Teknologi
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-lg text-xs bg-zinc-100 text-zinc-800 border border-zinc-200 font-semibold"
+                      className="px-2.5 py-1 rounded-lg text-xs bg-zinc-900 text-zinc-200 border border-white/10 font-semibold"
                     >
                       {tag}
                     </span>
@@ -407,9 +404,9 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-3.5 sm:p-4 border-t border-zinc-200 bg-zinc-50 flex items-center justify-between gap-3">
+            <div className="p-3.5 sm:p-4 border-t border-white/[0.08] bg-zinc-950/90 flex items-center justify-between gap-3">
               <div>
-                <span className="text-xs text-zinc-500 font-medium hidden sm:inline">
+                <span className="text-xs text-zinc-400 font-medium hidden sm:inline">
                   Foto {safeIndex + 1} dari {gallery.length}
                 </span>
               </div>
@@ -422,7 +419,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                       whileTap={{ scale: 0.97 }}
                       type="button"
                       onClick={handlePrev}
-                      className="flex-1 sm:flex-initial px-3 py-2 rounded-xl text-xs font-bold border border-zinc-200 bg-white hover:bg-zinc-100 text-zinc-800 transition-colors text-center whitespace-nowrap"
+                      className="flex-1 sm:flex-initial px-3 py-2 rounded-xl text-xs font-bold border border-white/10 bg-zinc-900 hover:bg-zinc-800 text-zinc-200 transition-colors text-center whitespace-nowrap"
                     >
                       ← Sebelumnya
                     </motion.button>
@@ -431,7 +428,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                       whileTap={{ scale: 0.97 }}
                       type="button"
                       onClick={handleNext}
-                      className="flex-1 sm:flex-initial px-3 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 transition-colors text-center whitespace-nowrap"
+                      className="flex-1 sm:flex-initial px-3 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-500/30 transition-colors text-center whitespace-nowrap"
                     >
                       Selanjutnya →
                     </motion.button>
@@ -441,7 +438,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={onClose}
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-zinc-950 text-white hover:bg-zinc-800 transition-colors whitespace-nowrap"
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-zinc-800 text-white hover:bg-zinc-700 border border-white/10 transition-colors whitespace-nowrap"
                 >
                   Tutup
                 </motion.button>

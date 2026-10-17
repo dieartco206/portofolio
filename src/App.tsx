@@ -9,7 +9,7 @@ import { Footer } from './components/Footer';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#fafafa] text-zinc-900 flex flex-col selection:bg-zinc-900 selection:text-white">
+    <div className="min-h-screen bg-[#090a0f] text-zinc-100 flex flex-col selection:bg-blue-600 selection:text-white relative">
       <Navbar />
       <main className="flex-1">
         <Hero />
